@@ -8,4 +8,12 @@
 
 body {
   margin: 0;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+::selection {
+  background: #bbf7d0;
+  color: #0f172a;
 }
