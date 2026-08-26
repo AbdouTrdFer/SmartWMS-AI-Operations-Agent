@@ -86,9 +86,20 @@ See [OCI_INTEGRATION.md](docs/OCI_INTEGRATION.md).
 
 ## Roadmap
 
+- Professional UI polish for a clearer operations-console experience
+- Documented data engineering pipeline for raw warehouse exports and cleaned demo datasets
 - OCI Responses API implementation using official documentation and SDK/client guidance
 - OCI Files and Vector Stores integration
 - MCP database access with approved read-only schemas
 - Conversation memory design
 - Specialist agents for inventory, orders, logistics, and policy once the single-agent workflow is
   stable
+
+## Data Engineering vs ML Engineering
+
+For this project, data engineering is directly relevant: collecting warehouse exports, cleaning
+SKUs/orders/inventory, validating quality rules, and loading clean data for the agent tools.
+
+ML engineering is a later phase: embeddings, vector stores, reranking, demand forecasting, anomaly
+detection, and evaluation. The current MVP should be described as agentic AI with deterministic
+demo data, not as a trained ML system.
