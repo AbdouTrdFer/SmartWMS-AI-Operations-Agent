@@ -22,8 +22,25 @@ class WMSRepository:
             select(Inventory)
             .join(Inventory.product)
             .join(Inventory.warehouse)
-            .options(joinedload(Inventory.product), joinedload(Inventory.warehouse))
+            .options(
+                joinedload(Inventory.product).joinedload(Product.supplier),
+                joinedload(Inventory.warehouse),
+            )
             .where(Product.sku == sku)
+        )
+        if warehouse_code:
+            statement = statement.where(Warehouse.code == warehouse_code)
+        return list(self.db.scalars(statement))
+
+    def get_inventory_positions(self, warehouse_code: str | None = None) -> list[Inventory]:
+        statement = (
+            select(Inventory)
+            .join(Inventory.product)
+            .join(Inventory.warehouse)
+            .options(
+                joinedload(Inventory.product).joinedload(Product.supplier),
+                joinedload(Inventory.warehouse),
+            )
         )
         if warehouse_code:
             statement = statement.where(Warehouse.code == warehouse_code)

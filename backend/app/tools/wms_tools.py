@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 from app.core.logging import safe_tool_log
 from app.repositories.wms_repository import WMSRepository
+from app.services.business_decisions import WMSBusinessDecisionService
 
 logger = logging.getLogger(__name__)
 
@@ -40,6 +41,7 @@ def _available(quantity: int, reserved_quantity: int) -> int:
 class WMSTools:
     def __init__(self, repository: WMSRepository):
         self.repository = repository
+        self.decisions = WMSBusinessDecisionService()
 
     def get_inventory(self, product_sku: str, warehouse_code: str | None = None) -> ToolResult:
         safe_tool_log(logger, "get_inventory")
@@ -48,11 +50,10 @@ class WMSTools:
         rows = self.repository.get_inventory(sku, warehouse)
         if not rows:
             return ToolResult("get_inventory", [f"No inventory record found for {sku}."])
+        open_orders = self.repository.get_open_orders(warehouse)
         facts = [
-            (
-                f"{row.product.sku} at {row.warehouse.code}: on-hand {row.quantity}, "
-                f"reserved {row.reserved_quantity}, available "
-                f"{_available(row.quantity, row.reserved_quantity)}."
+            self._format_inventory_position(
+                self.decisions.build_inventory_position(row, open_orders)
             )
             for row in rows
         ]
@@ -61,17 +62,21 @@ class WMSTools:
     def get_low_stock_items(self, warehouse_code: str | None = None) -> ToolResult:
         safe_tool_log(logger, "get_low_stock_items")
         warehouse = _validate_warehouse(warehouse_code)
-        rows = self.repository.get_low_stock_items(warehouse)
-        if not rows:
+        rows = self.repository.get_inventory_positions(warehouse)
+        open_orders = self.repository.get_open_orders(warehouse)
+        positions = [
+            self.decisions.build_inventory_position(row, open_orders)
+            for row in rows
+        ]
+        low_stock_positions = [position for position in positions if position.is_low_stock]
+        if not low_stock_positions:
             return ToolResult("get_low_stock_items", ["No low-stock items found."])
         facts = [
-            (
-                f"{row.product.sku} at {row.warehouse.code}: available "
-                f"{_available(row.quantity, row.reserved_quantity)} vs reorder point "
-                f"{row.product.reorder_point}; supplier lead time "
-                f"{row.product.supplier.lead_time_days} days."
+            self._format_reorder_position(position)
+            for position in sorted(
+                low_stock_positions,
+                key=lambda item: (item.reorder_priority, item.available_quantity),
             )
-            for row in rows
         ]
         return ToolResult("get_low_stock_items", facts)
 
@@ -81,13 +86,15 @@ class WMSTools:
         product = self.repository.get_product(sku)
         if not product:
             return ToolResult("get_product", [f"No product found for {sku}."])
+        profile = self.decisions.build_product_profile(product)
         return ToolResult(
             "get_product",
             [
                 (
-                    f"{product.sku} is {product.name} in {product.category}; reorder point "
-                    f"{product.reorder_point}, target stock {product.target_stock}, supplier "
-                    f"{product.supplier.name}."
+                    f"{profile.sku} is {profile.name} in {profile.category}; reorder point "
+                    f"{profile.reorder_point}, target stock {profile.target_stock}, supplier "
+                    f"{profile.supplier_name}, lead time {profile.supplier_lead_time_days} days, "
+                    f"reliability {profile.supplier_reliability_score:.2f}."
                 )
             ],
         )
@@ -129,3 +136,24 @@ class WMSTools:
             for row in rows
         ]
         return ToolResult("get_stock_movements", facts)
+
+    def _format_inventory_position(self, position) -> str:
+        return (
+            f"{position.sku} at {position.warehouse_code}: on-hand "
+            f"{position.on_hand_quantity}, reserved {position.reserved_quantity}, "
+            f"available {position.available_quantity}, open demand "
+            f"{position.open_demand_quantity}, low stock {position.is_low_stock}, "
+            f"stockout {position.is_stockout}."
+        )
+
+    def _format_reorder_position(self, position) -> str:
+        reasons = ", ".join(position.reason_codes) if position.reason_codes else "NO_ACTION"
+        return (
+            f"{position.sku} at {position.warehouse_code}: available "
+            f"{position.available_quantity} vs reorder point {position.reorder_point}; "
+            f"open demand {position.open_demand_quantity}; stockout gap "
+            f"{position.stockout_gap_quantity}; supplier lead time "
+            f"{position.supplier_lead_time_days} days; reorder priority "
+            f"{position.reorder_priority}; suggested reorder quantity "
+            f"{position.suggested_reorder_quantity}; reasons {reasons}."
+        )

@@ -20,6 +20,8 @@ def test_low_stock_uses_available_quantity() -> None:
     joined = "\n".join(result.facts)
     assert "SKU-102" in joined
     assert "available 75 vs reorder point 150" in joined
+    assert "reorder priority critical" in joined
+    assert "suggested reorder quantity 575" in joined
 
 
 def test_invalid_sku_is_rejected() -> None:
@@ -30,3 +32,11 @@ def test_invalid_sku_is_rejected() -> None:
         assert "Invalid product_sku" in str(exc)
     else:
         raise AssertionError("invalid sku should be rejected")
+
+
+def test_inventory_tool_exposes_formal_stockout_decision() -> None:
+    result = build_tools().get_inventory("SKU-102", "WH-NJ")
+    joined = "\n".join(result.facts)
+    assert "available 75" in joined
+    assert "open demand 80" in joined
+    assert "stockout True" in joined
