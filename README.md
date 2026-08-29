@@ -9,6 +9,8 @@ System. The first release is intentionally read-only and runs in demo mode witho
 - Exposes `GET /api/v1/health`
 - Uses deterministic synthetic WMS data for products, warehouses, inventory, orders, suppliers,
   and stock movements
+- Computes deterministic business decisions for inventory position, low stock, stockout, reorder
+  priority, and suggested reorder quantity
 - Retrieves synthetic SOP/policy documents from `data/knowledge/`
 - Shows a minimal Next.js chat dashboard with tools and sources used
 - Keeps OCI-specific code isolated in `backend/app/providers/oci_responses.py`
@@ -17,7 +19,7 @@ System. The first release is intentionally read-only and runs in demo mode witho
 
 ```text
 Next.js UI -> FastAPI -> Agent Runner
-                       |-> read-only tools -> repository -> database
+                       |-> read-only tools -> business decisions -> repository -> database
                        |-> mock retriever -> synthetic docs
                        |-> LLM provider interface -> mock provider or OCI adapter
 ```
@@ -88,6 +90,7 @@ See [OCI_INTEGRATION.md](docs/OCI_INTEGRATION.md).
 
 - Professional UI polish for a clearer operations-console experience
 - Documented data engineering pipeline for raw warehouse exports and cleaned demo datasets
+- Business rules expansion for replenishment, order exceptions, and transfer recommendations
 - OCI Responses API implementation using official documentation and SDK/client guidance
 - OCI Files and Vector Stores integration
 - MCP database access with approved read-only schemas

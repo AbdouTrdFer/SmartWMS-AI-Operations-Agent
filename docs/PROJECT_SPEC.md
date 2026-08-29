@@ -10,6 +10,11 @@ Core MVP use cases:
 - Open order and backlog review
 - Operational diagnosis from structured data plus policy context
 
+Day 1 business logic goal:
+- Keep WMS decisions deterministic and testable outside the LLM.
+- Centralize inventory, stockout, and reorder rules in the backend service layer.
+- Expose facts and reason codes that a later agent can explain without inventing business logic.
+
 MVP acceptance criteria:
 - User can ask WMS questions from a web UI.
 - Backend exposes `/api/v1/chat` and `/api/v1/health`.

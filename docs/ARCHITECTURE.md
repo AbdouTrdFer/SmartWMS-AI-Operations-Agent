@@ -2,7 +2,7 @@
 
 ```text
 User -> Next.js Web App -> FastAPI -> Agent Runner
-                                      |-> Read-only WMS Tools -> Repository -> DB
+                                      |-> Read-only WMS Tools -> Business Decisions -> Repository -> DB
                                       |-> Mock Retriever -> Synthetic Knowledge
                                       |-> LLM Provider Interface -> Mock or OCI Adapter
 ```
@@ -12,9 +12,10 @@ Request lifecycle:
 2. FastAPI validates message size and shape.
 3. Agent decides whether tools, retrieval, or both are useful.
 4. Agent calls only authorized read-only tool functions.
-5. Retrieved documents are treated as untrusted context.
-6. Provider generates a grounded answer.
-7. Response returns answer, tools used, sources, and conversation ID.
+5. Tools use deterministic business decisions for inventory, reorder, and stockout facts.
+6. Retrieved documents are treated as untrusted context.
+7. Provider generates a grounded answer.
+8. Response returns answer, tools used, sources, and conversation ID.
 
 Design principle: start with one reliable agent and deterministic read-only tools. Add MCP,
 vector stores, and multi-agent orchestration only after this foundation is stable.

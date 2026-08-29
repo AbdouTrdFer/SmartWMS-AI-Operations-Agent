@@ -9,6 +9,7 @@ backend/app/core           Settings and logging
 backend/app/db             SQLAlchemy session and seed data
 backend/app/models         WMS database models
 backend/app/repositories   Database access layer
+backend/app/services       Deterministic WMS business decisions
 backend/app/retrieval      Retrieval interface and mock implementation
 backend/app/providers      Mock LLM and OCI adapter skeleton
 backend/app/tools          Read-only WMS tools
@@ -76,6 +77,21 @@ Warehouses:
 
 - `WH-NJ`
 - `WH-TX`
+
+## Business Rules
+
+The Day 1 business decision layer lives in `backend/app/services/business_decisions.py`.
+
+It formalizes:
+- Available quantity
+- Low-stock detection
+- Open demand by SKU and warehouse
+- Stockout gap
+- Reorder priority
+- Suggested reorder quantity
+- Explainable reason codes
+
+See `docs/BUSINESS_RULES.md`.
 
 ## Guardrails
 
