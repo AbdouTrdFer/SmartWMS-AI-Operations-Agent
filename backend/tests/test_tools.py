@@ -19,9 +19,13 @@ def test_low_stock_uses_available_quantity() -> None:
     result = build_tools().get_low_stock_items("WH-NJ")
     joined = "\n".join(result.facts)
     assert "SKU-102" in joined
+    assert result.records
     assert "available 75 vs reorder point 150" in joined
-    assert "reorder priority critical" in joined
-    assert "suggested reorder quantity 575" in joined
+    assert "low stock candidate True" in joined
+    assert "replenishment candidate True" in joined
+    assert "priority score 0.75" in joined
+    sku_102 = next(record for record in result.records if record["sku"] == "SKU-102")
+    assert sku_102["replenishment_candidate"] is True
 
 
 def test_invalid_sku_is_rejected() -> None:
@@ -39,4 +43,5 @@ def test_inventory_tool_exposes_formal_stockout_decision() -> None:
     joined = "\n".join(result.facts)
     assert "available 75" in joined
     assert "open demand 80" in joined
-    assert "stockout True" in joined
+    assert "stockout risk HIGH" in joined
+    assert result.records[0]["stockout_risk"] == "HIGH"

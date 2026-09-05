@@ -19,7 +19,7 @@ def test_chat_returns_tools_and_sources() -> None:
     with TestClient(app) as client:
         response = client.post(
             "/api/v1/chat",
-            json={"message": "Why is SKU-102 a high reorder priority at WH-NJ?"},
+            json={"message": "Why is SKU-102 a high replenishment priority at WH-NJ?"},
         )
     payload = response.json()
     assert response.status_code == 200

@@ -9,8 +9,8 @@ System. The first release is intentionally read-only and runs in demo mode witho
 - Exposes `GET /api/v1/health`
 - Uses deterministic synthetic WMS data for products, warehouses, inventory, orders, suppliers,
   and stock movements
-- Computes deterministic business decisions for inventory position, low stock, stockout, reorder
-  priority, and suggested reorder quantity
+- Computes deterministic business decisions for available quantity, open demand, inventory
+  position, stockout risk, replenishment candidacy, replenishment priority, and reorder quantity
 - Retrieves synthetic SOP/policy documents from `data/knowledge/`
 - Shows a minimal Next.js chat dashboard with tools and sources used
 - Keeps OCI-specific code isolated in `backend/app/providers/oci_responses.py`
@@ -71,7 +71,7 @@ See [OCI_INTEGRATION.md](docs/OCI_INTEGRATION.md).
 
 ## Example Questions
 
-- Why is SKU-102 a high reorder priority at WH-NJ?
+- Why is SKU-102 a high replenishment priority at WH-NJ?
 - Show low stock items in WH-NJ.
 - List open orders for WH-TX.
 - What is the damaged goods procedure?
@@ -85,6 +85,8 @@ See [OCI_INTEGRATION.md](docs/OCI_INTEGRATION.md).
 - Tool logging records tool names, not secrets or raw credential-like values.
 - `.env`, keys, local databases, and build artifacts are ignored by git.
 - Synthetic policy documents are fictional and must not be represented as real company policy.
+- Reorder quantity is returned only when target stock and inbound data are available.
+- Replenishment priority is a prototype deterministic heuristic, not a predictive ML model.
 
 ## Roadmap
 

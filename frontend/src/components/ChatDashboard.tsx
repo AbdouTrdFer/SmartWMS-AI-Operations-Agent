@@ -18,8 +18,8 @@ import type { ChatResponse } from "@/types/chat";
 
 const examples = [
   {
-    label: "Reorder risk",
-    prompt: "Why is SKU-102 a high reorder priority at WH-NJ?",
+    label: "Replenishment",
+    prompt: "Why is SKU-102 a high replenishment priority at WH-NJ?",
     icon: AlertTriangle
   },
   {

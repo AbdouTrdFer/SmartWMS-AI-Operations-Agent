@@ -46,21 +46,6 @@ class WMSRepository:
             statement = statement.where(Warehouse.code == warehouse_code)
         return list(self.db.scalars(statement))
 
-    def get_low_stock_items(self, warehouse_code: str | None = None) -> list[Inventory]:
-        statement = (
-            select(Inventory)
-            .join(Inventory.product)
-            .join(Inventory.warehouse)
-            .options(
-                joinedload(Inventory.product).joinedload(Product.supplier),
-                joinedload(Inventory.warehouse),
-            )
-            .where((Inventory.quantity - Inventory.reserved_quantity) < Product.reorder_point)
-        )
-        if warehouse_code:
-            statement = statement.where(Warehouse.code == warehouse_code)
-        return list(self.db.scalars(statement))
-
     def get_open_orders(self, warehouse_code: str | None = None) -> list[Order]:
         statement = (
             select(Order)

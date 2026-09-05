@@ -86,12 +86,16 @@ It formalizes:
 - Available quantity
 - Low-stock detection
 - Open demand by SKU and warehouse
-- Stockout gap
-- Reorder priority
-- Suggested reorder quantity
+- Demand shortfall
+- Inbound quantity abstraction
+- Inventory position
+- Stockout risk
+- Replenishment candidate flag
+- Replenishment priority score
+- Reorder quantity with insufficient-data handling
 - Explainable reason codes
 
-See `docs/BUSINESS_RULES.md`.
+See `docs/business-rules.md`.
 
 ## Guardrails
 

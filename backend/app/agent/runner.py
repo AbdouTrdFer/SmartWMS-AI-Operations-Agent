@@ -24,9 +24,17 @@ class AgentRunner:
         tool_results = self._run_tools(message)
         retrieved = self._retrieve(message)
         facts = [fact for result in tool_results for fact in result.facts]
+        structured_results = [
+            record for result in tool_results for record in result.records
+        ]
         retrieved_notes = [self._summarize_document(doc.text) for doc in retrieved]
         answer = self.llm_provider.generate(
-            LLMContext(message=message, facts=facts, retrieved_notes=retrieved_notes)
+            LLMContext(
+                message=message,
+                facts=facts,
+                retrieved_notes=retrieved_notes,
+                structured_results=structured_results,
+            )
         )
         return ChatResponse(
             answer=answer,
@@ -41,7 +49,17 @@ class AgentRunner:
         warehouse = self._extract_warehouse(message)
         results: list[ToolResult] = []
 
-        if any(term in lowered for term in ["low stock", "reorder", "stockout", "shortage"]):
+        if any(
+            term in lowered
+            for term in [
+                "low stock",
+                "reorder",
+                "replenishment",
+                "stockout",
+                "shortage",
+                "demand shortfall",
+            ]
+        ):
             results.append(self.tools.get_low_stock_items(warehouse))
             if sku:
                 results.append(self.tools.get_product(sku))
@@ -75,6 +93,7 @@ class AgentRunner:
             "count",
             "cycle",
             "reorder",
+            "replenishment",
             "stockout",
             "escalation",
             "pick",

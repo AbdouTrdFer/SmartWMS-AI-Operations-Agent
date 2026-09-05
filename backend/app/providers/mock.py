@@ -26,10 +26,15 @@ class MockLLMProvider(LLMProvider):
 
     def _recommendation(self, context: LLMContext) -> str | None:
         lowered = context.message.lower()
-        if "reorder" in lowered or "stockout" in lowered or "low stock" in lowered:
+        if (
+            "reorder" in lowered
+            or "replenishment" in lowered
+            or "stockout" in lowered
+            or "low stock" in lowered
+        ):
             return (
-                "Prioritize SKUs with available quantity below reorder point, high open demand, "
-                "and longer supplier lead times. Confirm actual counts before placing orders."
+                "Review backend-flagged replenishment candidates first. Confirm counts and "
+                "business approvals before any purchasing or transfer action."
             )
         if "damaged" in lowered:
             return (
