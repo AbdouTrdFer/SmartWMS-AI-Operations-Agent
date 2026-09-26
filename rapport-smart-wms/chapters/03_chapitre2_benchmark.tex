@@ -1,0 +1,25 @@
+\chapter{État de l'art et benchmark des solutions WMS}
+\section{WMS classique et Smart WMS}
+Un WMS classique structure les flux inbound, internes et outbound. Il assure la réception, la mise en stock, l'inventaire, le réapprovisionnement, l'allocation, la préparation, le packing et l'expédition. Un Smart WMS conserve ces responsabilités mais ajoute une capacité d'analyse et d'adaptation : il peut prévoir une charge, détecter une anomalie, optimiser une affectation ou recommander une action.
+
+La différence principale n'est donc pas la présence d'un algorithme. Elle réside dans la capacité du système à transformer des données fiables en décisions opérationnelles exécutables.
+
+\section{Solutions étudiées}
+Le benchmark a porté sur Manhattan Active Warehouse Management, SAP Extended Warehouse Management et Oracle Warehouse Management Cloud. L'objectif n'était pas de produire un classement commercial, mais d'extraire des principes de conception applicables à une architecture générique.
+
+\begin{table}[H]
+\centering
+\caption{Synthèse des apports retenus du benchmark}
+\begin{tabularx}{\linewidth}{>{\bfseries}p{3.2cm}X X}
+\toprule
+Solution & Idée directrice & Apport pour le projet \\
+\midrule
+Manhattan Active WMS & Unification de l'exécution & Relier stocks, tâches, opérateurs, équipements et décisions dans une boucle courte décision -- action. \\
+SAP EWM & Richesse du modèle métier & Donner une place centrale aux objets métier : produit, lot, HU, emplacement, ressource, règle et tâche. \\
+Oracle WMS Cloud & Orchestration commande -- wave -- allocation -- tâches & Montrer comment transformer une demande client en travail coordonné et mesurable. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Enseignements pour l'architecture cible}
+Trois enseignements structurent la suite du rapport. Premièrement, le socle WMS doit rester stable et complet. Deuxièmement, la donnée de référence est un prérequis de l'intelligence : une optimisation n'a pas de sens si les produits, emplacements, lots et règles sont mal représentés. Troisièmement, les capacités Smart doivent être reliées à la gestion des tâches pour produire une action concrète, et non seulement un indicateur dans un tableau de bord.

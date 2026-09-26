@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360">
+
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6"
+          orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#173F66"/>
+  </marker>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.16"/>
+  </filter>
+</defs>
+
+  <rect width="1200" height="360" fill="white"/>
+  <text x="600" y="42" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#173F66" font-weight="700" text-anchor="middle"><tspan x="600" dy="0">Démarche d’identification des besoins appliquée au stage</tspan></text>
+  <rect x="75" y="85" width="290" height="190" rx="18" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <rect x="455" y="85" width="290" height="190" rx="18" fill="#F4FBFA" stroke="#2A837C" stroke-width="2"/>
+  <rect x="835" y="85" width="290" height="190" rx="18" fill="#FFF7EF" stroke="#EE8626" stroke-width="2"/>
+  <text x="110" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#173F66" font-weight="700" text-anchor="start"><tspan x="110" dy="0">SCAN</tspan></text>
+  <text x="110" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#152638" font-weight="400" text-anchor="start"><tspan x="110" dy="0">Observer et comprendre</tspan><tspan x="110" dy="22">• Benchmark leaders</tspan><tspan x="110" dy="22">• Architecture existante</tspan><tspan x="110" dy="22">• Problèmes / contraintes</tspan><tspan x="110" dy="22">• Données disponibles</tspan></text>
+  <text x="490" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#2A837C" font-weight="700" text-anchor="start"><tspan x="490" dy="0">PLAN</tspan></text>
+  <text x="490" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#152638" font-weight="400" text-anchor="start"><tspan x="490" dy="0">Transformer le constat</tspan><tspan x="490" dy="22">• Problème → cause → impact</tspan><tspan x="490" dy="22">• Use case</tspan><tspan x="490" dy="22">• Core / Smart / Optional</tspan><tspan x="490" dy="22">• Critère d’activation</tspan></text>
+  <text x="870" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#EE8626" font-weight="700" text-anchor="start"><tspan x="870" dy="0">ACT</tspan></text>
+  <text x="870" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#152638" font-weight="400" text-anchor="start"><tspan x="870" dy="0">Formaliser et valider</tspan><tspan x="870" dy="22">• Diagrammes UML</tspan><tspan x="870" dy="22">• Scénarios métiers</tspan><tspan x="870" dy="22">• Validation encadrante</tspan><tspan x="870" dy="22">• Itérations architecture</tspan></text>
+  <line x1="385" y1="180" x2="435" y2="180" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="765" y1="180" x2="815" y2="180" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="600" y="322" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#5F6B78" font-weight="400" text-anchor="middle"><tspan x="600" dy="0">Principe : ne pas choisir une technologie avant d’avoir clarifié le besoin, l’impact et les données disponibles.</tspan></text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 420">
+
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6"
+          orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#173F66"/>
+  </marker>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.16"/>
+  </filter>
+</defs>
+
+  <rect width="1250" height="420" fill="white"/>
+  <text x="625" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#173F66" font-weight="800" text-anchor="middle"><tspan x="625" dy="0">Chaîne de validation proposée</tspan></text>
+  <rect x="70" y="130" width="210" height="110" rx="15" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <text x="175" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#173F66" font-weight="700" text-anchor="middle"><tspan x="175" dy="0">Scénario métier</tspan></text>
+  <text x="175" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="175" dy="0">réception</tspan><tspan x="175" dy="18">stock</tspan><tspan x="175" dy="18">expédition</tspan></text>
+  <line x1="292" y1="185" x2="355" y2="185" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="370" y="130" width="210" height="110" rx="15" fill="#F7FCFB" stroke="#2A837C" stroke-width="2"/>
+  <text x="475" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#2A837C" font-weight="700" text-anchor="middle"><tspan x="475" dy="0">Use cases</tspan></text>
+  <text x="475" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="475" dy="0">Core / Smart</tspan><tspan x="475" dy="18">Optional</tspan></text>
+  <line x1="592" y1="185" x2="655" y2="185" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="670" y="130" width="210" height="110" rx="15" fill="#FAF7FF" stroke="#7D60C8" stroke-width="2"/>
+  <text x="775" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#7D60C8" font-weight="700" text-anchor="middle"><tspan x="775" dy="0">UML</tspan></text>
+  <text x="775" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="775" dy="0">activité</tspan><tspan x="775" dy="18">séquence</tspan><tspan x="775" dy="18">composants</tspan></text>
+  <line x1="892" y1="185" x2="955" y2="185" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="970" y="130" width="210" height="110" rx="15" fill="#FFF7EF" stroke="#EE8626" stroke-width="2"/>
+  <text x="1075" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#EE8626" font-weight="700" text-anchor="middle"><tspan x="1075" dy="0">Prototype / revue</tspan></text>
+  <text x="1075" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="1075" dy="0">règles testables</tspan><tspan x="1075" dy="18">retours encadrante</tspan></text>
+  <rect x="190" y="310" width="870" height="54" rx="12" fill="#F6F8FB" stroke="#AAB4C0" stroke-width="2"/>
+  <text x="625" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="625" dy="0">La validation cherche la cohérence métier avant le choix technique définitif.</tspan></text>
+</svg>

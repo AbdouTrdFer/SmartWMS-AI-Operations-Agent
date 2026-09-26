@@ -1,0 +1,95 @@
+@startuml
+' ============================================================
+' SMART WMS — DIAGRAMME 3/5 : STOCKAGE & INVENTAIRE INTELLIGENT
+' ============================================================
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 80
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #E36C09
+  FontColor #E36C09
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #E36C09
+  FontColor #1F1F1F
+}
+
+title Smart WMS — Use Cases détaillés : Stockage & Inventaire
+
+' --- Acteurs humains (gauche) ---
+actor "Magasinier /\nCariste" as A1
+actor "Superviseur\nEntrepôt" as A2
+actor "Responsable\nQualité" as A3
+
+A1 -[hidden]d- A2
+A2 -[hidden]d- A3
+
+rectangle "Stockage & Inventaire intelligent" {
+
+  package "Processus cœur" #FFF6E8 {
+    usecase "UC-S01\nMettre en stock\n(Putaway)" as S01
+    usecase "UC-S02\nGérer les stocks" as S02
+    usecase "UC-S03\nGérer les\nemplacements" as S03
+    usecase "UC-S04\nRéaliser l'inventaire\ntournant" as S04
+    usecase "UC-S05\nRéapprovisionner la\nzone picking" as S05
+    usecase "UC-S06\nDétecter la congestion\nd'une zone" as S06
+    usecase "UC-S07\nSurveiller les produits\nsensibles" as S07
+    usecase "UC-S08\nGérer lots / DLC /\nFEFO" as S08
+
+    S01 -[hidden]d- S02
+    S02 -[hidden]d- S03
+    S03 -[hidden]d- S04
+    S04 -[hidden]d- S05
+    S05 -[hidden]d- S06
+    S06 -[hidden]d- S07
+    S07 -[hidden]d- S08
+  }
+
+  package "Capacités smart\n(optionnelles selon infra)" #F5F5F5 {
+    usecase "UC-S09\nChoisir l'emplacement\noptimal (Slotting)" as S09
+    usecase "UC-S14\nDéplacer le stock\npar AMR / AGV" as S14
+    usecase "UC-S12\nChercher un emplacement\nalternatif" as S12
+    usecase "UC-S13\nSuivre les palettes\npar RFID" as S13
+    usecase "UC-S10\nCibler les emplacements\nà recompter" as S10
+    usecase "UC-S11\nPrédire une rupture\navant blocage" as S11
+
+    S09 -[hidden]d- S14
+    S14 -[hidden]d- S12
+    S12 -[hidden]d- S13
+    S13 -[hidden]d- S10
+    S10 -[hidden]d- S11
+  }
+}
+
+' --- Système externe (droite) ---
+actor "WCS / WES" as E1
+
+' --- Relations UML ---
+S01 ..> S03 : <<include>>
+S07 ..> S08 : <<include>>
+
+S09 ..> S01 : <<extend>>\n[optimisation activée]
+S14 ..> S01 : <<extend>>\n[robot disponible]
+S12 ..> S02 : <<extend>>\n[article introuvable]
+S13 ..> S02 : <<extend>>\n[RFID disponible]
+S10 ..> S04 : <<extend>>\n[ML disponible]
+S11 ..> S05 : <<extend>>\n[prédiction activée]
+
+' --- Acteurs humains -> use cases ---
+A1 --> S01
+A1 --> S02
+A1 --> S04
+A1 --> S05
+A2 --> S06
+A3 --> S07
+A3 --> S08
+
+' --- Use case -> système externe ---
+S14 --> E1
+
+@enduml

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520">
+
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6"
+          orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#173F66"/>
+  </marker>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.16"/>
+  </filter>
+</defs>
+
+  <rect width="1200" height="520" fill="white"/>
+  <text x="600" y="46" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#173F66" font-weight="800" text-anchor="middle"><tspan x="600" dy="0">Activation progressive des capacités Smart WMS</tspan></text>
+  <rect x="100" y="105" width="280" height="210" rx="18" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <rect x="100" y="105" width="280" height="58" fill="#173F66" rx="18"/>
+  <text x="240" y="129" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="white" font-weight="700" text-anchor="middle"><tspan x="240" dy="0">Niveau 1</tspan><tspan x="240" dy="20">Socle WMS</tspan></text>
+  <text x="240" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="240" dy="0">réception, stock,</tspan><tspan x="240" dy="21">commandes, tâches,</tspan><tspan x="240" dy="21">données de référence</tspan></text>
+  <line x1="402" y1="210" x2="465" y2="210" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="480" y="105" width="280" height="210" rx="18" fill="#FAF7FF" stroke="#7D60C8" stroke-width="2"/>
+  <rect x="480" y="105" width="280" height="58" fill="#7D60C8" rx="18"/>
+  <text x="620" y="129" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="white" font-weight="700" text-anchor="middle"><tspan x="620" dy="0">Niveau 2</tspan><tspan x="620" dy="20">Smart data-driven</tspan></text>
+  <text x="620" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="620" dy="0">prévision, slotting,</tspan><tspan x="620" dy="21">priorisation,</tspan><tspan x="620" dy="21">détection d’anomalies</tspan></text>
+  <line x1="782" y1="210" x2="845" y2="210" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="860" y="105" width="280" height="210" rx="18" fill="#FFF7EF" stroke="#EE8626" stroke-width="2"/>
+  <rect x="860" y="105" width="280" height="58" fill="#EE8626" rx="18"/>
+  <text x="1000" y="129" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="white" font-weight="700" text-anchor="middle"><tspan x="1000" dy="0">Niveau 3</tspan><tspan x="1000" dy="20">Automatisation optionnelle</tspan></text>
+  <text x="1000" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="1000" dy="0">RFID, vision, AMR/AGV,</tspan><tspan x="1000" dy="21">WCS/WES, BMS/EMS</tspan></text>
+  <rect x="235" y="375" width="730" height="70" rx="14" fill="#F7FCFB" stroke="#2A837C" stroke-width="2"/>
+  <text x="600" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="600" dy="0">Le passage d’un niveau à l’autre dépend des données, des contraintes produit, des équipements et de la maturité opérationnelle.</tspan></text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 650">
+
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6"
+          orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#173F66"/>
+  </marker>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.16"/>
+  </filter>
+</defs>
+
+  <rect width="1300" height="650" fill="white"/>
+  <text x="650" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="27" fill="#173F66" font-weight="800" text-anchor="middle"><tspan x="650" dy="0">Vue de modélisation UML retenue pour le Smart WMS</tspan></text>
+  <rect x="500" y="105" width="300" height="90" rx="18" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <text x="650" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#173F66" font-weight="700" text-anchor="middle"><tspan x="650" dy="0">Architecture fonctionnelle</tspan></text>
+  <text x="650" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="650" dy="0">blocs, responsabilités, interfaces</tspan></text>
+  <rect x="90" y="270" width="250" height="118" rx="16" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <text x="215" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#173F66" font-weight="700" text-anchor="middle"><tspan x="215" dy="0">Cas d’utilisation</tspan></text>
+  <text x="215" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="215" dy="0">acteurs, périmètre,</tspan><tspan x="215" dy="18">Core / Smart / Optional</tspan></text>
+  <rect x="385" y="270" width="250" height="118" rx="16" fill="#FFF7EF" stroke="#EE8626" stroke-width="2"/>
+  <text x="510" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#EE8626" font-weight="700" text-anchor="middle"><tspan x="510" dy="0">Activités</tspan></text>
+  <text x="510" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="510" dy="0">workflow métier,</tspan><tspan x="510" dy="18">exceptions, décisions</tspan></text>
+  <rect x="680" y="270" width="250" height="118" rx="16" fill="#F7FCFB" stroke="#2A837C" stroke-width="2"/>
+  <text x="805" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#2A837C" font-weight="700" text-anchor="middle"><tspan x="805" dy="0">Séquences</tspan></text>
+  <text x="805" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="805" dy="0">échanges entre acteurs,</tspan><tspan x="805" dy="18">WMS et systèmes</tspan></text>
+  <rect x="975" y="270" width="250" height="118" rx="16" fill="#FAF7FF" stroke="#7D60C8" stroke-width="2"/>
+  <text x="1100" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#7D60C8" font-weight="700" text-anchor="middle"><tspan x="1100" dy="0">Domaine &amp; composants</tspan></text>
+  <text x="1100" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="1100" dy="0">objets métier,</tspan><tspan x="1100" dy="18">services applicatifs</tspan></text>
+  <line x1="650" y1="195" x2="215" y2="270" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="650" y1="195" x2="510" y2="270" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="650" y1="195" x2="805" y2="270" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="650" y1="195" x2="1100" y2="270" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="260" y="485" width="780" height="82" rx="18" fill="#F6F8FB" stroke="#AAB4C0" stroke-width="2"/>
+  <text x="650" y="517" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#152638" font-weight="700" text-anchor="middle"><tspan x="650" dy="0">Traçabilité</tspan></text>
+  <text x="650" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#152638" font-weight="400" text-anchor="middle"><tspan x="650" dy="0">Problème métier → use case → activité → interaction → composant applicatif</tspan></text>
+</svg>

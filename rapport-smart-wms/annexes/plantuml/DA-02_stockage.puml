@@ -1,0 +1,140 @@
+@startuml
+' ============================================================
+' SMART WMS — DA-02 : STOCKAGE & INVENTAIRE
+' Putaway intelligent, contraintes produits, réapprovisionnement
+' ============================================================
+
+skinparam shadowing false
+skinparam ArrowColor #E36C09
+skinparam ActivityBorderColor #E36C09
+skinparam ActivityDiamondBorderColor #C00000
+skinparam defaultTextAlignment center
+
+title DA-02 — Stockage intelligent : putaway, slotting et réapprovisionnement
+
+|#FFF6E8|Smart WMS — Processus cœur|
+|#F5F5F5|Capacités Smart (optionnelles)|
+|#F2F6FF|Magasinier / Cariste|
+|#EEF8EE|WCS / WES — AMR / AGV|
+
+|Smart WMS — Processus cœur|
+start
+:Recevoir la tâche
+de putaway (UC-S01);
+
+' ---------- CHOIX DE L'EMPLACEMENT ----------
+:Lire le profil logistique
+du produit
+(poids, volume, fragilité,
+température, DLC, rotation);
+
+|Capacités Smart (optionnelles)|
+if (Optimisation du slotting
+activée ?) then (oui)
+  :Calculer l'emplacement optimal
+  par algorithme (UC-S09)
+  — rotation, distance picking,
+  taux de remplissage;
+else (non — règle métier)
+  |Smart WMS — Processus cœur|
+  :Appliquer la règle de zonage
+  standard (ABC / zone produit);
+endif
+
+|Smart WMS — Processus cœur|
+:Vérifier la compatibilité
+produit / zone;
+
+if (Zone compatible ?) then (non)
+  :Écarter l'emplacement
+  et rechercher une alternative;
+  note right
+    Exemple : produit à température
+    dirigée vers une zone froide,
+    produit dangereux vers une zone
+    dédiée.
+  end note
+  :Proposer l'emplacement
+  suivant;
+else (oui)
+endif
+
+:Réserver l'emplacement
+et générer l'ordre de mouvement;
+
+' ---------- EXECUTION ----------
+if (AMR / AGV disponible
+et zone robotisée ?) then (oui)
+  |WCS / WES — AMR / AGV|
+  :Recevoir l'ordre
+  de mouvement (UC-S14);
+  :Router le robot
+  et exécuter le déplacement;
+  :Confirmer le dépôt
+  au WMS;
+else (non)
+  |Magasinier / Cariste|
+  :Prendre en charge la tâche
+  sur terminal RF;
+  :Déplacer la palette
+  vers l'emplacement;
+  :Scanner emplacement
+  et unité (confirmation);
+endif
+
+|Smart WMS — Processus cœur|
+:Mettre à jour le stock
+et l'occupation des emplacements;
+
+' ---------- BOUCLE DE SURVEILLANCE ----------
+fork
+  :Surveiller le niveau
+  de la zone de picking;
+  |Capacités Smart (optionnelles)|
+  if (Prédiction de rupture
+  activée ?) then (oui)
+    :Prédire la rupture avant
+    le seuil (UC-S11);
+    :Déclencher un réapprovisionnement
+    anticipé;
+  else (non — règle métier)
+    |Smart WMS — Processus cœur|
+    if (Stock < seuil mini ?) then (oui)
+      :Créer une tâche de
+      réapprovisionnement (UC-S05);
+    else (non)
+    endif
+  endif
+fork again
+  |Smart WMS — Processus cœur|
+  :Planifier l'inventaire
+  tournant (UC-S04);
+  |Capacités Smart (optionnelles)|
+  if (Ciblage ML disponible ?) then (oui)
+    :Cibler les emplacements
+    à risque d'écart (UC-S10);
+  else (non)
+    |Smart WMS — Processus cœur|
+    :Appliquer le plan de comptage
+    cyclique standard;
+  endif
+  |Magasinier / Cariste|
+  :Exécuter le comptage;
+  |Smart WMS — Processus cœur|
+  :Ajuster le stock
+  si écart confirmé;
+fork again
+  |Capacités Smart (optionnelles)|
+  if (RFID disponible ?) then (oui)
+    :Suivre les palettes
+    en continu (UC-S13);
+  else (non)
+  endif
+end fork
+
+|Smart WMS — Processus cœur|
+:Stock à jour et zone
+de picking alimentée;
+stop
+
+@enduml

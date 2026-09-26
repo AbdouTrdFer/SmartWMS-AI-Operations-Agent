@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780">
+
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6"
+          orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#173F66"/>
+  </marker>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.16"/>
+  </filter>
+</defs>
+
+  <rect width="1000" height="780" fill="white"/>
+  <text x="500" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="27" fill="#173F66" font-weight="700" text-anchor="middle"><tspan x="500" dy="0">Logique de classification et d’activation des use cases</tspan></text>
+
+  <rect x="55" y="90" width="275" height="132" rx="20" fill="#F4F8FC" stroke="#173F66" stroke-width="2"/>
+  <rect x="55" y="90" width="275" height="46" rx="20" fill="#173F66"/>
+  <text x="192" y="119" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" font-weight="700" text-anchor="middle"><tspan x="192" dy="0">CORE</tspan></text>
+  <text x="78" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#66717E" font-weight="400" text-anchor="start"><tspan x="78" dy="0">Capacité nécessaire au</tspan><tspan x="78" dy="18">fonctionnement du WMS</tspan><tspan x="78" dy="18">Ex. réception, stock, tâches</tspan></text>
+
+  <rect x="362" y="90" width="275" height="132" rx="20" fill="#FBF8FF" stroke="#7D60C8" stroke-width="2"/>
+  <rect x="362" y="90" width="275" height="46" rx="20" fill="#7D60C8"/>
+  <text x="499" y="119" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" font-weight="700" text-anchor="middle"><tspan x="499" dy="0">SMART</tspan></text>
+  <text x="385" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#66717E" font-weight="400" text-anchor="start"><tspan x="385" dy="0">Décision améliorée par</tspan><tspan x="385" dy="18">données, optimisation ou ML</tspan><tspan x="385" dy="18">Ex. prévision, slotting</tspan></text>
+
+  <rect x="669" y="90" width="275" height="132" rx="20" fill="#FFF8F0" stroke="#EE8626" stroke-width="2"/>
+  <rect x="669" y="90" width="275" height="46" rx="20" fill="#EE8626"/>
+  <text x="806" y="119" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" font-weight="700" text-anchor="middle"><tspan x="806" dy="0">OPTIONAL</tspan></text>
+  <text x="692" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#66717E" font-weight="400" text-anchor="start"><tspan x="692" dy="0">Capacité dépendante</tspan><tspan x="692" dy="18">d’une infrastructure</tspan><tspan x="692" dy="18">Ex. RFID, AMR/AGV, BMS/EMS</tspan></text>
+
+  <rect x="205" y="285" width="590" height="70" rx="18" fill="#FFFFFF" stroke="#173F66" stroke-width="2"/>
+  <text x="500" y="328" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#152638" font-weight="700" text-anchor="middle"><tspan x="500" dy="0">Besoin métier identifié</tspan></text>
+  <line x1="500" y1="355" x2="500" y2="392" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="205" y="395" width="590" height="70" rx="18" fill="#F7FCFB" stroke="#2A837C" stroke-width="2"/>
+  <text x="500" y="438" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#152638" font-weight="700" text-anchor="middle"><tspan x="500" dy="0">Données suffisantes ?</tspan></text>
+  <text x="815" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#66717E" font-weight="400" text-anchor="start"><tspan x="815" dy="0">non : règle métier</tspan><tspan x="815" dy="17">ou processus classique</tspan></text>
+  <line x1="500" y1="465" x2="500" y2="502" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="205" y="505" width="590" height="70" rx="18" fill="#FFF9F1" stroke="#EE8626" stroke-width="2"/>
+  <text x="500" y="548" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#152638" font-weight="700" text-anchor="middle"><tspan x="500" dy="0">Infrastructure requise ?</tspan></text>
+  <text x="815" y="530" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#66717E" font-weight="400" text-anchor="start"><tspan x="815" dy="0">oui : vérifier équipement,</tspan><tspan x="815" dy="17">capteur ou système externe</tspan></text>
+  <line x1="500" y1="575" x2="500" y2="612" stroke="#173F66" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="205" y="615" width="590" height="70" rx="18" fill="#FBF8FF" stroke="#7D60C8" stroke-width="2"/>
+  <text x="500" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#152638" font-weight="700" text-anchor="middle"><tspan x="500" dy="0">Activer le use case adapté</tspan></text>
+  <text x="500" y="735" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#5F6B78" font-weight="400" text-anchor="middle"><tspan x="500" dy="0">Objectif : éviter de présenter une option technologique comme une fonction obligatoire du WMS.</tspan></text>
+</svg>

@@ -1,0 +1,111 @@
+@startuml
+' ============================================================
+' SMART WMS — DIAGRAMME 4/5 : PREPARATION & EXPEDITION INTELLIGENTE
+' ============================================================
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 80
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #C00000
+  FontColor #C00000
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #C00000
+  FontColor #1F1F1F
+}
+
+title Smart WMS — Use Cases détaillés : Préparation & Expédition
+
+' --- Acteurs humains (gauche) ---
+actor "Superviseur\nEntrepôt" as A1
+actor "Préparateur de\ncommandes" as A2
+actor "Opérateur\nExpédition" as A3
+
+A1 -[hidden]d- A2
+A2 -[hidden]d- A3
+
+rectangle "Préparation & Expédition intelligente" {
+
+  package "Processus cœur" #FFF0F0 {
+    usecase "UC-E01\nRecevoir la commande\nclient" as E01
+    usecase "UC-E02\nPlanifier la\ncommande" as E02
+    usecase "UC-E03\nCréer la wave /\nbatch" as E03
+    usecase "UC-E04\nAllouer le\nstock" as E04
+    usecase "UC-E05\nCréer les tâches\nde picking" as E05
+    usecase "UC-E06\nEffectuer le\npicking" as E06
+    usecase "UC-E07\nEffectuer le\npacking" as E07
+    usecase "UC-E08\nCharger le\ncamion" as E08
+    usecase "UC-E09\nExpédier la\ncommande" as E09
+
+    E01 -[hidden]d- E02
+    E02 -[hidden]d- E03
+    E03 -[hidden]d- E04
+    E04 -[hidden]d- E05
+    E05 -[hidden]d- E06
+    E06 -[hidden]d- E07
+    E07 -[hidden]d- E08
+    E08 -[hidden]d- E09
+  }
+
+  package "Capacités smart\n(optionnelles selon infra)" #F5F5F5 {
+    usecase "UC-E15\nDétecter commande à\nrisque de retard" as E15
+    usecase "UC-E10\nGuider le picking\nRF / Pick-to-Light" as E10
+    usecase "UC-E11\nOptimiser le parcours\nde picking" as E11
+    usecase "UC-E12\nContrôler le picking\n(scan / poids / vision)" as E12
+    usecase "UC-E13\nRecommander\nl'emballage" as E13
+    usecase "UC-E14\nContrôler le chargement\n(scan / caméra)" as E14
+
+    E15 -[hidden]d- E10
+    E10 -[hidden]d- E11
+    E11 -[hidden]d- E12
+    E12 -[hidden]d- E13
+    E13 -[hidden]d- E14
+  }
+}
+
+' --- Systèmes externes (droite) ---
+actor "ERP / SAP" as X1
+actor "WCS / WES" as X2
+actor "Transporteur" as X3
+actor "TMS / YMS" as X4
+
+X1 -[hidden]d- X2
+X2 -[hidden]d- X3
+X3 -[hidden]d- X4
+
+' --- Relations UML ---
+E02 ..> E01 : <<include>>
+E03 ..> E02 : <<include>>
+E04 ..> E01 : <<include>>
+E05 ..> E04 : <<include>>
+E06 ..> E05 : <<include>>
+E07 ..> E06 : <<include>>
+E09 ..> E08 : <<include>>
+
+E15 ..> E02 : <<extend>>\n[prédiction activée]
+E10 ..> E06 : <<extend>>\n[RF / Pick-to-Light disponible]
+E11 ..> E06 : <<extend>>\n[optimisation activée]
+E12 ..> E06 : <<extend>>\n[contrôle disponible]
+E13 ..> E07 : <<extend>>\n[recommandation activée]
+E14 ..> E08 : <<extend>>\n[caméra / scan disponible]
+
+' --- Acteurs humains -> use cases ---
+A1 --> E02
+A1 --> E03
+A2 --> E06
+A2 --> E07
+A3 --> E08
+A3 --> E09
+
+' --- Use cases -> systèmes externes ---
+E01 --> X1
+E10 --> X2
+E08 --> X3
+E09 --> X4
+
+@enduml

@@ -1,0 +1,152 @@
+@startuml
+' ============================================================
+' SMART WMS — DA-01 : PROCESSUS DE RECEPTION (INBOUND) DE BOUT EN BOUT
+' ============================================================
+
+skinparam shadowing false
+skinparam ArrowColor #1F4E79
+skinparam ActivityBorderColor #1F4E79
+skinparam ActivityDiamondBorderColor #C00000
+skinparam ActivityFontSize 12
+skinparam defaultTextAlignment center
+
+title DA-01 — Réception intelligente : du rendez-vous camion à la mise en stock
+
+|#F2F6FF|Fournisseur / Transporteur|
+|#FFFFFF|Smart WMS — Processus cœur|
+|#F5F5F5|Capacités Smart (optionnelles)|
+|#FFF6E8|Opérateur Réception / Qualité|
+|#EEF8EE|Systèmes externes (ERP / TMS)|
+
+|Fournisseur / Transporteur|
+start
+:Demander un créneau
+de livraison;
+
+|Smart WMS — Processus cœur|
+:Recevoir la demande
+de rendez-vous (UC-R01);
+
+|Capacités Smart (optionnelles)|
+if (Prévision de charge
+activée ?) then (oui)
+  :Prévoir la charge
+  de réception (UC-R08);
+  :Proposer le créneau
+  le moins chargé;
+else (non — règle métier)
+  :Appliquer les créneaux
+  standards du planning;
+endif
+
+|Smart WMS — Processus cœur|
+:Confirmer le rendez-vous
+et affecter un quai;
+
+|Systèmes externes (ERP / TMS)|
+:Notifier le TMS / YMS;
+
+|Fournisseur / Transporteur|
+:Arrivée du camion
+et enregistrement (check-in);
+
+|Smart WMS — Processus cœur|
+:Ouvrir la réception
+sur la base de l'ASN / commande ERP (UC-R02);
+
+|Opérateur Réception / Qualité|
+:Décharger les unités
+sur le quai;
+
+' ---------- IDENTIFICATION ----------
+|Capacités Smart (optionnelles)|
+if (OCR disponible ?) then (oui)
+  :Lire automatiquement
+  étiquette / lot / DLC (UC-R10);
+else (non)
+  |Opérateur Réception / Qualité|
+  :Scanner le code-barres
+  manuellement;
+endif
+
+|Smart WMS — Processus cœur|
+:Identifier le produit
+et rapprocher de la commande (UC-R03);
+
+' ---------- QUANTITE ----------
+|Capacités Smart (optionnelles)|
+if (Caméra 3D disponible ?) then (oui)
+  :Compter automatiquement
+  les cartons (UC-R09);
+else (non)
+  |Opérateur Réception / Qualité|
+  :Compter manuellement;
+endif
+
+|Smart WMS — Processus cœur|
+:Contrôler la quantité reçue (UC-R04);
+
+' ---------- QUALITE ----------
+|Capacités Smart (optionnelles)|
+if (Vision industrielle
+disponible ?) then (oui)
+  :Détecter colis endommagés
+  et défauts (UC-R11);
+else (non)
+  |Opérateur Réception / Qualité|
+  :Contrôle visuel
+  par échantillonnage;
+endif
+
+|Smart WMS — Processus cœur|
+:Contrôler la qualité (UC-R05);
+
+' ---------- RECEPTION PAR EXCEPTION ----------
+if (Écart quantité
+ou non-conformité ?) then (oui — exception)
+  |Opérateur Réception / Qualité|
+  :Gérer l'anomalie
+  de réception (UC-R06);
+  if (Produit non conforme ?) then (oui)
+    :Mettre en quarantaine;
+    |Systèmes externes (ERP / TMS)|
+    :Créer un litige
+    fournisseur dans l'ERP;
+    stop
+  else (écart de quantité seulement)
+    |Smart WMS — Processus cœur|
+    :Ajuster la quantité
+    réceptionnée;
+  endif
+else (non — conforme)
+  |Smart WMS — Processus cœur|
+  :Valider automatiquement
+  (réception par exception);
+endif
+
+' ---------- MISE EN STOCK ----------
+|Smart WMS — Processus cœur|
+:Vérifier les contraintes
+du produit (température, DLC,
+dangerosité, fragilité);
+:Proposer un emplacement
+de stockage (UC-R07);
+:Créer la tâche de putaway;
+
+|Systèmes externes (ERP / TMS)|
+:Mettre à jour le stock
+dans l'ERP;
+
+|Smart WMS — Processus cœur|
+:Clôturer la réception;
+stop
+
+note right
+<b>Lecture du diagramme</b>
+Les couloirs gris regroupent les capacités
+activées <b>uniquement si l'infrastructure existe</b>.
+Sans OCR, caméra 3D ni vision, le processus
+cœur reste complet et fonctionnel.
+end note
+
+@enduml
