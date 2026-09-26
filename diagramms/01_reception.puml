@@ -1,0 +1,100 @@
+@startuml
+' ============================================================
+' SMART WMS — DIAGRAMME 2/5 : RECEPTION INTELLIGENTE
+' ============================================================
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 80
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #C00000
+  FontColor #C00000
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #C00000
+  FontColor #1F1F1F
+}
+
+title Smart WMS — Use Cases détaillés : Réception
+
+' --- Acteurs humains (gauche) ---
+actor "Superviseur\nEntrepôt" as A1
+actor "Opérateur\nRéception" as A2
+actor "Responsable\nQualité" as A3
+
+A1 -[hidden]d- A2
+A2 -[hidden]d- A3
+
+rectangle "Réception intelligente" {
+
+  package "Processus cœur" #FFF1F0 {
+    usecase "UC-R01\nPlanifier rendez-vous\net quai" as R01
+    usecase "UC-R02\nRéceptionner les\nmarchandises" as R02
+    usecase "UC-R03\nIdentifier\nle produit" as R03
+    usecase "UC-R04\nContrôler la\nquantité" as R04
+    usecase "UC-R05\nContrôler la\nqualité" as R05
+    usecase "UC-R06\nGérer une anomalie\nde réception" as R06
+    usecase "UC-R07\nProposer emplacement\nde stockage" as R07
+    usecase "UC-R08\nPrévoir la charge\nde réception" as R08
+
+    R01 -[hidden]d- R02
+    R02 -[hidden]d- R03
+    R03 -[hidden]d- R04
+    R04 -[hidden]d- R05
+    R05 -[hidden]d- R06
+    R06 -[hidden]d- R07
+    R07 -[hidden]d- R08
+  }
+
+  package "Capacités smart\n(optionnelles selon infra)" #F5F5F5 {
+    usecase "UC-R12\nSuivre le conteneur\nconnecté" as R12
+    usecase "UC-R10\nLire l'étiquette\npar OCR" as R10
+    usecase "UC-R09\nCompter les cartons\npar caméra 3D" as R09
+    usecase "UC-R11\nDétecter les défauts\npar vision" as R11
+
+    R12 -[hidden]d- R10
+    R10 -[hidden]d- R09
+    R09 -[hidden]d- R11
+  }
+}
+
+' --- Systèmes externes (droite) ---
+actor "TMS / YMS" as E1
+actor "Fournisseur" as E2
+actor "ERP / SAP" as E3
+
+E1 -[hidden]d- E2
+E2 -[hidden]d- E3
+
+' --- Relations UML ---
+R02 ..> R03 : <<include>>
+R02 ..> R04 : <<include>>
+R02 ..> R05 : <<include>>
+
+R06 ..> R02 : <<extend>>\n[écart détecté]
+R07 ..> R02 : <<extend>>\n[stockage requis]
+R08 ..> R01 : <<extend>>\n[prévision activée]
+
+R12 ..> R02 : <<extend>>\n[conteneur connecté]
+R10 ..> R03 : <<extend>>\n[OCR disponible]
+R09 ..> R04 : <<extend>>\n[caméra 3D disponible]
+R11 ..> R05 : <<extend>>\n[vision disponible]
+
+' --- Acteurs humains -> use cases ---
+A1 --> R01
+A1 --> R08
+A2 --> R02
+A2 --> R06
+A3 --> R05
+A3 --> R06
+
+' --- Use cases -> systèmes externes ---
+R01 --> E1
+R02 --> E2
+R02 --> E3
+
+@enduml

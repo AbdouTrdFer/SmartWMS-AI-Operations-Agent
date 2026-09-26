@@ -1,0 +1,141 @@
+@startuml
+' ============================================================
+' SMART WMS — DA-04 : SUPERVISION TRANSVERSALE
+' IoT / Température / Énergie / Aide à la décision
+' ============================================================
+
+skinparam shadowing false
+skinparam ArrowColor #7030A0
+skinparam ActivityBorderColor #7030A0
+skinparam ActivityDiamondBorderColor #C00000
+skinparam defaultTextAlignment center
+
+title DA-04 — Boucle de supervision environnementale et énergétique
+
+|#F5F5F5|Capteurs IoT / Compteurs|
+|#EAFBF3|Smart WMS — Supervision|
+|#F5EEFF|Moteur d'analyse / IA|
+|#FFF6E8|Responsable Qualité / Énergie|
+|#EEF8EE|BMS / EMS|
+
+|Capteurs IoT / Compteurs|
+start
+repeat
+  :Émettre les mesures
+  (température, humidité,
+  consommation, chocs);
+
+|Smart WMS — Supervision|
+  :Collecter et horodater
+  les mesures;
+  :Historiser dans le
+  référentiel de données;
+
+fork
+  ' ================= BRANCHE ENVIRONNEMENT =================
+  |Smart WMS — Supervision|
+  :Comparer aux seuils
+  de la zone et du produit (UC-T03);
+  if (Seuil dépassé ?) then (oui)
+    :Générer une alerte
+    qualité (UC-T04);
+    |Responsable Qualité / Énergie|
+    :Recevoir l'alerte
+    sur le dashboard;
+    |Smart WMS — Supervision|
+    if (BMS / EMS disponible ?) then (oui)
+      |BMS / EMS|
+      :Ajuster la consigne
+      de la zone (UC-T05);
+      :Confirmer l'exécution;
+      |Smart WMS — Supervision|
+      :Vérifier le retour
+      dans la plage admissible;
+      if (Retour à la normale ?) then (non)
+        |Responsable Qualité / Énergie|
+        :Escalader et intervenir
+        physiquement;
+      else (oui)
+      endif
+    else (non)
+      |Responsable Qualité / Énergie|
+      :Intervenir manuellement
+      sur l'équipement de froid;
+    endif
+    |Smart WMS — Supervision|
+    :Tracer l'incident et
+    marquer les lots concernés;
+  else (non)
+  endif
+
+fork again
+  ' ================= BRANCHE ENERGIE =================
+  |Smart WMS — Supervision|
+  :Agréger la consommation
+  par zone et par équipement
+  (UC-EN01 / UC-EN02);
+  |Moteur d'analyse / IA|
+  if (Modèle prédictif
+  disponible ?) then (oui)
+    :Comparer au profil attendu
+    et prévoir la consommation (UC-EN04);
+  else (non — règle métier)
+    |Smart WMS — Supervision|
+    :Comparer au seuil
+    de consommation fixe;
+  endif
+  |Smart WMS — Supervision|
+  if (Surconsommation
+  détectée ?) then (oui)
+    :Détecter la dérive (UC-EN03);
+    |Moteur d'analyse / IA|
+    :Générer une recommandation
+    (arrêt, veille, maintenance) (UC-EN05);
+    |Responsable Qualité / Énergie|
+    :Analyser la recommandation;
+    if (Recommandation validée ?) then (oui)
+      |BMS / EMS|
+      :Appliquer le mode
+      économie d'énergie (UC-EN06);
+      |Smart WMS — Supervision|
+      :Mesurer le gain obtenu;
+    else (non)
+      |Smart WMS — Supervision|
+      :Journaliser le refus
+      pour amélioration du modèle;
+    endif
+  else (non)
+  endif
+
+fork again
+  ' ================= BRANCHE SECURITE =================
+  |Smart WMS — Supervision|
+  if (Détection fumée /
+  incendie ?) then (oui)
+    :Déclencher l'alarme
+    et afficher l'incident;
+    |Responsable Qualité / Énergie|
+    :Appliquer la procédure
+    d'évacuation;
+  else (non)
+  endif
+end fork
+
+|Smart WMS — Supervision|
+:Mettre à jour les KPI
+environnementaux et énergétiques;
+
+repeat while (Supervision active ?) is (oui)
+->non;
+stop
+
+note right
+Cette boucle tourne en continu,
+indépendamment des flux inbound
+et outbound. Elle n'est activée que
+si l'entrepôt dispose de capteurs,
+de compteurs communicants ou
+d'un BMS / EMS.
+end note
+
+@enduml

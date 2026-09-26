@@ -1,0 +1,112 @@
+@startuml
+' ============================================================
+' SMART WMS — DIAGRAMME 1/5 : VUE GLOBALE SIMPLIFIEE
+' Layout : acteurs humains (gauche, fleche normale)
+'          use cases coeur (centre)
+'          systemes externes (droite, fleche INVERSEE)
+' ============================================================
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 80
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #1F4E79
+  FontColor #1F4E79
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #1F4E79
+  FontColor #1F1F1F
+}
+
+title Smart WMS — Vue globale des cas d'utilisation
+
+' --- Acteurs humains (gauche) — ordre = ordre vertical des use cases ---
+actor "Opérateur\nRéception" as A1
+actor "Magasinier /\nCariste" as A2
+actor "Superviseur\nEntrepôt" as A3
+actor "Préparateur de\ncommandes" as A4
+actor "Opérateur\nExpédition" as A5
+actor "Responsable\nQualité" as A6
+actor "Responsable\nÉnergie" as A7
+actor "Administrateur\nWMS" as A8
+
+A1 -[hidden]d- A2
+A2 -[hidden]d- A3
+A3 -[hidden]d- A4
+A4 -[hidden]d- A5
+A5 -[hidden]d- A6
+A6 -[hidden]d- A7
+A7 -[hidden]d- A8
+
+rectangle "SMART WMS" {
+  usecase "UC-G01\nGérer la Réception" as G1
+  usecase "UC-G02\nGérer le Stockage\n& Inventaire" as G2
+  usecase "UC-G03\nGérer les Commandes" as G3
+  usecase "UC-G04\nGérer les Tâches" as G4
+  usecase "UC-G05\nGérer la Préparation\n& Expédition" as G5
+  usecase "UC-G06\nGérer les Contraintes\nProduits" as G6
+  usecase "UC-G07\nGérer l'IoT, l'Énergie\n& la Sécurité" as G7
+  usecase "UC-G08\nAdministrer\nle système" as G8
+
+  G1 -[hidden]d- G2
+  G2 -[hidden]d- G3
+  G3 -[hidden]d- G4
+  G4 -[hidden]d- G5
+  G5 -[hidden]d- G6
+  G6 -[hidden]d- G7
+  G7 -[hidden]d- G8
+}
+
+' --- Systèmes externes (droite) — même logique d'ordre ---
+actor "Fournisseur" as E1
+actor "ERP / SAP" as E2
+actor "TMS / YMS" as E3
+actor "WCS / WES" as E4
+actor "Transporteur" as E5
+actor "BMS / EMS" as E6
+
+E1 -[hidden]d- E2
+E2 -[hidden]d- E3
+E3 -[hidden]d- E4
+E4 -[hidden]d- E5
+E5 -[hidden]d- E6
+
+' --- Associations acteurs humains -> use cases (une seule cible principale) ---
+A1 --> G1
+A2 --> G2
+A3 --> G3
+A3 --> G4
+A4 --> G5
+A5 --> G5
+A6 --> G6
+A7 --> G7
+A8 --> G8
+
+' --- Associations use cases -> systèmes externes (flèche inversée = droite) ---
+G1 --> E1
+G3 --> E2
+G5 --> E3
+G5 --> E4
+G5 --> E5
+G7 --> E6
+
+note bottom of G8
+Diagramme volontairement simple :
+un acteur = une flèche vers son bloc principal.
+Le détail (include/extend, sous-acteurs,
+capacités smart) est développé dans
+les diagrammes 2 à 5.
+end note
+
+legend right
+|= Symbole |= Signification |
+| Acteur (gauche) | Rôle humain qui déclenche le processus |
+| Acteur (droite) | Système externe intégré |
+| Rectangle "SMART WMS" | Périmètre du système |
+endlegend
+
+@enduml

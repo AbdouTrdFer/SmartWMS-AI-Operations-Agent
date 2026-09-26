@@ -1,0 +1,173 @@
+@startuml
+' ============================================================
+' SMART WMS — DA-03 : PREPARATION & EXPEDITION (OUTBOUND)
+' ============================================================
+
+skinparam shadowing false
+skinparam ArrowColor #C00000
+skinparam ActivityBorderColor #C00000
+skinparam ActivityDiamondBorderColor #1F4E79
+skinparam defaultTextAlignment center
+
+title DA-03 — Préparation & Expédition : de la commande client au camion chargé
+
+|#F2F6FF|Client / ERP|
+|#FFF0F0|Smart WMS — Processus cœur|
+|#F5F5F5|Capacités Smart (optionnelles)|
+|#FFF6E8|Préparateur / Opérateur Expédition|
+|#EEF8EE|Transporteur / TMS|
+
+|Client / ERP|
+start
+:Transmettre la commande
+client (UC-E01);
+
+|Smart WMS — Processus cœur|
+:Valider la commande
+(client, articles, cut-off);
+:Planifier la commande (UC-E02);
+
+' ---------- WAVE ----------
+|Capacités Smart (optionnelles)|
+if (Optimisation des waves
+activée ?) then (oui)
+  :Constituer la wave optimisée
+  (priorité, transporteur,
+  zone, heure limite);
+else (non — règle métier)
+  |Smart WMS — Processus cœur|
+  :Constituer la wave par
+  regroupement standard
+  (transporteur + cut-off);
+endif
+
+|Smart WMS — Processus cœur|
+:Créer la wave / batch (UC-E03);
+
+' ---------- ALLOCATION ----------
+:Allouer le stock (UC-E04);
+if (Produit géré en lot / DLC ?) then (oui)
+  :Appliquer la règle FEFO;
+else (non)
+  :Appliquer la règle FIFO;
+endif
+
+if (Stock suffisant ?) then (non)
+  :Générer un reliquat
+  et alerter le superviseur;
+  |Client / ERP|
+  :Informer le client
+  du reliquat;
+  |Smart WMS — Processus cœur|
+else (oui)
+endif
+
+' ---------- TACHES ----------
+:Créer les tâches
+de picking (UC-E05);
+
+|Capacités Smart (optionnelles)|
+if (Affectation optimisée
+activée ?) then (oui)
+  :Affecter selon distance,
+  charge, compétence
+  et disponibilité;
+  :Optimiser le parcours
+  de picking (UC-E11);
+else (non)
+  |Smart WMS — Processus cœur|
+  :Affecter selon la file
+  d'attente par zone;
+endif
+
+' ---------- PICKING ----------
+|Préparateur / Opérateur Expédition|
+:Recevoir la tâche;
+
+|Capacités Smart (optionnelles)|
+if (Pick-to-Light / RF
+disponible ?) then (oui)
+  :Guider le prélèvement
+  par affichage lumineux (UC-E10);
+else (non)
+  |Préparateur / Opérateur Expédition|
+  :Suivre la liste
+  sur terminal RF;
+endif
+
+|Préparateur / Opérateur Expédition|
+:Prélever les articles (UC-E06);
+
+|Capacités Smart (optionnelles)|
+if (Contrôle scan / poids / vision
+disponible ?) then (oui)
+  :Contrôler automatiquement
+  le prélèvement (UC-E12);
+  if (Écart détecté ?) then (oui)
+    |Préparateur / Opérateur Expédition|
+    :Corriger le prélèvement;
+  else (non)
+  endif
+else (non)
+endif
+
+' ---------- PACKING ----------
+|Capacités Smart (optionnelles)|
+if (Recommandation d'emballage
+activée ?) then (oui)
+  :Proposer le carton adapté
+  (volume, fragilité) (UC-E13);
+else (non)
+endif
+
+|Préparateur / Opérateur Expédition|
+:Conditionner la commande (UC-E07);
+:Éditer les étiquettes
+transport;
+:Acheminer vers la zone
+de staging et consolider;
+
+' ---------- CHARGEMENT ----------
+|Transporteur / TMS|
+:Présenter le camion
+au quai affecté;
+
+|Préparateur / Opérateur Expédition|
+:Charger le camion (UC-E08);
+
+|Capacités Smart (optionnelles)|
+if (Caméra / scan de quai
+disponible ?) then (oui)
+  :Contrôler le chargement
+  et générer la preuve (UC-E14);
+  if (Colis manquant
+  ou erroné ?) then (oui)
+    |Préparateur / Opérateur Expédition|
+    :Corriger le chargement;
+  else (non)
+  endif
+else (non)
+endif
+
+|Smart WMS — Processus cœur|
+:Expédier la commande (UC-E09);
+
+|Transporteur / TMS|
+:Confirmer le départ
+au TMS;
+
+|Client / ERP|
+:Notifier l'expédition
+au client et à l'ERP;
+stop
+
+|Capacités Smart (optionnelles)|
+note right
+En parallèle du flux, la détection
+des commandes à risque de retard
+(UC-E15) surveille en continu
+l'avancement des waves et alerte
+le superviseur avant le cut-off.
+end note
+
+@enduml

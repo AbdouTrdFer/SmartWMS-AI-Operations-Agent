@@ -1,0 +1,119 @@
+@startuml
+' ============================================================
+' SMART WMS — DIAGRAMME 5/5 : SERVICES SMART TRANSVERSAUX
+' (IoT / Température, Énergie, IA / Aide à la décision)
+' ============================================================
+
+left to right direction
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 80
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #7030A0
+  FontColor #7030A0
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #7030A0
+  FontColor #1F1F1F
+}
+
+title Smart WMS — Services Smart transversaux
+
+' --- Acteurs (gauche) : les sources de données sont "en amont" ---
+actor "Capteurs / IoT /\nCaméras / RFID" as A1
+actor "Responsable\nÉnergie" as A2
+actor "Responsable\nQualité" as A3
+actor "Superviseur\nEntrepôt" as A4
+
+A1 -[hidden]d- A2
+A2 -[hidden]d- A3
+A3 -[hidden]d- A4
+
+rectangle "Services Smart transversaux" {
+
+  package "Température / Environnement" #EAFBF3 {
+    usecase "UC-T01\nMesurer la température\npar zone" as T01
+    usecase "UC-T02\nMesurer l'humidité\npar zone" as T02
+    usecase "UC-T03\nDétecter un dépassement\nde seuil" as T03
+    usecase "UC-T04\nGénérer une\nalerte" as T04
+    usecase "UC-T05\nAdapter automatiquement\nla température" as T05
+
+    T01 -[hidden]d- T02
+    T02 -[hidden]d- T03
+    T03 -[hidden]d- T04
+    T04 -[hidden]d- T05
+  }
+
+  package "Énergie" #EEF9EA {
+    usecase "UC-EN01\nMesurer la consommation\npar zone" as EN01
+    usecase "UC-EN02\nMesurer la consommation\ndes équipements" as EN02
+    usecase "UC-EN03\nDétecter une\nsurconsommation" as EN03
+    usecase "UC-EN04\nPrévoir la\nconsommation" as EN04
+    usecase "UC-EN05\nRecommander arrêt /\nveille" as EN05
+    usecase "UC-EN06\nAppliquer le mode\néconomie d'énergie" as EN06
+
+    EN01 -[hidden]d- EN02
+    EN02 -[hidden]d- EN03
+    EN03 -[hidden]d- EN04
+    EN04 -[hidden]d- EN05
+    EN05 -[hidden]d- EN06
+  }
+
+  package "IA / Aide à la décision" #F5EEFF {
+    usecase "UC-AI01\nPrévoir la demande\net la charge" as AI01
+    usecase "UC-AI02\nPrédire une rupture\nde stock" as AI02
+    usecase "UC-AI03\nPrédire un retard\nde commande" as AI03
+    usecase "UC-AI04\nDétecter des\nanomalies" as AI04
+    usecase "UC-AI05\nGénérer une\nrecommandation" as AI05
+    usecase "UC-AI06\nValider une recommandation\npar un humain" as AI06
+
+    AI01 -[hidden]d- AI02
+    AI02 -[hidden]d- AI03
+    AI03 -[hidden]d- AI04
+    AI04 -[hidden]d- AI05
+    AI05 -[hidden]d- AI06
+  }
+}
+
+' --- Système externe (droite) : exécute les décisions ---
+actor "BMS / EMS" as E1
+
+' --- Relations UML : Température ---
+T03 ..> T01 : <<include>>
+T03 ..> T02 : <<include>>
+T04 ..> T03 : <<include>>
+T05 ..> T03 : <<extend>>\n[BMS/EMS disponible]
+
+' --- Relations UML : Énergie ---
+EN03 ..> EN01 : <<include>>
+EN03 ..> EN02 : <<include>>
+EN05 ..> EN03 : <<include>>
+EN04 ..> EN01 : <<extend>>\n[ML disponible]
+EN06 ..> EN05 : <<extend>>\n[politique auto activée]
+
+' --- Relations UML : IA ---
+AI02 ..> AI01 : <<extend>>
+AI03 ..> AI01 : <<extend>>
+AI04 ..> AI05 : <<include>>
+AI02 ..> AI05 : <<include>>
+AI03 ..> AI05 : <<include>>
+AI06 ..> AI05 : <<extend>>\n[validation humaine requise]
+
+' --- Acteurs -> use cases ---
+A1 --> T01
+A1 --> T02
+A1 --> EN01
+A1 --> EN02
+A2 --> EN03
+A2 --> EN05
+A3 --> T04
+A4 --> AI06
+
+' --- Use cases -> système externe ---
+T05 --> E1
+EN06 --> E1
+
+@enduml
