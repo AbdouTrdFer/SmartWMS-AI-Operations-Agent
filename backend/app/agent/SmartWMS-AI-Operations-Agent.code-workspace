@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../Downloads/smartwms-ai-operations-agent-context/smartwms-ai-operations-agent-context/context"
+		},
+		{
+			"path": "../../../../../Downloads/smartwms-ai-operations-agent-context/smartwms-ai-operations-agent-context/data"
+		},
+		{
+			"path": "../../../../../Downloads/smartwms-ai-operations-agent-context/smartwms-ai-operations-agent-context/docs"
+		},
+		{
+			"path": "../../../../../Downloads/smartwms-ai-operations-agent-context/smartwms-ai-operations-agent-context/codex"
+		}
+	],
+	"settings": {}
+}

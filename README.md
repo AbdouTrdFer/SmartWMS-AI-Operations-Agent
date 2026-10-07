@@ -68,7 +68,7 @@ required configuration and then raises `NotImplementedError` for generation. It 
 credentials and does not invent OCI behavior.
 
 See [OCI_INTEGRATION.md](docs/OCI_INTEGRATION.md).
-
+3
 ## Example Questions
 
 - Why is SKU-102 a high replenishment priority at WH-NJ?
