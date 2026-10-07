@@ -18,6 +18,9 @@ rapport-smart-wms/figures/uml-split/
 rapport-smart-wms/figures/uml-quad/
 rapport-smart-wms/figures/uml-panels/
 rapport-smart-wms/figures/uml-source/
+rapport-smart-wms/tools/tectonic/
+rapport-smart-wms/tools/tectonic.zip
+rapport-smart-wms/tools/plantuml/
 node_modules/
 .next/
 dist/

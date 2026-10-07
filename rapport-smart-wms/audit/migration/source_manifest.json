@@ -1,0 +1,1557 @@
+{
+  "source": "Rapport_Stage_FERHAN_Abdelali_Chapitres_1_2_3_4_Organise_Professionnel.pdf",
+  "sections": [
+    {
+      "id": "1.1",
+      "title": "Présentation générale de Smart Automation Technologies",
+      "source_page": 6
+    },
+    {
+      "id": "1.2",
+      "title": "Vision, approche et valeurs",
+      "source_page": 6
+    },
+    {
+      "id": "1.3",
+      "title": "Métiers et domaines d’intervention",
+      "source_page": 7
+    },
+    {
+      "id": "1.4",
+      "title": "Produits, solutions et activités de recherche",
+      "source_page": 7
+    },
+    {
+      "id": "1.5",
+      "title": "Contexte du stage",
+      "source_page": 8
+    },
+    {
+      "id": "1.6",
+      "title": "Problématique",
+      "source_page": 8
+    },
+    {
+      "id": "1.7",
+      "title": "Objectifs du stage",
+      "source_page": 8
+    },
+    {
+      "id": "1.8",
+      "title": "Périmètre et limites",
+      "source_page": 9
+    },
+    {
+      "id": "1.9",
+      "title": "Livrables et résultats attendus",
+      "source_page": 9
+    },
+    {
+      "id": "1.10",
+      "title": "Conclusion du chapitre",
+      "source_page": 10
+    },
+    {
+      "id": "2.1",
+      "title": "Définitions : WMS classique vs. Smart WMS",
+      "source_page": 11
+    },
+    {
+      "id": "2.2",
+      "title": "Méthodologie du benchmark",
+      "source_page": 11
+    },
+    {
+      "id": "2.3",
+      "title": "Manhattan Active Warehouse Management — unification de l’exécution",
+      "source_page": 12
+    },
+    {
+      "id": "2.4",
+      "title": "SAP Extended Warehouse Management — richesse du modèle métier",
+      "source_page": 13
+    },
+    {
+      "id": "2.5",
+      "title": "Oracle Warehouse Management Cloud — orchestration commande → wave → allocation → tâches",
+      "source_page": 14
+    },
+    {
+      "id": "2.6",
+      "title": "Socle fonctionnel commun identifié",
+      "source_page": 15
+    },
+    {
+      "id": "2.7",
+      "title": "Différenciateurs et lecture comparative",
+      "source_page": 16
+    },
+    {
+      "id": "2.8",
+      "title": "Enseignements retenus pour l’architecture Smart WMS proposée",
+      "source_page": 17
+    },
+    {
+      "id": "3.1",
+      "title": "Approche SCAN → PLAN → ACT appliquée à l’identification des besoins",
+      "source_page": 18
+    },
+    {
+      "id": "3.2",
+      "title": "Problèmes et contraintes identifiés par domaine",
+      "source_page": 18
+    },
+    {
+      "id": "3.3",
+      "title": "Cartographie des use cases — Réception (UC-R01 à UC-R12)",
+      "source_page": 19
+    },
+    {
+      "id": "3.4",
+      "title": "Cartographie des use cases — Stockage & Inventaire (UC-S01 à UC-S14)",
+      "source_page": 20
+    },
+    {
+      "id": "3.5",
+      "title": "Cartographie des use cases — Commandes & Exécution / Expédition (UC-E01 à UC-E15)",
+      "source_page": 20
+    },
+    {
+      "id": "3.6",
+      "title": "Cartographie des use cases — Yard & Quais",
+      "source_page": 21
+    },
+    {
+      "id": "3.7",
+      "title": "Cartographie des use cases — Ressources & Infrastructures",
+      "source_page": 21
+    },
+    {
+      "id": "3.8",
+      "title": "Cartographie des use cases — Intelligence & Aide à la décision transversale",
+      "source_page": 22
+    },
+    {
+      "id": "3.9",
+      "title": "Synthèse Core / Smart / Optional et critères d’activation",
+      "source_page": 22
+    },
+    {
+      "id": "3.10",
+      "title": "Mise en perspective pour l’architecture fonctionnelle cible",
+      "source_page": 23
+    },
+    {
+      "id": "4.1",
+      "title": "Principes de conception",
+      "source_page": 25
+    },
+    {
+      "id": "4.2",
+      "title": "Vue d’ensemble de l’architecture proposée",
+      "source_page": 25
+    },
+    {
+      "id": "4.3",
+      "title": "Systèmes externes et périmètre d’intégration",
+      "source_page": 26
+    },
+    {
+      "id": "4.4",
+      "title": "Cœur opérationnel du WMS",
+      "source_page": 26
+    },
+    {
+      "id": "4.5",
+      "title": "Gestion des tâches et orchestration du travail",
+      "source_page": 28
+    },
+    {
+      "id": "4.6",
+      "title": "Données de référence et stockage des données",
+      "source_page": 28
+    },
+    {
+      "id": "4.7",
+      "title": "Ressources, infrastructures et équipements",
+      "source_page": 28
+    },
+    {
+      "id": "4.8",
+      "title": "Intelligence et aide à la décision",
+      "source_page": 29
+    },
+    {
+      "id": "4.9",
+      "title": "Terminaux et appareils de terrain",
+      "source_page": 29
+    },
+    {
+      "id": "4.10",
+      "title": "Modularité et profils produits",
+      "source_page": 29
+    },
+    {
+      "id": "4.11",
+      "title": "Synthèse du chapitre",
+      "source_page": 30
+    }
+  ],
+  "tables": [
+    {
+      "id": "sat",
+      "source_pages": [
+        7
+      ],
+      "rows": 4,
+      "cells": [
+        [
+          "Domaine",
+          "Lien avec le stage",
+          "Exemple dans le projet Smart WMS"
+        ],
+        [
+          "Benchmark & audit",
+          "Comparer des solutions et identifier les écarts",
+          "Analyse Manhattan / SAP / Oracle et extraction des capacités communes"
+        ],
+        [
+          "Architecture SI",
+          "Structurer les fonctions, données et intégrations",
+          "Architecture fonctionnelle, WCS/WES, ERP, MES, TMS/YMS, BMS/EMS"
+        ],
+        [
+          "Data & IA",
+          "Utiliser la donnée lorsque la règle métier ne suffit plus",
+          "Prévision de charge, détection d’anomalies, réapprovisionnement prédictif"
+        ],
+        [
+          "Automatisation",
+          "Relier le WMS aux équipements",
+          "RFID, vision, convoyeurs, AMR/AGV, Pick-to-Light"
+        ]
+      ]
+    },
+    {
+      "id": "perimetre",
+      "source_pages": [
+        9
+      ],
+      "rows": 7,
+      "cells": [
+        [
+          "Dans le périmètre",
+          "Hors périmètre à ce stade"
+        ],
+        [
+          "• Benchmark fonctionnel de Manhattan, SAP EWM et Oracle WMS",
+          "• Développement complet d’un produit WMS"
+        ],
+        [
+          "• Architecture fonctionnelle générique et modulaire",
+          "• Choix définitif d’un langage, framework ou base de données"
+        ],
+        [
+          "• Cas d’usage Core / Smart / Optional",
+          "• Déploiement cloud ou on-premise réel"
+        ],
+        [
+          "• Contraintes produits et profils logistiques",
+          "• Installation physique de robots, convoyeurs, RFID ou caméras"
+        ],
+        [
+          "• Intégrations fonctionnelles ERP, MES, TMS/YMS, WCS/WES et BMS/EMS",
+          "• Entraînement industriel complet de modèles ML / vision"
+        ],
+        [
+          "• Modélisation UML des acteurs, processus et interactions",
+          "• Mesure de ROI sur un entrepôt en production"
+        ],
+        [
+          "• Architecture applicative logique",
+          "• Certification sécurité ou validation réglementaire"
+        ]
+      ]
+    },
+    {
+      "id": "livrables",
+      "source_pages": [
+        9,
+        10
+      ],
+      "rows": 5,
+      "cells": [
+        [
+          "Livrable",
+          "Contenu attendu"
+        ],
+        [
+          "Benchmark WMS",
+          "Comparaison fonctionnelle de Manhattan Active, SAP EWM et Oracle WMS Cloud."
+        ],
+        [
+          "Carte des use cases",
+          "Réception, stockage & inventaire, expédition et capacités transversales."
+        ],
+        [
+          "Architecture fonctionnelle",
+          "Systèmes externes, cœur opérationnel, tâches, données, ressources, intelligence et terminaux terrain."
+        ],
+        [
+          "Modélisation UML",
+          "Diagrammes de cas d’utilisation, d’activité et de séquence, complétés par les modèles nécessaires à la validation."
+        ],
+        [
+          "Architecture applicative logique",
+          "Découpage en composants fonctionnels et services d’intégration, sans choix technologique définitif."
+        ]
+      ]
+    },
+    {
+      "id": "socle",
+      "source_pages": [
+        15,
+        16
+      ],
+      "rows": 10,
+      "cells": [
+        [
+          "Fonction observée",
+          "Manhattan",
+          "SAP EWM",
+          "Oracle WMS",
+          "Lecture retenue pour le Smart WMS"
+        ],
+        [
+          "Réception, contrôle et mise en stock",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Traiter l’inbound avec contrôle, anomalies et orientation vers un emplacement"
+        ],
+        [
+          "Stockage et gestion des emplacements",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Suivre le stock, piloter le putaway et gérer les mouvements internes"
+        ],
+        [
+          "Inventaire, cycle count, ajustements",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Garantir l’exactitude du stock et la traçabilité des écarts"
+        ],
+        [
+          "Réapprovisionnement",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Alimenter les zones de préparation et éviter les ruptures en picking"
+        ],
+        [
+          "Allocation / waves / priorités",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Transformer la demande commerciale en lots de travail exécutables"
+        ],
+        [
+          "Picking, packing et expédition",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Assurer la sortie des commandes avec qualité, vitesse et preuve d’exécution"
+        ],
+        [
+          "Gestion des tâches et statuts",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Créer, affecter, suivre et clôturer le travail opérationnel"
+        ],
+        [
+          "Gestion de la main-d’œuvre / ressources",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Coordonner les opérateurs, ressources et niveaux de charge"
+        ],
+        [
+          "Yard, quais et transport",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Planifier les rendez-vous, portes, quais et interactions transport"
+        ],
+        [
+          "Interfaces automatisation / MHE / robotique",
+          "Oui",
+          "Oui",
+          "Oui",
+          "Relier le cœur WMS aux équipements et systèmes terrain"
+        ]
+      ]
+    },
+    {
+      "id": "comparaison",
+      "source_pages": [
+        16,
+        17
+      ],
+      "rows": 4,
+      "cells": [
+        [
+          "Critère",
+          "Manhattan Active",
+          "SAP EWM",
+          "Oracle WMS"
+        ],
+        [
+          "Idée directrice",
+          "Unifier l’exécution",
+          "Structurer le contexte métier",
+          "Orchestrer le travail"
+        ],
+        [
+          "Point fort le plus visible",
+          "Relier stock, tâches, opérateurs, équipements et IA agents",
+          "Décrire finement produits, HU, lots, séries, ressources, livraisons",
+          "Transformer commande → wave → allocation → tâches → exécution"
+        ],
+        [
+          "Rapport à l’intelligence",
+          "IA agents intégrés au plus près de l’action",
+          "Intelligence adossée à un modèle métier riche et à l’écosystème SAP",
+          "Assistants et recommandations intégrés à l’inventaire, au tasking et aux exceptions"
+        ],
+        [
+          "Apport principal pour ce stage",
+          "Boucle courte décision → action",
+          "Richesse des données de référence et contraintes produit",
+          "Centralité du moteur de tâches et des priorités"
+        ]
+      ]
+    },
+    {
+      "id": "problemes",
+      "source_pages": [
+        19
+      ],
+      "rows": 7,
+      "cells": [
+        [
+          "Domaine",
+          "Problèmes / contraintes observés",
+          "Conséquence métier",
+          "Orientation de réponse"
+        ],
+        [
+          "Réception",
+          "Attente quai, comptage manuel, erreurs d’étiquette, colis non conformes",
+          "Retard, mauvaise entrée stock, contrôle tardif",
+          "Planification, OCR/vision, caméra 3D, gestion par exception"
+        ],
+        [
+          "Stockage & inventaire",
+          "Mauvais emplacement, écarts stock, rupture picking, congestion",
+          "Déplacements, blocage préparation, faible fiabilité",
+          "Slotting, cycle count ciblé, prédiction rupture, RFID"
+        ],
+        [
+          "Commandes / expédition",
+          "Priorités mal gérées, parcours longs, erreurs picking/packing",
+          "Retards et baisse du taux de service",
+          "Wave, allocation, optimisation parcours, contrôles"
+        ],
+        [
+          "Yard & quais",
+          "Files camion, portes occupées, manque de visibilité transporteur",
+          "Temps d’attente et saturation des quais",
+          "Rendez-vous, affectation dynamique, suivi cour"
+        ],
+        [
+          "Produits sensibles",
+          "Température, humidité, fragilité, lot, DLC",
+          "Risque qualité, perte produit, non-conformité",
+          "Profil produit, capteurs, FEFO, alerte"
+        ],
+        [
+          "Ressources / énergie",
+          "Charge déséquilibrée, équipement indisponible, surconsommation",
+          "Sous-productivité, coût, interruption",
+          "Affectation, maintenance, WCS/WES, BMS/EMS"
+        ],
+        [
+          "Pilotage",
+          "Manque de visibilité et détection tardive",
+          "Décision réactive",
+          "KPI, prévision, anomalies, recommandations"
+        ]
+      ]
+    },
+    {
+      "id": "reception",
+      "source_pages": [
+        19,
+        20
+      ],
+      "rows": 12,
+      "cells": [
+        [
+          "ID",
+          "Use case",
+          "Type",
+          "Condition / moyen principal"
+        ],
+        [
+          "UC-R01",
+          "Planifier rendez-vous et quai",
+          "Core",
+          "Planning transport / TMS-YMS"
+        ],
+        [
+          "UC-R02",
+          "Réceptionner les marchandises",
+          "Core",
+          "Flux inbound"
+        ],
+        [
+          "UC-R03",
+          "Identifier le produit",
+          "Core",
+          "Scan / référence / données maître"
+        ],
+        [
+          "UC-R04",
+          "Contrôler la quantité",
+          "Core",
+          "Contrôle attendu vs reçu"
+        ],
+        [
+          "UC-R05",
+          "Contrôler la qualité",
+          "Core",
+          "Règles qualité / opérateur"
+        ],
+        [
+          "UC-R06",
+          "Gérer une anomalie de réception",
+          "Core",
+          "Écart ou non-conformité"
+        ],
+        [
+          "UC-R07",
+          "Proposer emplacement de stockage",
+          "Core",
+          "Règles capacité / compatibilité"
+        ],
+        [
+          "UC-R08",
+          "Prévoir la charge de réception",
+          "Smart",
+          "Historique, ASN, rendez-vous, retards"
+        ],
+        [
+          "UC-R09",
+          "Compter les cartons par caméra 3D",
+          "Optional",
+          "Caméra 3D disponible"
+        ],
+        [
+          "UC-R10",
+          "Lire l’étiquette par OCR",
+          "Optional",
+          "Caméra + OCR"
+        ],
+        [
+          "UC-R11",
+          "Détecter les défauts par vision",
+          "Optional",
+          "Caméra + modèle vision"
+        ],
+        [
+          "UC-R12",
+          "Suivre le conteneur connecté",
+          "Optional",
+          "Capteurs / IoT / RFID"
+        ]
+      ]
+    },
+    {
+      "id": "stockage",
+      "source_pages": [
+        20
+      ],
+      "rows": 14,
+      "cells": [
+        [
+          "ID",
+          "Use case",
+          "Type",
+          "Condition / moyen principal"
+        ],
+        [
+          "UC-S01",
+          "Mettre en stock (Putaway)",
+          "Core",
+          "Tâche de mise en stock"
+        ],
+        [
+          "UC-S02",
+          "Gérer les stocks",
+          "Core",
+          "Mouvements / statuts / quantités"
+        ],
+        [
+          "UC-S03",
+          "Gérer les emplacements",
+          "Core",
+          "Zones, capacité, disponibilité"
+        ],
+        [
+          "UC-S04",
+          "Réaliser l’inventaire tournant",
+          "Core",
+          "Cycle count"
+        ],
+        [
+          "UC-S05",
+          "Réapprovisionner la zone picking",
+          "Core",
+          "Seuils / demande picking"
+        ],
+        [
+          "UC-S06",
+          "Détecter la congestion d’une zone",
+          "Smart",
+          "Tâches ouvertes, temps d’attente, occupation"
+        ],
+        [
+          "UC-S07",
+          "Surveiller les produits sensibles",
+          "Core conditionnel",
+          "Profil produit"
+        ],
+        [
+          "UC-S08",
+          "Gérer lots / DLC / FEFO",
+          "Core conditionnel",
+          "Produit loti ou périssable"
+        ],
+        [
+          "UC-S09",
+          "Choisir l’emplacement optimal (Slotting)",
+          "Smart",
+          "Rotation, poids, volume, occupation"
+        ],
+        [
+          "UC-S10",
+          "Cibler les emplacements à recompter",
+          "Smart",
+          "Historique écarts / risque"
+        ],
+        [
+          "UC-S11",
+          "Prédire une rupture avant blocage",
+          "Smart",
+          "Stock, consommation, commandes"
+        ],
+        [
+          "UC-S12",
+          "Chercher un emplacement alternatif",
+          "Smart",
+          "Écart ou article introuvable"
+        ],
+        [
+          "UC-S13",
+          "Suivre les palettes par RFID",
+          "Optional",
+          "Infrastructure RFID"
+        ],
+        [
+          "UC-S14",
+          "Déplacer le stock par AMR / AGV",
+          "Optional",
+          "Robot + WCS/WES"
+        ]
+      ]
+    },
+    {
+      "id": "expedition",
+      "source_pages": [
+        20,
+        21
+      ],
+      "rows": 15,
+      "cells": [
+        [
+          "ID",
+          "Use case",
+          "Type",
+          "Condition / moyen principal"
+        ],
+        [
+          "UC-E01",
+          "Recevoir la commande client",
+          "Core",
+          "ERP / OMS"
+        ],
+        [
+          "UC-E02",
+          "Planifier la commande",
+          "Core",
+          "Priorité / cut-off / capacité"
+        ],
+        [
+          "UC-E03",
+          "Créer la wave / batch",
+          "Core",
+          "Regroupement des ordres"
+        ],
+        [
+          "UC-E04",
+          "Allouer le stock",
+          "Core",
+          "Disponibilité / règles allocation"
+        ],
+        [
+          "UC-E05",
+          "Créer les tâches de picking",
+          "Core",
+          "Moteur de tâches"
+        ],
+        [
+          "UC-E06",
+          "Effectuer le picking",
+          "Core",
+          "Opérateur / équipement"
+        ],
+        [
+          "UC-E07",
+          "Effectuer le packing",
+          "Core",
+          "Contrôle et conditionnement"
+        ],
+        [
+          "UC-E08",
+          "Charger le camion",
+          "Core",
+          "Quai / transport"
+        ],
+        [
+          "UC-E09",
+          "Expédier la commande",
+          "Core",
+          "Confirmation sortie"
+        ],
+        [
+          "UC-E10",
+          "Guider le picking RF / Pick-to-Light",
+          "Optional",
+          "Terminal RF / Pick-to-Light"
+        ],
+        [
+          "UC-E11",
+          "Optimiser le parcours de picking",
+          "Smart",
+          "Carte, tâches, contraintes allées"
+        ],
+        [
+          "UC-E12",
+          "Contrôler le picking scan / poids / vision",
+          "Optional",
+          "Scanner / balance / caméra"
+        ],
+        [
+          "UC-E13",
+          "Recommander l’emballage",
+          "Smart",
+          "Dimensions, poids, fragilité"
+        ],
+        [
+          "UC-E14",
+          "Contrôler le chargement scan / caméra",
+          "Optional",
+          "Scanner / caméra quai"
+        ],
+        [
+          "UC-E15",
+          "Détecter commande à risque de retard",
+          "Smart",
+          "Avancement, charge, cut-off"
+        ]
+      ]
+    },
+    {
+      "id": "yard",
+      "source_pages": [
+        21
+      ],
+      "rows": 7,
+      "cells": [
+        [
+          "ID proposé",
+          "Use case",
+          "Type",
+          "Critère d’activation"
+        ],
+        [
+          "UC-Y01",
+          "Planifier les rendez-vous transporteurs",
+          "Core",
+          "Planning livraison / enlèvement"
+        ],
+        [
+          "UC-Y02",
+          "Enregistrer entrée / sortie véhicule",
+          "Core",
+          "Contrôle accès / quai"
+        ],
+        [
+          "UC-Y03",
+          "Affecter un quai ou une porte",
+          "Core",
+          "Disponibilité et type de flux"
+        ],
+        [
+          "UC-Y04",
+          "Suivre le statut des quais / portes",
+          "Core",
+          "État occupé, libre, bloqué"
+        ],
+        [
+          "UC-Y05",
+          "Suivre véhicule / transporteur dans la cour",
+          "Optional",
+          "YMS, géolocalisation ou check-points"
+        ],
+        [
+          "UC-Y06",
+          "Détecter congestion cour / quais",
+          "Smart",
+          "Temps d’attente, files, occupation"
+        ],
+        [
+          "UC-Y07",
+          "Recommander une réaffectation dynamique de quai",
+          "Smart",
+          "Retard, priorité, capacité disponible"
+        ]
+      ]
+    },
+    {
+      "id": "ressources",
+      "source_pages": [
+        21,
+        22
+      ],
+      "rows": 10,
+      "cells": [
+        [
+          "ID proposé",
+          "Use case",
+          "Type",
+          "Critère d’activation"
+        ],
+        [
+          "UC-RES01",
+          "Planifier la main-d’œuvre",
+          "Core",
+          "Effectifs, horaires, activité prévue"
+        ],
+        [
+          "UC-RES02",
+          "Gérer compétences et habilitations",
+          "Core",
+          "Profils opérateurs"
+        ],
+        [
+          "UC-RES03",
+          "Suivre performance et charge des équipes",
+          "Core",
+          "Tâches et temps d’exécution"
+        ],
+        [
+          "UC-RES04",
+          "Optimiser l’équilibrage de charge",
+          "Smart",
+          "Charge, distance, compétence, disponibilité"
+        ],
+        [
+          "UC-RES05",
+          "Suivre disponibilité / état des équipements",
+          "Core",
+          "Chariot, convoyeur, robot, AS/RS"
+        ],
+        [
+          "UC-RES06",
+          "Gérer maintenance et indisponibilités",
+          "Core",
+          "État, alerte, cycle de vie"
+        ],
+        [
+          "UC-RES07",
+          "Orchestrer les équipements via WCS / WES",
+          "Optional",
+          "WCS/WES et automatisation présents"
+        ],
+        [
+          "UC-RES08",
+          "Suivre actifs et taux d’utilisation",
+          "Core",
+          "Données équipement / actif"
+        ],
+        [
+          "UC-RES09",
+          "Collecter données énergie / environnement",
+          "Optional",
+          "Compteurs et capteurs"
+        ],
+        [
+          "UC-RES10",
+          "Déclencher consignes via BMS / EMS",
+          "Optional",
+          "BMS/EMS disponible"
+        ]
+      ]
+    },
+    {
+      "id": "transversal",
+      "source_pages": [
+        22
+      ],
+      "rows": 3,
+      "cells": [
+        [
+          "Famille",
+          "IDs conservés",
+          "Capacités",
+          "Type dominant"
+        ],
+        [
+          "Température / environnement",
+          "UC-T01 à UC-T05",
+          "Mesurer T°/humidité, détecter seuil, alerter, adapter température",
+          "Optional + Smart"
+        ],
+        [
+          "Énergie",
+          "UC-EN01 à UC-EN06",
+          "Mesurer consommation, détecter dérive, prévoir, recommander veille, appliquer économie",
+          "Optional + Smart"
+        ],
+        [
+          "IA / décision",
+          "UC-AI01 à UC-AI06",
+          "Prévoir demande/charge, rupture, retard, anomalies, recommandation, validation humaine",
+          "Smart"
+        ]
+      ]
+    },
+    {
+      "id": "classification",
+      "source_pages": [
+        23
+      ],
+      "rows": 6,
+      "cells": [
+        [
+          "Domaine",
+          "Core",
+          "Smart",
+          "Optional / infrastructure",
+          "Critère d’activation"
+        ],
+        [
+          "Réception",
+          "UC-R01–UC-R07",
+          "UC-R08",
+          "UC-R09–UC-R12",
+          "historique + caméra/OCR/IoT selon cas"
+        ],
+        [
+          "Stockage & inventaire",
+          "UC-S01–UC-S05, UC-S07– UC-S08",
+          "UC-S06, UC-S09–UC-S12",
+          "UC-S13–UC-S14",
+          "données stock ; RFID ou robotique si présente"
+        ],
+        [
+          "Commandes / expédition",
+          "UC-E01–UC-E09",
+          "UC-E11, UC-E13, UC-E15",
+          "UC-E10, UC-E12, UC-E14",
+          "données tâches ; RF/P2L, balance ou caméra si présents"
+        ],
+        [
+          "Yard & quais",
+          "UC-Y01–UC-Y04",
+          "UC-Y06–UC-Y07",
+          "UC-Y05",
+          "TMS/YMS et suivi cour si disponible"
+        ],
+        [
+          "Ressources & infrastructures",
+          "UC-RES01–03, UC-RES05– 06, UC-RES08",
+          "UC-RES04",
+          "UC-RES07, UC-RES09–10",
+          "WCS/WES, capteurs ou BMS/EMS"
+        ],
+        [
+          "Transversal",
+          "—",
+          "UC-AI01–UC-AI06 ; UC-T03–UC-T04 ; UC-EN03– UC-EN05",
+          "UC-T01–UC-T02, UC-T05 ; UC-EN01–UC-EN02, UC-EN06",
+          "qualité des données + infrastructure terrain"
+        ]
+      ]
+    },
+    {
+      "id": "responsabilites",
+      "source_pages": [
+        28
+      ],
+      "rows": 0,
+      "cells": [
+        [
+          "Bloc fonctionnel",
+          "Responsabilité principale",
+          "Contribution au Smart WMS"
+        ]
+      ]
+    },
+    {
+      "id": "activation",
+      "source_pages": [
+        30
+      ],
+      "rows": 0,
+      "cells": [
+        [
+          "Capacité",
+          "Type",
+          "Infrastructure ou condition d’activation",
+          "Exemple d’impact"
+        ]
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "fil_conducteur",
+      "source_page": 5
+    },
+    {
+      "id": "sat",
+      "source_page": 6
+    },
+    {
+      "id": "marche",
+      "source_page": 12
+    },
+    {
+      "id": "manhattan",
+      "source_page": 13
+    },
+    {
+      "id": "sap",
+      "source_page": 14
+    },
+    {
+      "id": "oracle",
+      "source_page": 15
+    },
+    {
+      "id": "comparaison",
+      "source_page": 16
+    },
+    {
+      "id": "scan_plan_act",
+      "source_page": 18
+    },
+    {
+      "id": "classification",
+      "source_page": 23
+    },
+    {
+      "id": "architecture",
+      "source_page": 26
+    },
+    {
+      "id": "architecture_detail",
+      "source_page": 27
+    },
+    {
+      "id": "support_detail",
+      "source_page": 29
+    },
+    {
+      "id": "activation",
+      "source_page": 30
+    }
+  ],
+  "paragraphs": [
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "La gestion d’un entrepôt ne se résume plus à enregistrer les entrées et les sorties de marchandises. Un entrepôt moderne doit connaître l’état du stock, organiser les emplacements, préparer les commandes, coordonner les opérateurs et les équipements, prendre en compte les contraintes propres aux produits et échanger des informations avec plusieurs systèmes de l’entreprise. Dans ce contexte, le Warehouse Management System (WMS) occupe une place centrale : il structure les opérations depuis la réception jusqu’à l’expédition et assure la traçabilité des mouvements réalisés dans l’entrepôt."
+    },
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "Un WMS traditionnel couvre déjà les fonctions essentielles : réception, contrôle, mise en stock, gestion des emplacements, inventaire, réapprovisionnement, allocation, picking, packing et expédition. Le benchmark réalisé au cours du stage confirme ce socle commun et montre également l’importance de fonctions transversales comme la gestion de la main-d’œuvre, le slotting, la gestion des quais, les interfaces avec les équipements de manutention et la gestion des tâches. Le support de benchmark du stage distingue précisément ces fonctions obligatoires et communes avant de comparer Manhattan Active, SAP EWM et Oracle WMS Cloud [2]."
+    },
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "Cependant, lorsque les volumes augmentent, que les produits deviennent plus variés et que les contraintes de délai se renforcent, un fonctionnement basé uniquement sur des règles fixes et des opérations manuelles devient moins adapté. La transformation vers un Smart WMS vise alors à conserver le socle métier du WMS tout en ajoutant, là où cela apporte une valeur réelle, des capacités de supervision, d’automatisation, d’optimisation et de prédiction. Cette évolution ne signifie pas que toutes les fonctions doivent utiliser de l’intelligence artificielle. Une règle métier suffit pour certains besoins ; d’autres nécessitent des scanners, de la RFID, de la vision industrielle, un système WCS/WES, un algorithme d’optimisation ou un modèle prédictif."
+    },
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "Le stage réalisé au sein de Smart Automation Technologies s’inscrit dans cette problématique. Son objectif principal est de concevoir une architecture de référence capable de guider la transformation d’un WMS traditionnel vers un Smart WMS. Le travail ne consiste donc pas à développer immédiatement un nouveau logiciel, mais à structurer les besoins, les domaines fonctionnels, les interactions avec les systèmes externes et les capacités Smart qui pourront être activées en fonction du contexte de l’entreprise."
+    },
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "La généricité constitue un choix majeur de conception. Tous les entrepôts ne possèdent pas les mêmes équipements. Un site peut fonctionner principalement avec des codes-barres, des terminaux RF et des chariots classiques, alors qu’un autre dispose de convoyeurs, de lecteurs RFID, de systèmes AS/RS, d’AMR ou d’AGV. De la même manière, un entrepôt pharmaceutique ou agroalimentaire peut imposer des contraintes de température, d’humidité, de durée de vie ou de traçabilité qui ne sont pas présentes dans d’autres secteurs. L’architecture proposée doit donc rester modulaire et configurable, sans rendre obligatoire une infrastructure que certaines entreprises ne possèdent pas."
+    },
+    {
+      "chapter": 0,
+      "source_page": 4,
+      "text": "La démarche adoptée suit une logique progressive. Une première phase de SCAN a permis de benchmarker trois solutions reconnues - Manhattan Active Warehouse Management, SAP Extended Warehouse Management et Oracle Warehouse Management Cloud - afin d’identifier leurs fonctions communes et leurs principaux différenciateurs. Le travail s’est ensuite orienté vers l’identification des problèmes et des cas d’usage : réception assistée, comptage par caméra 3D, lecture OCR, contrôle qualité par vision, slotting dynamique, réapprovisionnement prédictif, RFID, AMR/AGV, optimisation du picking, supervision de la température ou encore suivi de la consommation énergétique. Ces cas d’usage ne sont pas considérés comme des fonctions obligatoires, mais comme des capacités activables en fonction de l’infrastructure et du besoin métier."
+    },
+    {
+      "chapter": 0,
+      "source_page": 5,
+      "text": "Cette analyse a conduit à une architecture fonctionnelle organisée en plusieurs niveaux : systèmes externes, cœur opérationnel du WMS, gestion des tâches, ressources et infrastructures, intelligence et aide à la décision, stockage des données et terminaux de terrain. La modélisation UML complète ensuite cette architecture afin de rendre les processus et les interactions plus explicites. Les diagrammes de cas d’utilisation répondent à la question « qui utilise quoi ? », les diagrammes d’activité décrivent le déroulement des processus et les diagrammes de séquence détaillent les échanges entre acteurs, Smart WMS et systèmes externes."
+    },
+    {
+      "chapter": 0,
+      "source_page": 5,
+      "text": "Le périmètre du stage reste volontairement centré sur la conception. Il ne comprend pas le développement complet du Smart WMS ni son déploiement industriel. L’objectif est plutôt de construire une base fonctionnelle et applicative cohérente, suffisamment précise pour être discutée avec des experts métier et suffisamment modulaire pour préparer une future phase d’implémentation."
+    },
+    {
+      "chapter": 1,
+      "source_page": 6,
+      "text": "Ce chapitre présente Smart Automation Technologies (SAT), l’environnement dans lequel le stage a été réalisé ainsi que le cadrage initial de la mission. Les informations institutionnelles relatives à l’entreprise sont issues du document de présentation fourni dans le cadre du stage [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 6,
+      "text": "Smart Automation Technologies (SAT) est une startup technologique fondée par un groupe de consultants seniors spécialisés dans les technologies de l’information, la data science et l’intelligence artificielle. L’entreprise se positionne autour de l’innovation, de la performance et de l’accompagnement stratégique de clients issus aussi bien du secteur privé que des administrations [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 6,
+      "text": "SAT se présente comme un partenaire technologique plutôt que comme un simple prestataire. Son intervention couvre plusieurs étapes du cycle de vie des systèmes d’information : compréhension des besoins, définition des orientations, conception des solutions, mise en œuvre et accompagnement de leur évolution. Ce positionnement est particulièrement cohérent avec le sujet du stage, qui demande d’abord de comprendre un domaine métier et de construire une architecture cible avant d’envisager une implémentation technique."
+    },
+    {
+      "chapter": 1,
+      "source_page": 6,
+      "text": "Dans un environnement marqué par une transformation numérique rapide, l’entreprise accorde une place importante à la recherche et développement. Les travaux cités dans sa présentation mobilisent notamment l’intelligence artificielle, la data science et le Big Data pour proposer des solutions adaptées à des environnements industriels et organisationnels où les données et la décision jouent un rôle central [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 6,
+      "text": "La présentation de SAT met en avant une vision fondée sur l’éthique, la déontologie et la transparence. Ces principes sont associés à une recherche de fiabilité et de responsabilité dans les solutions proposées. L’entreprise insiste également sur la proximité avec le client : les besoins doivent être compris dans leur contexte avant de définir une réponse technique [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 7,
+      "text": "Cette approche a une conséquence directe sur le stage. Le Smart WMS ne peut pas être conçu comme une collection de technologies ajoutées au hasard. Les choix doivent partir de problèmes métier identifiés, de la réalité de l’infrastructure et des contraintes propres à l’entreprise. Cette logique a progressivement conduit à distinguer trois niveaux : le socle WMS indispensable, les capacités Smart qui améliorent la décision ou l’exécution, et les capacités optionnelles qui ne sont activées que si l’infrastructure correspondante existe."
+    },
+    {
+      "chapter": 1,
+      "source_page": 7,
+      "text": "SAT accorde par ailleurs une attention particulière au capital humain, à la formation continue et au développement des compétences. Dans le cadre du stage, les échanges avec l’encadrement ont joué un rôle important dans l’évolution du modèle : plusieurs versions de l’architecture ont été revues afin d’améliorer sa généricité, de clarifier le rôle de l’intelligence artificielle et de rendre les diagrammes UML plus lisibles."
+    },
+    {
+      "chapter": 1,
+      "source_page": 7,
+      "text": "Les activités de SAT couvrent des services, des solutions dédiées, du support et de la formation. Le document de présentation cite plusieurs secteurs d’intervention, notamment l’industrie, la logistique, le marketing et la finance. Dans ces secteurs, la donnée, l’intégration des systèmes et la prise de décision constituent des enjeux récurrents [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 7,
+      "text": "L’approche de conseil de l’entreprise est structurée autour de trois axes : le client, le projet et la méthode. Les interventions citées comprennent notamment la gouvernance IT et le management de projet, la conduite du changement, l’élaboration de schémas directeurs, l’urbanisation et l’architecture des systèmes d’information, l’assistance à maîtrise d’ouvrage, la conception de solutions logicielles ainsi que des activités d’audit, de benchmarking et d’évaluation de solutions existantes [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 7,
+      "text": "SAT développe des solutions qui mobilisent l’intelligence artificielle, la data science et le Big Data autour de besoins concrets. Son document de présentation fait également référence à une démarche d’e-Transformation fondée sur le concept d’écosystème digital, intelligent et décisionnel (EcoDID), dont l’objectif est de rapprocher données, processus et outils décisionnels dans des plateformes intégrées [1]."
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Parmi les axes de recherche cités figurent les technologies Edge Box pour la maintenance prédictive, les Edge Data Centers et des plateformes spécialisées dans différents domaines, dont la logistique. Ce contexte constitue un environnement cohérent pour un sujet portant sur la transformation d’un WMS, puisqu’il combine problématiques métier, intégration des systèmes, automatisation et exploitation intelligente des données."
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Le sujet confié pendant la période d’août à octobre 2026 porte sur la conception d’une architecture intelligente pour faire évoluer un WMS traditionnel vers un Smart WMS. Au démarrage, la difficulté principale était de définir ce que devait réellement signifier le terme « Smart ». Une première lecture pouvait conduire à ajouter de l’intelligence artificielle à chaque processus. Les échanges avec l’encadrante ont au contraire conduit à une approche plus structurée : une fonction doit d’abord répondre à un problème précis, puis le moyen le plus adapté est choisi entre règle métier, automatisation, optimisation, machine learning, vision industrielle ou agent intelligent."
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Une autre contrainte importante est apparue au cours des réunions de suivi : l’architecture ne devait pas être limitée à un type unique d’entrepôt. Par exemple, proposer systématiquement des robots ou des convoyeurs supposerait une infrastructure que de nombreuses entreprises ne possèdent pas. La solution devait donc permettre plusieurs niveaux de maturité. Une entreprise peut utiliser le socle WMS avec des terminaux RF et des scans, tandis qu’une autre peut activer des fonctions RFID, vision, AMR/AGV, WCS/WES ou BMS/EMS."
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Enfin, le modèle devait prendre en compte la diversité des produits. Certains articles nécessitent une température ou une humidité spécifique ; d’autres sont fragiles, dangereux, à durée de vie limitée ou destinés à une expédition rapide. Cette contrainte a conduit à introduire la notion de profil logistique du produit et à relier ce profil au stockage, au slotting, à l’allocation, au picking et au contrôle environnemental."
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Question centrale du stage Comment concevoir et modéliser une architecture Smart WMS générique qui conserve les fonctions essentielles d’un WMS, intègre des capacités d’optimisation et d’intelligence lorsqu’elles sont justifiées, et puisse être adaptée aux équipements, aux données et aux contraintes de produits de différents entrepôts ?"
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "Cette problématique implique plusieurs questions secondaires : quelles fonctions constituent le socle commun d’un WMS moderne ? Quelles capacités observées chez les leaders peuvent être généralisées sans copier une solution particulière ? Comment représenter les options qui dépendent d’une infrastructure spécifique ? Comment distinguer l’automatisation, l’optimisation et l’intelligence artificielle ? Enfin, comment traduire cette réflexion en modèles UML suffisamment précis pour être compris par les acteurs métier et utilisables dans une future conception applicative ?"
+    },
+    {
+      "chapter": 1,
+      "source_page": 8,
+      "text": "L’objectif général est de proposer une architecture de référence pour la transformation progressive d’un WMS traditionnel en Smart WMS. Cet objectif se décline en plusieurs objectifs opérationnels :"
+    },
+    {
+      "chapter": 1,
+      "source_page": 9,
+      "text": "Le périmètre a été volontairement fixé au niveau métier, fonctionnel et applicatif logique. Cette décision permet d’étudier le système avec suffisamment de précision sans transformer le stage en projet de développement complet. Le tableau suivant résume ce qui est inclus et ce qui reste hors périmètre à ce stade."
+    },
+    {
+      "chapter": 1,
+      "source_page": 9,
+      "text": "Le stage est organisé autour d’une série de livrables qui se complètent plutôt que de constituer des documents indépendants. Le benchmark explique les choix ; les cas d’usage traduisent les besoins ; l’architecture fonctionnelle structure le système ; les modèles UML précisent le comportement ; enfin l’architecture applicative logique prépare une future phase de conception technique."
+    },
+    {
+      "chapter": 1,
+      "source_page": 10,
+      "text": "Le contexte de Smart Automation Technologies et la nature du sujet conduisent à aborder le Smart WMS comme un problème d’architecture et non comme une simple addition de technologies. La mission vise à construire un cadre réutilisable, capable de relier les processus d’entrepôt, les ressources, les équipements, les données et les mécanismes d’aide à la décision. Le chapitre suivant présentera l’état de l’art et le benchmark fonctionnel des solutions Manhattan Active, SAP EWM et Oracle WMS Cloud, qui constituent le point de départ de la proposition d’architecture."
+    },
+    {
+      "chapter": 2,
+      "source_page": 11,
+      "text": "Ce chapitre a pour objectif d’établir une base de référence solide avant de proposer l’architecture Smart WMS cible. L’idée n’est pas de comparer des solutions pour désigner un vainqueur, mais de comprendre comment des éditeurs leaders structurent fonctionnellement un WMS moderne, quels flux ils couvrent, quelles capacités ils mettent en avant et quelles logiques d’intelligence ou d’automatisation ils relient réellement à l’exécution. Dans cette perspective, le benchmark est utilisé comme un instrument d’apprentissage architectural : il permet d’identifier un socle commun, puis de repérer des différenciateurs utiles pour la modélisation d’une architecture générique, modulaire et adaptable au contexte de différentes entreprises."
+    },
+    {
+      "chapter": 2,
+      "source_page": 11,
+      "text": "Un WMS classique est centré sur la maîtrise des opérations d’entrepôt : réception, mise en stock, gestion des emplacements, inventaire, préparation de commandes, emballage, expédition, traitement des retours et suivi des tâches. Son rôle principal est d’assurer la traçabilité des flux physiques et d’organiser le travail dans l’entrepôt avec des règles métier relativement stables. Cette base reste indispensable, car aucune intelligence n’a de sens si les opérations fondamentales, les données de référence et le suivi d’exécution ne sont pas fiables. Dans la littérature, le WMS est généralement décrit comme le système qui organise, contrôle et synchronise les flux d’entrée, de stockage et de sortie afin de garantir la visibilité du stock et la bonne exécution des opérations [3]."
+    },
+    {
+      "chapter": 2,
+      "source_page": 11,
+      "text": "Le Smart WMS ne remplace pas ce socle ; il l’étend. Il ajoute des capacités de perception, d’anticipation, d’optimisation et d’aide à la décision. Concrètement, cela peut prendre la forme de capteurs IoT, RFID, vision, pilotage énergétique, recommandations de slotting, détection d’anomalies, orchestration avancée des tâches, ou encore d’agents IA ciblés sur des problèmes précis. La différence ne réside donc pas dans le fait d’« ajouter de l’IA partout », mais dans la capacité du système à transformer des données opérationnelles en actions pertinentes, contextualisées et si possible exécutables. Dans le cadre de ce stage, un Smart WMS est ainsi défini comme un WMS disposant d’un cœur opérationnel stable, enrichi par des modules intelligents activables selon l’infrastructure disponible, les contraintes produits, les besoins métier et le niveau de maturité de l’entreprise."
+    },
+    {
+      "chapter": 2,
+      "source_page": 11,
+      "text": "La démarche de benchmark a reposé sur trois principes. Premièrement, les solutions étudiées en profondeur devaient être reconnues sur le marché et disposer d’une documentation fonctionnelle suffisamment riche pour soutenir une analyse structurée. Deuxièmement, l’objectif était fonctionnel et non technique : il s’agissait de comprendre les logiques de processus, les objets métier mis en avant et les capacités d’exécution ou d’intelligence connectées au WMS. Troisièmement, le benchmark devait rester utile pour une architecture générique. Il ne fallait donc pas recopier une solution existante, mais extraire des principes réutilisables."
+    },
+    {
+      "chapter": 2,
+      "source_page": 12,
+      "text": "benchmark, Gartner 2026)."
+    },
+    {
+      "chapter": 2,
+      "source_page": 12,
+      "text": "La figure précédente a servi de point de départ pour positionner les principaux acteurs observés. Elle montre qu’au-delà des trois solutions retenues, le marché comprend aussi d’autres éditeurs importants comme Blue Yonder, Körber / Infios, Infor, Logistics Reply, Tecsys, EPG ou encore Dematic. Toutefois, l’étude détaillée a été volontairement concentrée sur Manhattan Active Warehouse Management, SAP Extended Warehouse Management et Oracle Warehouse Management. Ce choix se justifie par leur positionnement récurrent parmi les leaders, par la richesse de leurs ressources officielles, et par la complémentarité de leurs approches : Manhattan met l’accent sur l’exécution unifiée, SAP sur la richesse du modèle métier et Oracle sur l’orchestration opérationnelle. Les autres acteurs ont été pris en compte comme références de contexte, mais non analysés à un niveau équivalent, afin de conserver un périmètre de travail réaliste. Le benchmark s’appuie principalement sur la documentation officielle de chaque éditeur : documentation Manhattan Active Platform et Manhattan Active Agents, pages produit et documentation SAP EWM, ainsi que la documentation Oracle sur les waves, l’allocation, les tâches et certains assistants IA. La comparaison présentée dans ce chapitre constitue donc une synthèse analytique construite à partir de ces sources primaires [4]–[10]."
+    },
+    {
+      "chapter": 2,
+      "source_page": 12,
+      "text": "La documentation officielle Manhattan décrit Active Platform comme une plateforme cloud native, orientée microservices, conçue pour héberger des solutions comme Unified Commerce, Supply Chain Execution et Active Planning [4]. Cette base est importante, mais l’intérêt du benchmark se situe surtout au niveau fonctionnel : Manhattan cherche à rapprocher les décisions et l’exécution réelle. Autrement dit, les données, les tâches, les opérateurs, les équipements et les priorités d’orchestration sont pensés comme des éléments d’un même système d’action. Cette idée directrice apparaît clairement dans Manhattan Active WM, où les fonctions de réception, de stock, de picking, de labor management, de yard, de transport et d’automatisation sont regroupées dans un ensemble cohérent plutôt que traitées comme des blocs isolés."
+    },
+    {
+      "chapter": 2,
+      "source_page": 13,
+      "text": "la combinaison plateforme cloud, exécution supply chain et services essentiels."
+    },
+    {
+      "chapter": 2,
+      "source_page": 13,
+      "text": "La figure 2 illustre cette logique d’unification. On y distingue d’un côté une plateforme cloud et ses services essentiels, puis plusieurs ensembles applicatifs couvrant le commerce, la supply chain et l’inventaire. Même si la vue est large, elle aide à comprendre le principe architectural : l’exécution d’entrepôt n’est pas isolée, elle se connecte à la gestion des commandes, à la planification, à la main-d’œuvre, au yard, au transport et à l’automatisation. Pour le projet de stage, cette lecture a été déterminante : elle montre qu’un Smart WMS crédible ne doit pas seulement « analyser », mais aussi pouvoir transformer une information utile en action opérationnelle, par exemple en créant ou réordonnant des tâches, en réaffectant des ressources ou en pilotant plus finement un flux."
+    },
+    {
+      "chapter": 2,
+      "source_page": 13,
+      "text": "L’autre point fort de Manhattan réside dans l’émergence d’agents IA directement intégrés à la plateforme. Manhattan indique que ses AI Agents sont embarqués dans Manhattan Active et capables d’agir avec un contexte opérationnel temps réel [5]. Parmi les exemples mentionnés par l’éditeur figurent le Wave Coordinator Agent, le Labor Agent et le Warehouse Associate Agent. Leur intérêt n’est pas simplement conversationnel : ils visent à accélérer la décision et à soutenir l’exécution au bon moment, en se situant au plus près du travail réel. Dans le cadre de ce benchmark, Manhattan a donc été retenu comme la référence la plus forte pour la notion de boucle courte entre visibilité, recommandation et action."
+    },
+    {
+      "chapter": 2,
+      "source_page": 13,
+      "text": "SAP EWM adopte une logique différente. Le point fort mis en évidence par les pages produit et la documentation SAP n’est pas d’abord l’unification d’exécution, mais la richesse de représentation du métier. SAP présente EWM comme une solution capable de gérer des opérations d’entrepôt à fort volume, tout en intégrant les processus de qualité, de production, de traçabilité et d’automatisation [6]. La solution supporte des objets structurants tels que les produits, les handling units, les lots, les numéros de série, les ressources, les tâches d’entrepôt, les livraisons et les rendez-vous. Cette profondeur de modélisation permet à SAP EWM de décrire finement les conditions dans lesquelles un produit peut être reçu, stocké, déplacé, prélevé ou expédié [7]."
+    },
+    {
+      "chapter": 2,
+      "source_page": 14,
+      "text": "(handling units, lots, séries, objets de données)."
+    },
+    {
+      "chapter": 2,
+      "source_page": 14,
+      "text": "La figure 3 est intéressante parce qu’elle montre une architecture plus orientée processus et objets. Les domaines inbound, storage and operations, et outbound processing sont clairement identifiés, mais ils reposent sur des capacités transversales comme la gestion des batchs, des handling units, des numéros de série et des objets de données. Cette manière de structurer la solution fait apparaître une idée essentielle pour la conception d’un Smart WMS : avant d’optimiser, il faut représenter correctement le monde métier. Un système qui ignore la fragilité d’un produit, sa température cible, son numéro de lot, sa date d’expiration ou le type de manutention requis sera limité dans ses recommandations."
+    },
+    {
+      "chapter": 2,
+      "source_page": 14,
+      "text": "Pour ce stage, SAP EWM a ainsi joué le rôle de référence pour la couche de données de référence et pour la formalisation des contraintes produits. C’est de cette analyse que provient, dans l’architecture fonctionnelle proposée, l’idée d’intégrer explicitement un profil logistique du produit : poids, volume, fragilité, contraintes de température, humidité, rotation et règles spécifiques de stockage ou d’expédition. SAP a aussi renforcé l’idée qu’un Smart WMS doit rester profondément ancré dans le métier, plutôt que de s’appuyer sur une intelligence générique déconnectée des objets et des règles opérationnelles."
+    },
+    {
+      "chapter": 2,
+      "source_page": 14,
+      "text": "Oracle Warehouse Management a été retenu comme troisième référence car sa documentation rend particulièrement lisible la chaîne de transformation de la demande en travail exécutable. Oracle indique qu’une wave sert à lancer l’allocation d’inventaire et à créer une série de tâches [8]. Les écrans et objets associés montrent ensuite comment les tâches guident les opérateurs, avec les informations nécessaires pour le prélèvement, la destination, le SKU, la quantité et le suivi des statuts [9]. Cette clarté séquentielle est précieuse pour une démarche de modélisation, car elle facilite la compréhension du passage entre commande, allocation, tasking et exécution terrain."
+    },
+    {
+      "chapter": 2,
+      "source_page": 15,
+      "text": "l’allocation, les tâches et les assistants IA [8]–[10]."
+    },
+    {
+      "chapter": 2,
+      "source_page": 15,
+      "text": "La figure 4 synthétise la logique observée dans Oracle WMS. Le moteur part de la commande et de sa priorité, applique des règles de wave, procède à l’allocation d’inventaire, génère des tâches, affecte ces tâches à des opérateurs ou équipements, puis suit l’exécution et la confirmation. Autour de ce flux principal gravitent des informations de contexte telles que le stock, les emplacements, les règles FEFO/FIFO, les profils produits ou les contraintes de quai. Oracle enrichit en outre cette logique par des assistants ciblés. La documentation officielle mentionne notamment l’Inventory Expiry Assistant, l’Inventory Shortages Assistant et des assistants liés au tasking et à l’inventaire [10]. L’intérêt de cette approche réside dans sa lisibilité opérationnelle : le système est pensé comme un orchestrateur de travail."
+    },
+    {
+      "chapter": 2,
+      "source_page": 15,
+      "text": "Pour le projet, Oracle a été particulièrement utile pour renforcer le bloc « gestion des commandes » et « gestion des tâches ». La solution illustre bien la façon dont des priorités, des règles d’allocation et des mécanismes de task management peuvent être combinés pour fluidifier l’exécution. Elle a également conforté le choix de faire du moteur de tâches un élément central de l’architecture fonctionnelle cible, au lieu de le traiter comme une simple fonction annexe du WMS."
+    },
+    {
+      "chapter": 2,
+      "source_page": 15,
+      "text": "Malgré leurs différences, les trois solutions convergent vers un socle fonctionnel remarquablement stable. Ce constat est fondamental pour la suite du rapport : l’architecture cible ne doit pas être construite autour d’un éditeur donné, mais autour des fonctions indispensables à tout WMS moderne. Les capacités smart viennent ensuite en surcouche, selon l’infrastructure disponible et le niveau de maturité de l’organisation."
+    },
+    {
+      "chapter": 2,
+      "source_page": 16,
+      "text": "Au-delà de ce socle commun, le benchmark met en évidence des accentuations différentes. Manhattan se distingue par sa capacité à rapprocher les décisions, les opérateurs, les équipements et l’exécution dans une même logique d’action. SAP se distingue par la précision de son modèle métier et sa forte intégration avec l’univers S/4HANA. Oracle se distingue par la lisibilité de son moteur d’orchestration, qui relie explicitement commande, wave, allocation, tasking et exécution. Ces différences ne doivent pas être interprétées comme des oppositions, mais comme des spécialisations dominantes qui éclairent chacune un angle utile pour l’architecture cible."
+    },
+    {
+      "chapter": 2,
+      "source_page": 17,
+      "text": "Ce benchmark identifie des capacités de référence chez les trois éditeurs, sans préjuger ni de la complexité d’implémentation, ni du coût de déploiement, ni du fait qu’une entreprise activera réellement toutes les possibilités observées. Cette nuance oriente la lecture des enseignements suivants : une architecture Smart WMS générique doit distinguer ce qui est cœur, ce qui est smart et ce qui reste optionnel selon l’infrastructure et les contraintes de chaque entreprise. Quatre enseignements principaux ont été retenus. D’abord, un Smart WMS pertinent repose sur un cœur opérationnel robuste : réception, stockage, inventaire, commandes, exécution et gestion des tâches doivent former une colonne vertébrale stable. Ensuite, la qualité de la décision dépend de la qualité du contexte métier ; l’exemple SAP montre qu’il faut représenter explicitement les caractéristiques du produit, des unités logistiques, des emplacements, des lots et des ressources. Troisièmement, l’intelligence doit être connectée à l’exécution ; l’exemple Manhattan montre que des agents ou recommandations n’ont de valeur que s’ils influencent réellement le travail, les priorités, les affectations ou les actions terrain. Enfin, l’exemple Oracle confirme qu’un moteur d’orchestration clair, appuyé sur la gestion des tâches, est indispensable pour transformer la demande en opérations exécutables."
+    },
+    {
+      "chapter": 2,
+      "source_page": 17,
+      "text": "Ces constats ont eu un impact direct sur l’architecture fonctionnelle élaborée pendant le stage. Ils justifient la présence d’un cœur WMS commun, d’une couche ressources & infrastructures, d’interfaces WCS/WES et systèmes externes, d’une couche de données de référence et de stockage analytique, puis de modules smart dédiés à la prévision, au slotting, à l’optimisation des ordres et tâches, à l’optimisation de la main-d’œuvre, à la gestion énergétique et à la détection d’anomalies. Ils expliquent aussi la logique de modularité : une PME peut conserver le socle et n’activer que quelques fonctions intelligentes ciblées, tandis qu’un entrepôt automatisé peut ajouter RFID, vision, AMR/AGV, IoT ou BMS/EMS."
+    },
+    {
+      "chapter": 2,
+      "source_page": 17,
+      "text": "Le benchmark constitue ainsi une étape de cadrage indispensable, mais il ne suffit pas à lui seul pour définir l’architecture cible. La suite du travail doit partir des besoins et des problèmes concrets : congestion à la réception, écarts d’inventaire, ruptures en picking, déséquilibres de charge, contraintes produits sensibles, consommation énergétique ou manque de visibilité temps réel. C’est à partir de ces besoins que les cas d’usage Smart devront être sélectionnés et hiérarchisés."
+    },
+    {
+      "chapter": 3,
+      "source_page": 18,
+      "text": "Le benchmark du chapitre précédent a montré ce que les solutions WMS matures savent couvrir ; il ne dit pas, à lui seul, quelles capacités doivent être retenues dans l’architecture cible. Cette étape consiste donc à revenir aux besoins opérationnels, aux contraintes des produits et aux limites d’infrastructure. L’objectif est de transformer les constats en cas d’usage traçables, sans supposer que toutes les entreprises disposent des mêmes équipements. La numérotation des domaines Réception, Stockage & Inventaire et Préparation & Expédition reprend strictement celle des diagrammes UML déjà produits pendant le stage (UC-R01 à UC-R12, UC-S01 à UC-S14 et UC-E01 à UC-E15)."
+    },
+    {
+      "chapter": 3,
+      "source_page": 18,
+      "text": "La démarche SCAN → PLAN → ACT a servi de fil conducteur à l’identification des besoins. Dans la phase SCAN, le travail a consisté à observer le fonctionnement d’un WMS, à comparer les solutions leaders, puis à relever les points de friction possibles : temps d’attente, erreurs de saisie, écarts de stock, ruptures en zone picking, congestion, manque de visibilité ou contraintes produits mal prises en compte. Le cas industriel étudié dans la littérature sur la réception assistée par vision confirme l’intérêt de partir du processus réel, de mesurer les opérations manuelles et de valider ensuite le gain d’une automatisation ciblée plutôt que d’introduire l’IA sans problème clairement défini [11]."
+    },
+    {
+      "chapter": 3,
+      "source_page": 18,
+      "text": "Dans la phase PLAN, chaque problème est traduit en un use case, puis classé selon trois niveaux. Le niveau Core correspond aux fonctions nécessaires au fonctionnement du WMS. Le niveau Smart regroupe les capacités de prédiction, optimisation ou détection qui améliorent la décision sans exiger nécessairement un nouvel équipement physique. Enfin, le niveau Optional désigne les capacités dépendantes d’une infrastructure particulière : caméra 3D, RFID, AMR/AGV, Pick-to-Light, WCS/WES ou BMS/EMS. La phase ACT, dans le périmètre de ce stage de conception, ne correspond pas à un déploiement industriel ; elle correspond à la formalisation UML, à la vérification des scénarios et aux itérations de validation avec l’encadrement."
+    },
+    {
+      "chapter": 3,
+      "source_page": 18,
+      "text": "L’assessment a fait apparaître des problèmes de nature différente. Certains sont directement liés au flux physique, comme la congestion à la réception ou les déplacements inutiles. D’autres concernent la qualité de l’information, par exemple un stock théorique différent du stock réel. D’autres encore sont liés aux contraintes produits, à l’environnement, à l’énergie ou aux ressources humaines. Cette diversité justifie une architecture modulaire : un entrepôt peut avoir besoin d’optimisation du slotting sans robotique, tandis qu’un site pharmaceutique peut prioriser la température, les lots et le FEFO. Les recherches récentes sur les architectures IoT pour entrepôts confirment d’ailleurs l’intérêt d’une approche multi-domaines et soulignent les enjeux de temps réel, d’interopérabilité et de déploiement progressif [3][12]."
+    },
+    {
+      "chapter": 3,
+      "source_page": 19,
+      "text": "Cette cartographie des problèmes ne débouche pas systématiquement sur une solution d’intelligence artificielle. Une règle métier, un processus mieux conçu, un simple scanner ou une automatisation classique suffisent souvent. L’intelligence artificielle n’est retenue que lorsque la décision dépend de plusieurs variables croisées, d’un historique, d’une prédiction ou d’une détection difficile à exprimer sous forme de règle simple — c’est ce principe qui guide la classification Core / Smart / Optional développée dans les sections suivantes."
+    },
+    {
+      "chapter": 3,
+      "source_page": 19,
+      "text": "La réception constitue le premier point de fiabilisation du stock. Le noyau couvre le rendez-vous, la réception, l’identification, les contrôles, la gestion des anomalies et l’orientation vers un emplacement. Les extensions Smart et Optional permettent ensuite d’anticiper la charge et d’automatiser certaines vérifications. Cette logique reste cohérente avec les résultats du cas Bosch, où l’automatisation visuelle de la réception a réduit les temps de traitement mais a aussi révélé des risques de reconnaissance et d’intégration ERP qui nécessitent un contrôle des exceptions [11]."
+    },
+    {
+      "chapter": 3,
+      "source_page": 20,
+      "text": "Le stockage doit garantir deux objectifs simultanés : placer le produit au bon endroit et maintenir une image fiable du stock. Les fonctions Core couvrent donc le putaway, les stocks, les emplacements, l’inventaire, le réapprovisionnement ainsi que les contraintes de lots et de produits sensibles. Les fonctions Smart cherchent à réduire les déplacements, cibler les contrôles et anticiper les ruptures. Les moyens RFID ou robotisés restent optionnels et ne doivent pas être considérés comme une condition préalable au Smart WMS."
+    },
+    {
+      "chapter": 3,
+      "source_page": 20,
+      "text": "Le flux outbound traduit la demande client en travail exécutable. La chaîne Core va de la réception de la commande à l’expédition, en passant par la planification, la wave, l’allocation, la création des tâches, le picking, le packing et le chargement. Les extensions Smart portent sur la détection de retard, l’optimisation du parcours et la recommandation d’emballage. Les contrôles par vision, pesage ou Pick-to-Light sont optionnels car ils dépendent de l’équipement présent sur le site."
+    },
+    {
+      "chapter": 3,
+      "source_page": 21,
+      "text": "Le yard et les quais ont été ajoutés comme domaine explicite car ils conditionnent directement la fluidité de la réception et de l’expédition. La numérotation suivante est proposée pour être reprise telle quelle dans les futurs diagrammes UML. Le domaine reste volontairement indépendant d’un YMS avancé : les fonctions de base peuvent être gérées par le WMS, tandis que le suivi temps réel ou la réaffectation dynamique nécessitent davantage de données ou une intégration TMS/YMS."
+    },
+    {
+      "chapter": 3,
+      "source_page": 21,
+      "text": "Ce domaine regroupe les moyens nécessaires à l’exécution : personnes, équipements, actifs et systèmes de contrôle. Il joue un rôle de support pour tous les processus métier. La proposition de numérotation UC-RES ci-dessous évite de confondre les fonctions de gestion de ressources avec les use cases énergétiques détaillés en section 3.8. Les interfaces WCS/WES et BMS/EMS sont classées Optional, car elles n’existent que si le site dispose de ces systèmes ou des équipements correspondants."
+    },
+    {
+      "chapter": 3,
+      "source_page": 22,
+      "text": "Les capacités transversales ont déjà été esquissées dans les diagrammes UML du stage ; leur numérotation est donc conservée. Elles ne remplacent pas les use cases métier, mais les alimentent. Par exemple, UC-AI02 peut déclencher ou recommander UC-S05, tandis que UC-AI03 soutient UC-E15. Les services de température et d’énergie reposent sur des capteurs et peuvent, lorsque l’infrastructure le permet, transmettre une consigne à un BMS/EMS. Cette séparation permet de distinguer clairement la donnée mesurée, l’analyse intelligente et l’action métier."
+    },
+    {
+      "chapter": 3,
+      "source_page": 22,
+      "text": "Cette organisation reste cohérente avec les travaux récents sur les réseaux IoT pour entrepôts, qui mettent en avant le rôle du monitoring temps réel, de l’analytics et de l’intelligence distribuée, tout en rappelant les contraintes d’interopérabilité, de sécurité et de montée en charge [12]. Elle est également compatible avec une logique de performance durable, dans laquelle les données d’énergie et d’automatisation peuvent être suivies comme des indicateurs opérationnels et non comme un sous-sujet isolé [13]."
+    },
+    {
+      "chapter": 3,
+      "source_page": 22,
+      "text": "La classification finale ne vise pas à opposer trois familles rigides ; elle sert surtout à éviter deux erreurs : considérer toute fonction avancée comme de l’IA et supposer que tout Smart WMS doit disposer de robotique ou de vision. Une fonction Smart peut fonctionner uniquement avec les données WMS, alors qu’une fonction Optional dépend d’un dispositif matériel ou d’un système externe. Cette distinction constitue le principe de modularité qui guidera l’architecture fonctionnelle du chapitre suivant."
+    },
+    {
+      "chapter": 3,
+      "source_page": 23,
+      "text": "L’analyse des besoins permet désormais de passer d’une liste de technologies à une structure fonctionnelle cohérente. Les use cases Core définissent le socle commun du futur WMS ; les use cases Smart identifient les points où la donnée, l’optimisation ou la prédiction peuvent améliorer la décision ; les use cases Optional explicitent les dépendances à l’infrastructure. Le Chapitre 4 traduira cette cartographie en architecture fonctionnelle cible, en montrant comment le cœur opérationnel, la gestion des tâches, les ressources et infrastructures, les données, les services d’intelligence et les terminaux de terrain s’articulent dans une architecture générique et modulaire. Les blocs « Données de référence » et « Stockage des données (OLTP / OLAP-DWH) » seront explicitement positionnés au Chapitre 4 comme couches de support transversales : ils ne constituent pas des use cases déclenchés par un acteur, mais conditionnent la traçabilité, la cohérence métier et l’exploitation analytique du Smart WMS. La question n’est donc plus « quelles fonctionnalités ajouter ? », mais où positionner chaque capacité, quelles données lui sont nécessaires, avec quels systèmes elle échange et dans quelles conditions elle doit être activée."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "Les chapitres précédents ont permis de passer du benchmark des solutions WMS leaders à une cartographie structurée des besoins et des cas d’usage. Ce chapitre consolide ces résultats sous la forme d’une architecture fonctionnelle cible. L’objectif n’est pas encore de choisir une technologie de déploiement, un framework ou une base de données particulière, mais de définir les responsabilités qui doivent exister dans le système, les relations entre les grands domaines métier et les conditions dans lesquelles les capacités avancées peuvent être activées."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "La version présentée ici reprend l’architecture fonctionnelle élaborée pendant le stage dans son intégralité. Elle distingue les systèmes externes, le cœur opérationnel du WMS, la gestion des tâches et des travaux, les données de référence et le stockage opérationnel ou analytique, les ressources et infrastructures, l’intelligence et l’aide à la décision, puis les terminaux et appareils de terrain. Cette décomposition permet de conserver une lecture métier claire tout en préparant la future architecture applicative."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "La conception repose d’abord sur la généricité. L’architecture doit rester applicable à un entrepôt disposant principalement de terminaux RF et de scanners, mais aussi à un site plus automatisé utilisant convoyeurs, AS/RS, AMR/AGV, RFID ou systèmes WCS/WES. Elle ne doit donc pas supposer qu’une technologie donnée est présente partout. Le socle fonctionnel est stable ; les mécanismes d’optimisation et les équipements avancés sont ajoutés lorsque le contexte les justifie."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "Le deuxième principe est la continuité entre décision et exécution. Une prévision de charge, une proposition de slotting ou une détection de dérive énergétique n’apporte de valeur que si elle peut conduire à une action : création ou réordonnancement d’une tâche, changement de priorité, alerte, instruction vers un système externe ou intervention humaine. Cette orientation prolonge directement les enseignements du benchmark : Manhattan met en avant la connexion entre décision et exécution, SAP la richesse du contexte métier, et Oracle la centralité de l’orchestration des tâches [4]–[10]."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "Enfin, l’architecture conserve une distinction explicite entre trois niveaux. Les fonctions Core sont indispensables au WMS. Les capacités Smart améliorent une décision grâce aux données, à l’optimisation ou à la prédiction. Les capacités Optional dépendent d’une infrastructure particulière, par exemple une caméra 3D, un lecteur RFID, un robot mobile ou un BMS/EMS. Cette distinction évite de confondre transformation intelligente et automatisation systématique."
+    },
+    {
+      "chapter": 4,
+      "source_page": 25,
+      "text": "La figure 4.1 présente la vue d’ensemble. La lecture se fait du haut vers le bas. Les systèmes externes apportent des commandes, ordres, informations de transport et référentiels. Le cœur WMS exécute les processus d’entrepôt. Le moteur de tâches transforme les décisions en travail exécutable. Les ressources et infrastructures représentent les personnes, équipements, actifs et systèmes de contrôle nécessaires à cette exécution. La couche d’intelligence intervient de manière transversale pour prévoir, optimiser ou détecter. Les terminaux et dispositifs terrain assurent enfin le lien entre le système numérique et le flux physique."
+    },
+    {
+      "chapter": 4,
+      "source_page": 26,
+      "text": "La première couche regroupe les systèmes qui échangent avec le WMS sans appartenir à son cœur opérationnel. L’ERP/SAP fournit notamment les commandes, informations clients et fournisseurs et certains référentiels. Le MES intervient lorsque l’entrepôt est lié à la production. Le TMS/YMS transmet les informations de transport, de rendez-vous, de camions, de quais et de statuts. Les fournisseurs apportent les ASN et informations de livraison, tandis que les clients alimentent la demande à travers les commandes et confirmations. D’autres systèmes, par exemple Finance, RH, BI ou CRM, peuvent compléter ce contexte."
+    },
+    {
+      "chapter": 4,
+      "source_page": 26,
+      "text": "Lorsque l’entreprise dispose d’un BMS/EMS, celui-ci est considéré comme une intégration externe spécialisée. Le WMS peut détecter une contrainte métier ou recommander une action liée à la température, à l’éclairage ou à l’énergie, mais l’exécution physique de la consigne reste sous la responsabilité du système bâtiment ou énergétique. Cette séparation clarifie le périmètre du Smart WMS et évite de lui attribuer des responsabilités de contrôle industriel qu’il ne doit pas nécessairement porter."
+    },
+    {
+      "chapter": 4,
+      "source_page": 26,
+      "text": "Le cœur opérationnel constitue la partie indispensable de l’architecture. Il couvre six domaines. La Réception marchandises traite les rendez-vous, la réception, les contrôles qualitatifs et quantitatifs, le cross-docking et les retours fournisseurs. Le Stockage & Inventaire gère emplacements, stocks, réapprovisionnements, stock de réserve, inventaire tournant, lots, dates et ajustements. La Gestion des commandes transforme la demande en ordonnancement, planification, waves, allocations et priorités. L’Exécution entrepôt couvre le picking, le packing, le staging, la consolidation, le chargement, l’expédition et les retours clients. Yard & Quais organise la cour, les portes, quais et transporteurs. Enfin, les Données de référence structurent les produits, clients, fournisseurs, emplacements, unités logistiques, règles et rôles."
+    },
+    {
+      "chapter": 4,
+      "source_page": 26,
+      "text": "À ce niveau, l’objectif n’est pas d’introduire une intelligence artificielle dans chaque processus. Il est d’obtenir un socle cohérent et traçable. Une optimisation de parcours n’a de sens que si les emplacements et les tâches sont correctement modélisés ; une prévision de rupture n’est fiable que si les mouvements de stock sont correctement capturés. Le Smart WMS reste donc d’abord un WMS fonctionnellement solide."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "La gestion des tâches et des travaux est volontairement positionnée sous les domaines opérationnels. Elle constitue le mécanisme de liaison entre un besoin métier et son exécution. Les tâches peuvent provenir d’une réception, d’un putaway, d’un réapprovisionnement, d’un inventaire, d’un picking, d’un déplacement interne, d’une anomalie qualité ou d’une alerte environnementale. Le bloc couvre la création, l’affectation, l’exécution, le suivi des statuts et la gestion des exceptions."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "Dans un entrepôt manuel, l’affectation aboutit généralement à un opérateur qui reçoit son travail sur terminal RF, tablette ou système vocal. Dans un environnement automatisé, la tâche peut être traduite en instruction vers un WCS/WES, un convoyeur, un AS/RS ou un AMR/AGV. Cette position centrale empêche les capacités Smart de rester de simples indicateurs : une recommandation peut être convertie en tâche ou en changement de priorité lorsqu’elle est validée."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "Les données de référence constituent le vocabulaire métier du WMS. Elles regroupent notamment les produits et articles, clients, fournisseurs, emplacements et zones, unités logistiques, règles et politiques, utilisateurs et rôles. Leur qualité conditionne directement les décisions du système. Un produit sensible doit disposer d’un profil logistique explicite ; un emplacement doit connaître sa capacité et ses caractéristiques ; une règle FEFO doit disposer des informations de lot et de date nécessaires pour être appliquée."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "Le stockage des données est séparé en deux usages. La base opérationnelle OLTP supporte les transactions quotidiennes : mouvements, tâches, statuts, réceptions, commandes et confirmations. La base analytique OLAP/DWH conserve les historiques utiles aux KPI, aux tendances, aux analyses de performance et à la préparation des modèles prédictifs. Ces blocs ne sont pas traités comme de simples cas d’utilisation, car ils ne représentent pas seulement une action déclenchée par un acteur ; ils fournissent le contexte et la mémoire nécessaires à l’ensemble du Smart WMS."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "Le tableau 4.1 synthétise les responsabilités des principaux niveaux de l’architecture et leur contribution à la transformation vers le Smart WMS."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "Systèmes externes Échanger commandes, production, transport, statuts et données de contexte Connecter le WMS au système d’information et aux partenaires Cœur opérationnel WMS Exécuter réception, stock, commandes, yard et expédition Stabiliser le socle métier indispensable Gestion des tâches Créer, affecter, suivre et traiter les exceptions Transformer décisions, alertes et besoins en actions exécutables Données de référence Structurer produits, zones, unités logistiques, règles et rôles Fournir le contexte aux contrôles, optimisations et recommandations Stockage OLTP / OLAP-DWH Séparer exécution transactionnelle et analyse historique Supporter traçabilité, KPI et modèles prédictifs Ressources & infrastructures Gérer main-d’œuvre, équipements, énergie, actifs et WCS/WES Adapter le système au niveau réel d’automatisation Intelligence & décision Prévoir, optimiser, détecter et recommander Améliorer la qualité des décisions opérationnelles Terminaux & terrain Capturer les événements et guider l’exécution Relier le système numérique au flux physique"
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "La couche Ressources & Infrastructures traduit les capacités concrètes disponibles sur le terrain. La gestion de la main-d’œuvre couvre la planification du personnel, le suivi des performances, les compétences et l’équilibrage de charge. La gestion des équipements couvre les chariots, transpalettes, convoyeurs, trieurs, AS/RS, shuttles, AMR/AGV, robots et opérations de maintenance. La gestion des actifs complète cette vision avec le suivi, l’étalonnage, le taux d’utilisation, la surveillance de l’état et le cycle de vie."
+    },
+    {
+      "chapter": 4,
+      "source_page": 28,
+      "text": "La gestion énergétique et environnementale est traitée comme un domaine à part entière. Elle suit la consommation électrique par zone ou équipement, la température, l’humidité, les seuils et consignes, les modes marche/veille/arrêt et les historiques énergétiques. Les interfaces WCS/WES assurent quant à elles la transmission des instructions aux équipements, la remontée de leur état, la gestion des erreurs, des itinéraires, du trafic et des tâches automatisées."
+    },
+    {
+      "chapter": 4,
+      "source_page": 29,
+      "text": "La couche Intelligence & Aide à la décision ne remplace pas les processus du cœur WMS ; elle les améliore lorsque les données et le besoin le justifient. Elle regroupe la prévision de la demande et de la charge, l’optimisation du slotting, l’optimisation des ordres et des tâches, l’optimisation de la main-d’œuvre ainsi que la détection d’anomalies et la gestion des risques."
+    },
+    {
+      "chapter": 4,
+      "source_page": 29,
+      "text": "La hiérarchie de décision reste volontairement pragmatique. Une règle métier simple est privilégiée lorsqu’elle suffit. L’optimisation devient pertinente lorsque plusieurs contraintes doivent être arbitrées simultanément, par exemple distance, occupation, poids, volume, rotation ou priorité. Le machine learning est retenu lorsque l’historique apporte une valeur prédictive mesurable. Enfin, un agent IA n’est pertinent que lorsqu’il doit observer un contexte plus large, proposer une recommandation et éventuellement déclencher une action contrôlée. Cette hiérarchie limite l’usage artificiel de l’IA et maintient l’architecture explicable."
+    },
+    {
+      "chapter": 4,
+      "source_page": 29,
+      "text": "Les terminaux et appareils de terrain constituent la couche de contact avec l’opération physique. L’architecture prévoit des terminaux RF, scanners codes-barres ou QR, lecteurs RFID, caméras et systèmes de vision, balances, capteurs, systèmes vocaux, smartphones ou tablettes, Pick-to-Light / Put-to-Light et terminaux véhicule. Ces dispositifs ne représentent pas tous des fonctions obligatoires : ils sont des moyens de capture ou d’exécution qui peuvent être activés selon le contexte."
+    },
+    {
+      "chapter": 4,
+      "source_page": 29,
+      "text": "Cette distinction est importante pour la généricité du modèle. Le contrôle quantitatif existe dans le cœur WMS même en l’absence de caméra 3D ; la caméra est une option qui peut automatiser ce contrôle. De la même manière, le déplacement de stock reste un processus du WMS qu’il soit exécuté par un cariste ou par un AMR. L’architecture sépare donc la responsabilité fonctionnelle du moyen technique utilisé pour l’exécuter."
+    },
+    {
+      "chapter": 4,
+      "source_page": 29,
+      "text": "La modularité repose aussi sur le profil logistique du produit. Un article ne se limite pas à une référence : il peut posséder un poids, un volume, une fragilité, une température minimale et maximale, une humidité requise, une date d’expiration, un lot, un numéro de série, une rotation ou une priorité d’expédition. Ces propriétés influencent le choix d’emplacement, le slotting, l’allocation, le picking, le packing et la surveillance environnementale."
+    },
+    {
+      "chapter": 4,
+      "source_page": 30,
+      "text": "La figure 4.4 synthétise la logique d’activation. Le niveau Core constitue le socle obligatoire. Le niveau Smart ajoute des mécanismes fondés sur les données lorsque les informations et l’historique sont suffisants. Le niveau Optional introduit des capacités dépendantes d’une infrastructure particulière. Les niveaux sont cumulatifs : une entreprise peut améliorer sa maturité progressivement sans remettre en cause l’ensemble de l’architecture."
+    },
+    {
+      "chapter": 4,
+      "source_page": 30,
+      "text": "Historique réceptions, commandes, ASN et rendez-vous Prévision de charge Smart Anticiper ressources et quais Slotting optimisé Smart Données produit, rotation, occupation et contraintes Réduire déplacements et erreurs RFID Optional Portiques, lecteurs, tags et intégration WMS Améliorer la traçabilité du stock Caméra 3D / vision Optional Caméra, modèle vision et poste de contrôle Comptage, défauts et preuve visuelle AMR / AGV Optional Robots, WCS/WES, cartographie et règles trafic Automatiser certains déplacements BMS / EMS Optional Système bâtiment ou énergétique connecté Adapter température ou réduire consommation Détection d’anomalies Smart Données historiques, KPI et règles métier Identifier écarts de processus ou risques"
+    },
+    {
+      "chapter": 4,
+      "source_page": 30,
+      "text": "L’architecture fonctionnelle cible structure le Smart WMS comme un système modulaire plutôt qu’un bloc unique. Le cœur opérationnel assure les processus indispensables ; le moteur de tâches relie les décisions à l’action ; les données de référence et les stockages OLTP/OLAP-DWH apportent contexte, traçabilité et historique ; les ressources et infrastructures décrivent les moyens réellement disponibles ; l’intelligence améliore les décisions lorsque les conditions sont réunies ; enfin, les terminaux et appareils terrain relient le modèle numérique aux opérations physiques."
+    },
+    {
+      "chapter": 4,
+      "source_page": 30,
+      "text": "Cette organisation répond à la problématique du stage : couvrir les fonctions essentielles d’un entrepôt tout en restant adaptable à différents secteurs et niveaux d’automatisation. Elle fournit également une base stable pour la modélisation UML. Les acteurs peuvent désormais être associés aux responsabilités fonctionnelles, les activités peuvent décrire les enchaînements métier, les séquences peuvent préciser les interactions entre systèmes, et les objets métier peuvent être structurés dans un modèle de domaine. Le chapitre suivant s’appuiera sur cette architecture pour formaliser ces différentes vues sans perdre la distinction Core / Smart / Optional."
+    }
+  ]
+}

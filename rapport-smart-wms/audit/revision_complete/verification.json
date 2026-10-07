@@ -1,0 +1,980 @@
+{
+  "source": "Rapport_Stage_FERHAN_Abdelali_Chapitres_1_2_3_4_Organise_Professionnel.pdf",
+  "source_sha256": "5853b76b6e2719406eb9fd997c96e73504c6e6a21160555d5098c3baae1d18a9",
+  "original_pages": 30,
+  "final_pages": 72,
+  "final_words": 16983,
+  "sections": [
+    {
+      "id": "1.1",
+      "title": "Présentation générale de Smart Automation Technologies",
+      "source_page": 6,
+      "report_page": "3"
+    },
+    {
+      "id": "1.2",
+      "title": "Vision, approche et valeurs",
+      "source_page": 6,
+      "report_page": "4"
+    },
+    {
+      "id": "1.3",
+      "title": "Métiers et domaines d’intervention",
+      "source_page": 7,
+      "report_page": "4"
+    },
+    {
+      "id": "1.4",
+      "title": "Produits, solutions et activités de recherche",
+      "source_page": 7,
+      "report_page": "5"
+    },
+    {
+      "id": "1.5",
+      "title": "Contexte du stage",
+      "source_page": 8,
+      "report_page": "5"
+    },
+    {
+      "id": "1.6",
+      "title": "Problématique",
+      "source_page": 8,
+      "report_page": "5"
+    },
+    {
+      "id": "1.7",
+      "title": "Objectifs du stage",
+      "source_page": 8,
+      "report_page": "6"
+    },
+    {
+      "id": "1.8",
+      "title": "Périmètre et limites",
+      "source_page": 9,
+      "report_page": "6"
+    },
+    {
+      "id": "1.9",
+      "title": "Livrables et résultats attendus",
+      "source_page": 9,
+      "report_page": "7"
+    },
+    {
+      "id": "1.10",
+      "title": "Conclusion du chapitre",
+      "source_page": 10,
+      "report_page": "7"
+    },
+    {
+      "id": "2.1",
+      "title": "Définitions : WMS classique vs. Smart WMS",
+      "source_page": 11,
+      "report_page": "8"
+    },
+    {
+      "id": "2.2",
+      "title": "Méthodologie du benchmark",
+      "source_page": 11,
+      "report_page": "8"
+    },
+    {
+      "id": "2.3",
+      "title": "Manhattan Active Warehouse Management — unification de l’exécution",
+      "source_page": 12,
+      "report_page": "9"
+    },
+    {
+      "id": "2.4",
+      "title": "SAP Extended Warehouse Management — richesse du modèle métier",
+      "source_page": 13,
+      "report_page": "10"
+    },
+    {
+      "id": "2.5",
+      "title": "Oracle Warehouse Management Cloud — orchestration commande → wave → allocation → tâches",
+      "source_page": 14,
+      "report_page": "11"
+    },
+    {
+      "id": "2.6",
+      "title": "Socle fonctionnel commun identifié",
+      "source_page": 15,
+      "report_page": "12"
+    },
+    {
+      "id": "2.7",
+      "title": "Différenciateurs et lecture comparative",
+      "source_page": 16,
+      "report_page": "13"
+    },
+    {
+      "id": "2.8",
+      "title": "Enseignements retenus pour l’architecture Smart WMS proposée",
+      "source_page": 17,
+      "report_page": "14"
+    },
+    {
+      "id": "3.1",
+      "title": "Approche SCAN → PLAN → ACT appliquée à l’identification des besoins",
+      "source_page": 18,
+      "report_page": "16"
+    },
+    {
+      "id": "3.2",
+      "title": "Problèmes et contraintes identifiés par domaine",
+      "source_page": 18,
+      "report_page": "17"
+    },
+    {
+      "id": "3.3",
+      "title": "Cartographie des use cases — Réception (UC-R01 à UC-R12)",
+      "source_page": 19,
+      "report_page": "18"
+    },
+    {
+      "id": "3.4",
+      "title": "Cartographie des use cases — Stockage & Inventaire (UC-S01 à UC-S14)",
+      "source_page": 20,
+      "report_page": "18"
+    },
+    {
+      "id": "3.5",
+      "title": "Cartographie des use cases — Commandes & Exécution / Expédition (UC-E01 à UC-E15)",
+      "source_page": 20,
+      "report_page": "19"
+    },
+    {
+      "id": "3.6",
+      "title": "Cartographie des use cases — Yard & Quais",
+      "source_page": 21,
+      "report_page": "20"
+    },
+    {
+      "id": "3.7",
+      "title": "Cartographie des use cases — Ressources & Infrastructures",
+      "source_page": 21,
+      "report_page": "21"
+    },
+    {
+      "id": "3.8",
+      "title": "Cartographie des use cases — Intelligence & Aide à la décision transversale",
+      "source_page": 22,
+      "report_page": "21"
+    },
+    {
+      "id": "3.9",
+      "title": "Synthèse Core / Smart / Optional et critères d’activation",
+      "source_page": 22,
+      "report_page": "22"
+    },
+    {
+      "id": "3.10",
+      "title": "Mise en perspective pour l’architecture fonctionnelle cible",
+      "source_page": 23,
+      "report_page": "25"
+    },
+    {
+      "id": "4.1",
+      "title": "Principes de conception",
+      "source_page": 25,
+      "report_page": "26"
+    },
+    {
+      "id": "4.2",
+      "title": "Vue d’ensemble de l’architecture proposée",
+      "source_page": 25,
+      "report_page": "26"
+    },
+    {
+      "id": "4.3",
+      "title": "Systèmes externes et périmètre d’intégration",
+      "source_page": 26,
+      "report_page": "27"
+    },
+    {
+      "id": "4.4",
+      "title": "Cœur opérationnel du WMS",
+      "source_page": 26,
+      "report_page": "27"
+    },
+    {
+      "id": "4.5",
+      "title": "Gestion des tâches et orchestration du travail",
+      "source_page": 28,
+      "report_page": "30"
+    },
+    {
+      "id": "4.6",
+      "title": "Données de référence et stockage des données",
+      "source_page": 28,
+      "report_page": "30"
+    },
+    {
+      "id": "4.7",
+      "title": "Ressources, infrastructures et équipements",
+      "source_page": 28,
+      "report_page": "31"
+    },
+    {
+      "id": "4.8",
+      "title": "Intelligence et aide à la décision",
+      "source_page": 29,
+      "report_page": "31"
+    },
+    {
+      "id": "4.9",
+      "title": "Terminaux et appareils de terrain",
+      "source_page": 29,
+      "report_page": "31"
+    },
+    {
+      "id": "4.10",
+      "title": "Modularité et profils produits",
+      "source_page": 29,
+      "report_page": "32"
+    },
+    {
+      "id": "4.11",
+      "title": "Synthèse du chapitre",
+      "source_page": 30,
+      "report_page": "35"
+    }
+  ],
+  "tables": [
+    {
+      "id": "sat",
+      "source_pages": [
+        7
+      ],
+      "expected_rows": 4,
+      "actual_rows": 4,
+      "pass": true
+    },
+    {
+      "id": "perimetre",
+      "source_pages": [
+        9
+      ],
+      "expected_rows": 7,
+      "actual_rows": 7,
+      "pass": true
+    },
+    {
+      "id": "livrables",
+      "source_pages": [
+        9,
+        10
+      ],
+      "expected_rows": 5,
+      "actual_rows": 5,
+      "pass": true
+    },
+    {
+      "id": "socle",
+      "source_pages": [
+        15,
+        16
+      ],
+      "expected_rows": 10,
+      "actual_rows": 10,
+      "pass": true
+    },
+    {
+      "id": "comparaison",
+      "source_pages": [
+        16,
+        17
+      ],
+      "expected_rows": 4,
+      "actual_rows": 4,
+      "pass": true
+    },
+    {
+      "id": "problemes",
+      "source_pages": [
+        19
+      ],
+      "expected_rows": 7,
+      "actual_rows": 7,
+      "pass": true
+    },
+    {
+      "id": "reception",
+      "source_pages": [
+        19,
+        20
+      ],
+      "expected_rows": 12,
+      "actual_rows": 12,
+      "pass": true
+    },
+    {
+      "id": "stockage",
+      "source_pages": [
+        20
+      ],
+      "expected_rows": 14,
+      "actual_rows": 14,
+      "pass": true
+    },
+    {
+      "id": "expedition",
+      "source_pages": [
+        20,
+        21
+      ],
+      "expected_rows": 15,
+      "actual_rows": 15,
+      "pass": true
+    },
+    {
+      "id": "yard",
+      "source_pages": [
+        21
+      ],
+      "expected_rows": 7,
+      "actual_rows": 7,
+      "pass": true
+    },
+    {
+      "id": "ressources",
+      "source_pages": [
+        21,
+        22
+      ],
+      "expected_rows": 10,
+      "actual_rows": 10,
+      "pass": true
+    },
+    {
+      "id": "transversal",
+      "source_pages": [
+        22
+      ],
+      "expected_rows": 3,
+      "actual_rows": 3,
+      "pass": true
+    },
+    {
+      "id": "classification",
+      "source_pages": [
+        23
+      ],
+      "expected_rows": 6,
+      "actual_rows": 6,
+      "pass": true
+    },
+    {
+      "id": "responsabilites",
+      "source_pages": [
+        28
+      ],
+      "expected_rows": 8,
+      "actual_rows": 8,
+      "pass": true
+    },
+    {
+      "id": "activation",
+      "source_pages": [
+        30
+      ],
+      "expected_rows": 7,
+      "actual_rows": 7,
+      "pass": true
+    }
+  ],
+  "missing_use_case_ids": {
+    "R": [],
+    "S": [],
+    "E": [],
+    "Y": [],
+    "RES": []
+  },
+  "landscape_pages": [],
+  "pages": [
+    {
+      "page_pdf": 1,
+      "landscape": false,
+      "words": 95,
+      "text_outside_page": [],
+      "min_font_pt": 7.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 2,
+      "landscape": false,
+      "words": 135,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 3,
+      "landscape": false,
+      "words": 750,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 4,
+      "landscape": false,
+      "words": 1019,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 5,
+      "landscape": false,
+      "words": 14,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 6,
+      "landscape": false,
+      "words": 717,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 7,
+      "landscape": false,
+      "words": 192,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 8,
+      "landscape": false,
+      "words": 449,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 9,
+      "landscape": false,
+      "words": 507,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 10,
+      "landscape": false,
+      "words": 330,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 11,
+      "landscape": false,
+      "words": 323,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 12,
+      "landscape": false,
+      "words": 433,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 13,
+      "landscape": false,
+      "words": 463,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 14,
+      "landscape": false,
+      "words": 335,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 15,
+      "landscape": false,
+      "words": 292,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 16,
+      "landscape": false,
+      "words": 443,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 17,
+      "landscape": false,
+      "words": 355,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 18,
+      "landscape": false,
+      "words": 441,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 19,
+      "landscape": false,
+      "words": 417,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 20,
+      "landscape": false,
+      "words": 416,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 21,
+      "landscape": false,
+      "words": 353,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 22,
+      "landscape": false,
+      "words": 417,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 23,
+      "landscape": false,
+      "words": 161,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 24,
+      "landscape": false,
+      "words": 427,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 25,
+      "landscape": false,
+      "words": 363,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 26,
+      "landscape": false,
+      "words": 366,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 27,
+      "landscape": false,
+      "words": 312,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 28,
+      "landscape": false,
+      "words": 310,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 29,
+      "landscape": false,
+      "words": 337,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 30,
+      "landscape": false,
+      "words": 299,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 31,
+      "landscape": false,
+      "words": 167,
+      "text_outside_page": [],
+      "min_font_pt": 8.89,
+      "a4_portrait": true,
+      "text_crossing_diagram_box": []
+    },
+    {
+      "page_pdf": 32,
+      "landscape": false,
+      "words": 170,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 33,
+      "landscape": false,
+      "words": 163,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 34,
+      "landscape": false,
+      "words": 432,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true,
+      "text_crossing_diagram_box": []
+    },
+    {
+      "page_pdf": 35,
+      "landscape": false,
+      "words": 421,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 36,
+      "landscape": false,
+      "words": 10,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true,
+      "text_crossing_diagram_box": []
+    },
+    {
+      "page_pdf": 37,
+      "landscape": false,
+      "words": 276,
+      "text_outside_page": [],
+      "min_font_pt": 8.41,
+      "a4_portrait": true,
+      "text_crossing_diagram_box": []
+    },
+    {
+      "page_pdf": 38,
+      "landscape": false,
+      "words": 440,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 39,
+      "landscape": false,
+      "words": 413,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 40,
+      "landscape": false,
+      "words": 256,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 41,
+      "landscape": false,
+      "words": 277,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true,
+      "text_crossing_diagram_box": []
+    },
+    {
+      "page_pdf": 42,
+      "landscape": false,
+      "words": 235,
+      "text_outside_page": [],
+      "min_font_pt": 8.9,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 43,
+      "landscape": false,
+      "words": 186,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 44,
+      "landscape": false,
+      "words": 305,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 45,
+      "landscape": false,
+      "words": 20,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 46,
+      "landscape": false,
+      "words": 60,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 47,
+      "landscape": false,
+      "words": 21,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 48,
+      "landscape": false,
+      "words": 62,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 49,
+      "landscape": false,
+      "words": 23,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 50,
+      "landscape": false,
+      "words": 55,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 51,
+      "landscape": false,
+      "words": 25,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 52,
+      "landscape": false,
+      "words": 79,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 53,
+      "landscape": false,
+      "words": 26,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 54,
+      "landscape": false,
+      "words": 22,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 55,
+      "landscape": false,
+      "words": 59,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 56,
+      "landscape": false,
+      "words": 20,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 57,
+      "landscape": false,
+      "words": 91,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 58,
+      "landscape": false,
+      "words": 18,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 59,
+      "landscape": false,
+      "words": 63,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 60,
+      "landscape": false,
+      "words": 23,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 61,
+      "landscape": false,
+      "words": 23,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 62,
+      "landscape": false,
+      "words": 20,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 63,
+      "landscape": false,
+      "words": 57,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 64,
+      "landscape": false,
+      "words": 18,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 65,
+      "landscape": false,
+      "words": 21,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 66,
+      "landscape": false,
+      "words": 65,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 67,
+      "landscape": false,
+      "words": 19,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 68,
+      "landscape": false,
+      "words": 69,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 69,
+      "landscape": false,
+      "words": 92,
+      "text_outside_page": [],
+      "min_font_pt": 6.28,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 70,
+      "landscape": false,
+      "words": 87,
+      "text_outside_page": [],
+      "min_font_pt": 8.97,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 71,
+      "landscape": false,
+      "words": 317,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    },
+    {
+      "page_pdf": 72,
+      "landscape": false,
+      "words": 306,
+      "text_outside_page": [],
+      "min_font_pt": 9.96,
+      "a4_portrait": true
+    }
+  ],
+  "overfull_warnings": [],
+  "undefined_references": [],
+  "missing_characters": []
+}
