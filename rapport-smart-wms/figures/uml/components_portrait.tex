@@ -1,0 +1,56 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth, every node/.style={font=\sffamily\fontsize{8.4}{10}\selectfont,align=center}]
+\tikzset{band/.style={draw=Navy,line width=.55pt,rounded corners=1pt}, cell/.style={draw=Navy!70,fill=white,line width=.45pt,minimum height=1.0cm,inner sep=2pt}, arrow/.style={->,draw=Navy,line width=.55pt}}
+\node[band,fill=Teal!8,minimum width=15.8cm,minimum height=2.0cm,anchor=north west] (terrain) at (0,22) {};
+\node[anchor=north west,font=\sffamily\bfseries\fontsize{10}{12}\selectfont,text=Teal] at (.25,21.75) {Canaux et terrain};
+\node[cell,minimum width=4.4cm] (vision) at (3,20.75) {Lecture et vision\\RFID, OCR, caméra};
+\node[cell,minimum width=4.4cm] (term) at (8,20.75) {Terminaux RF / mobiles};
+\node[cell,minimum width=4.4cm] (equip) at (13,20.75) {Équipements\\AMR, convoyeurs, AS/RS};
+
+\node[band,fill=Orange!9,minimum width=15.8cm,minimum height=2.0cm,anchor=north west] (ext) at (0,19.35) {};
+\node[anchor=north west,font=\sffamily\bfseries\fontsize{10}{12}\selectfont,text=Orange] at (.25,19.10) {Systèmes externes};
+\node[cell,minimum width=3.1cm] (erp) at (2,18.1) {ERP / SAP};
+\node[cell,minimum width=3.1cm] (tms) at (5.55,18.1) {TMS / YMS};
+\node[cell,minimum width=3.1cm] (wcs) at (9.10,18.1) {WCS / WES};
+\node[cell,minimum width=3.1cm] (bms) at (12.65,18.1) {BMS / EMS};
+
+\node[band,fill=Navy!7,minimum width=15.8cm,minimum height=5.1cm,anchor=north west] (wms) at (0,16.7) {};
+\node[anchor=north west,font=\sffamily\bfseries\fontsize{10}{12}\selectfont,text=Navy] at (.25,16.45) {Services métier WMS};
+\node[cell,minimum width=4.6cm] (rec) at (2.7,15.25) {Réception};
+\node[cell,minimum width=4.6cm] (stock) at (8,15.25) {Stockage et inventaire};
+\node[cell,minimum width=4.6cm] (exp) at (13.3,15.25) {Commandes et expédition};
+\node[cell,minimum width=4.6cm] (yard) at (2.7,13.65) {Yard et quais};
+\node[cell,minimum width=4.6cm] (res) at (8,13.65) {Ressources et actifs};
+\node[cell,fill=Navy!12,minimum width=4.6cm] (tasks) at (13.3,13.65) {Moteur de tâches};
+
+\node[band,fill=Purple!8,minimum width=15.8cm,minimum height=2.5cm,anchor=north west] (smart) at (0,10.85) {};
+\node[anchor=north west,font=\sffamily\bfseries\fontsize{10}{12}\selectfont,text=Purple] at (.25,10.60) {Services Smart};
+\node[cell,minimum width=4.6cm] (optim) at (2.7,9.45) {Prévision et optimisation};
+\node[cell,minimum width=4.6cm] (anomaly) at (8,9.45) {Détection d'anomalies};
+\node[cell,minimum width=4.6cm] (rules) at (13.3,9.45) {Règles et recommandations};
+
+\node[band,fill=Purple!4,minimum width=15.8cm,minimum height=3.6cm,anchor=north west] (data) at (0,7.65) {};
+\node[anchor=north west,font=\sffamily\bfseries\fontsize{10}{12}\selectfont,text=Purple] at (.25,7.40) {Données};
+\node[cell,minimum width=4.6cm] (ref) at (2.7,6.15) {Référentiel métier};
+\node[cell,minimum width=4.6cm] (oltp) at (8,6.15) {Base opérationnelle\\OLTP};
+\node[cell,minimum width=4.6cm] (dwh) at (13.3,6.15) {Entrepôt analytique\\OLAP / DWH};
+
+\draw[arrow] (vision.south) -- (rec.north);
+\draw[arrow] (term.south) -- (tasks.north);
+\draw[arrow] (equip.south) -- (wcs.north);
+\draw[arrow] (erp.south) -- (rec.north);
+\draw[arrow] (tms.south) -- (exp.north);
+\draw[arrow] (wcs.south) -- (tasks.north);
+\draw[arrow] (bms.south) -- (anomaly.north);
+\draw[arrow] (rec.south) -- (tasks.north west);
+\draw[arrow] (stock.south) -- (tasks.north west);
+\draw[arrow] (exp.south) -- (tasks.north);
+\draw[arrow] (yard.south) -- (tasks.west);
+\draw[arrow] (res.south) -- (tasks.west);
+\draw[arrow] (ref.south) -- (oltp.south);
+\draw[arrow] (oltp.east) -- (dwh.west);
+\draw[arrow] (dwh.north) -- (optim.south);
+\draw[arrow] (dwh.north) -- (anomaly.south);
+\draw[arrow] (optim.east) -- (rules.west);
+\draw[arrow] (anomaly.east) -- (rules.west);
+\draw[arrow] (rules.north) -- node[right,font=\sffamily\fontsize{7}{8}\selectfont]{recommandation validée} (tasks.south);
+\end{tikzpicture}

@@ -1,0 +1,51 @@
+@startuml
+title Smart WMS — Cas d'utilisation : Yard & quais
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Planificateur" as planner
+actor "Agent de quai" as dock
+actor "Transporteur /\nchauffeur" as carrier
+actor "TMS / YMS" as tms
+
+rectangle "Yard & quais" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-Y01\nPlanifier les rendez-vous\ntransporteurs" as Y01
+  usecase "UC-Y02\nEnregistrer entrée /\nsortie véhicule" as Y02
+  usecase "UC-Y03\nAffecter un quai\nou une porte" as Y03
+  usecase "UC-Y04\nSuivre le statut des\nquais / portes" as Y04
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-Y06\nDétecter congestion\ncour / quais" as Y06
+  usecase "UC-Y07\nRecommander une réaffectation\ndynamique de quai" as Y07
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-Y05\nSuivre véhicule / transporteur\ndans la cour" as Y05
+ }
+}
+
+planner -- Y01
+planner -- Y03
+dock -- Y02
+dock -- Y04
+carrier -- Y02
+tms -- Y01
+tms -- Y05
+Y03 ..> Y01 : <<include>>
+Y04 ..> Y03 : <<include>>
+Y06 ..> Y04 : <<extend>>\n[occupation et attentes]
+Y07 ..> Y03 : <<extend>>\n[retard ou priorité]
+Y05 ..> Y02 : <<extend>>\n[YMS ou géolocalisation]
+@enduml

@@ -1,0 +1,63 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam packageStyle rectangle
+skinparam actorBorderColor #193D5B
+skinparam usecaseBorderColor #193D5B
+title Smart WMS - Cas d'utilisation : Stockage et inventaire
+actor "Magasinier /\ncariste" as worker
+actor "Superviseur\nentrepot" as sup
+actor "Qualite et\nWCS / WES" as sys
+actor "RFID et\nAMR / AGV" as tech
+rectangle "Stockage et inventaire" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-S01\nMettre en stock" as S01
+  usecase "UC-S02\nGerer les stocks" as S02
+  usecase "UC-S03\nGerer les emplacements" as S03
+  usecase "UC-S04\nInventaire tournant" as S04
+  usecase "UC-S05\nReapprovisionner\nla zone picking" as S05
+  usecase "UC-S07\nSurveiller produits\nsensibles" as S07
+  usecase "UC-S08\nGerer lots / DLC / FEFO" as S08
+  S01 -[hidden]right- S02
+  S03 -[hidden]right- S04
+  S05 -[hidden]right- S07
+  S01 -[hidden]down- S03
+  S03 -[hidden]down- S05
+  S07 -[hidden]down- S08
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-S06\nDetecter congestion" as S06
+  usecase "UC-S09\nSlotting optimal" as S09
+  usecase "UC-S10\nCibler a recompter" as S10
+  usecase "UC-S11\nPredire une rupture" as S11
+  usecase "UC-S12\nEmplacement alternatif" as S12
+  S06 -[hidden]right- S09
+  S10 -[hidden]right- S11
+  S09 -[hidden]down- S10
+  S11 -[hidden]down- S12
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-S13\nSuivre palettes RFID" as S13
+  usecase "UC-S14\nDeplacer par AMR / AGV" as S14
+  S13 -[hidden]right- S14
+ }
+}
+worker --> S01
+worker --> S04
+sup --> S06
+sys --> S07
+sys --> S14
+tech --> S13
+tech --> S14
+S01 ..> S03 : include
+S07 ..> S08 : include
+S09 ..> S01 : extend
+S10 ..> S04 : extend
+S11 ..> S05 : extend
+S12 ..> S02 : extend
+S13 ..> S02 : extend
+S14 ..> S01 : extend
+@enduml

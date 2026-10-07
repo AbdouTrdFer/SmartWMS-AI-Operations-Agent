@@ -1,0 +1,32 @@
+@startuml
+skinparam shadowing false
+skinparam ArrowColor #C06A20
+skinparam ActivityBorderColor #C06A20
+skinparam ActivityDiamondBorderColor #9E3E2D
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+title DA-02a - Mise en stock et choix de l'emplacement
+
+start
+:Recevoir la tache de mise en stock (UC-S01);
+:Lire le profil logistique du produit;
+if (Slotting active ?) then (oui)
+  :Calculer l'emplacement optimal (UC-S09);
+else (non)
+  :Appliquer la regle de zonage;
+endif
+:Verifier la compatibilite produit / zone;
+if (Emplacement compatible ?) then (non)
+  :Rechercher un emplacement alternatif (UC-S12);
+endif
+:Reserver l'emplacement et creer l'ordre de mouvement;
+if (AMR / AGV disponible ?) then (oui)
+  :Envoyer l'ordre au WCS / WES (UC-S14);
+  :Confirmer le depot automatise;
+else (non)
+  :Executer le mouvement avec le terminal RF;
+  :Scanner l'emplacement et l'unite;
+endif
+:Mettre a jour le stock et l'occupation;
+stop
+@enduml

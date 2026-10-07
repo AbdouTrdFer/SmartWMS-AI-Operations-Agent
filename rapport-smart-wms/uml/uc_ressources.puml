@@ -1,0 +1,57 @@
+@startuml
+title Smart WMS — Cas d'utilisation : Ressources & infrastructures
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Responsable\nentrepôt" as manager
+actor "Responsable\nmaintenance" as maintenance
+actor "Responsable\nénergie" as energy
+actor "WCS / WES" as wcs
+actor "BMS / EMS" as bms
+
+rectangle "Ressources & infrastructures" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-RES01\nPlanifier la\nmain-d'œuvre" as RES01
+  usecase "UC-RES02\nGérer compétences\net habilitations" as RES02
+  usecase "UC-RES03\nSuivre performance et\ncharge des équipes" as RES03
+  usecase "UC-RES05\nSuivre disponibilité / état\ndes équipements" as RES05
+  usecase "UC-RES06\nGérer maintenance\net indisponibilités" as RES06
+  usecase "UC-RES08\nSuivre actifs et taux\nd'utilisation" as RES08
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-RES04\nOptimiser l'équilibrage\nde charge" as RES04
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-RES07\nOrchestrer les équipements\nvia WCS / WES" as RES07
+  usecase "UC-RES09\nCollecter données énergie /\nenvironnement" as RES09
+  usecase "UC-RES10\nDéclencher consignes\nvia BMS / EMS" as RES10
+ }
+}
+
+manager -- RES01
+manager -- RES02
+manager -- RES03
+manager -- RES04
+maintenance -- RES05
+maintenance -- RES06
+maintenance -- RES08
+energy -- RES09
+wcs -- RES07
+bms -- RES10
+RES04 ..> RES01 : <<extend>>\n[données de charge]
+RES06 ..> RES05 : <<extend>>\n[indisponibilité]
+RES07 ..> RES05 : <<extend>>\n[WCS / WES]
+RES10 ..> RES09 : <<extend>>\n[BMS / EMS]
+@enduml

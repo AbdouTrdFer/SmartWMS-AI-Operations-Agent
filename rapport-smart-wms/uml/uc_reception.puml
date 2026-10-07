@@ -1,0 +1,69 @@
+@startuml
+title Smart WMS — Cas d'utilisation : Réception
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Opérateur\nréception" as receiver
+actor "Superviseur\nentrepôt" as supervisor
+actor "ERP / SAP" as erp
+actor "TMS / YMS" as tms
+actor "Dispositifs\nOCR / vision / IoT" as devices
+
+rectangle "Réception" {
+  package "CORE" #EAF1F7 {
+    usecase "UC-R01\nPlanifier rendez-vous\net quai" as R01
+    usecase "UC-R02\nRéceptionner les\nmarchandises" as R02
+    usecase "UC-R03\nIdentifier le produit" as R03
+    usecase "UC-R04\nContrôler la quantité" as R04
+    usecase "UC-R05\nContrôler la qualité" as R05
+    usecase "UC-R06\nGérer une anomalie\nde réception" as R06
+    usecase "UC-R07\nProposer emplacement\nde stockage" as R07
+    R01 -[hidden]d- R02
+    R02 -[hidden]d- R03
+    R03 -[hidden]d- R04
+    R04 -[hidden]d- R05
+    R05 -[hidden]d- R06
+    R06 -[hidden]d- R07
+  }
+  package "SMART" #F2ECFA {
+    usecase "UC-R08\nPrévoir la charge\nde réception" as R08
+  }
+  package "OPTIONAL" #FFF3E5 {
+    usecase "UC-R09\nCompter les cartons\npar caméra 3D" as R09
+    usecase "UC-R10\nLire l'étiquette\npar OCR" as R10
+    usecase "UC-R11\nDétecter les défauts\npar vision" as R11
+    usecase "UC-R12\nSuivre le conteneur\nconnecté" as R12
+    R09 -[hidden]d- R10
+    R10 -[hidden]d- R11
+    R11 -[hidden]d- R12
+  }
+}
+
+receiver -- R02
+receiver -- R06
+supervisor -- R01
+supervisor -- R08
+erp -- R02
+tms -- R01
+devices -- R10
+devices -- R12
+R02 ..> R03 : <<include>>
+R02 ..> R04 : <<include>>
+R02 ..> R05 : <<include>>
+R06 ..> R02 : <<extend>>\n[écart détecté]
+R08 ..> R01 : <<extend>>\n[données disponibles]
+R10 ..> R03 : <<extend>>\n[OCR]
+R11 ..> R05 : <<extend>>\n[vision]
+@enduml

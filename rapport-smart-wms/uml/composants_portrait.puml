@@ -1,0 +1,71 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 15
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam ArrowColor #365A7A
+skinparam packageBorderColor #365A7A
+skinparam packageBackgroundColor #F7FAFC
+title Smart WMS - Organisation logique des composants
+
+package "Canaux et terrain" #EAF5F3 {
+  [Lecture et vision\nRFID, OCR, camera] as vision
+  [Terminaux RF / mobiles] as terminal
+  [Equipements\nAMR, convoyeurs, AS/RS] as equip
+}
+
+package "Systemes externes" #FFF6E8 {
+  [ERP / SAP] as erp
+  [TMS / YMS] as tms
+  [WCS / WES] as wcs
+  [BMS / EMS] as bms
+}
+
+package "Services metier WMS" #EAF1F8 {
+  [Reception] as rec
+  [Stockage et inventaire] as stock
+  [Commandes et expedition] as exp
+  [Yard et quais] as yard
+  [Ressources et actifs] as res
+  [Moteur de taches] as tasks
+}
+
+package "Services Smart" #F2ECFA {
+  [Prevision et optimisation] as optim
+  [Detection d'anomalies] as anomaly
+  [Regles et recommandations] as rules
+}
+
+package "Donnees" #F5F2FA {
+  database "Base operationnelle\nOLTP" as oltp
+  database "Entrepot analytique\nOLAP / DWH" as dwh
+  [Referentiel metier] as ref
+}
+
+"Canaux et terrain" -[hidden]down- "Systemes externes"
+"Systemes externes" -[hidden]down- "Services metier WMS"
+"Services metier WMS" -[hidden]down- "Services Smart"
+"Services Smart" -[hidden]down- "Donnees"
+
+terminal --> tasks
+vision --> rec
+equip --> wcs
+erp --> rec
+tms --> exp
+wcs --> tasks
+bms --> anomaly
+rec --> tasks
+stock --> tasks
+exp --> tasks
+yard --> tasks
+res --> tasks
+tasks --> oltp
+ref --> oltp
+oltp --> dwh
+dwh --> optim
+optim --> rules
+anomaly --> rules
+rules --> tasks : recommandation validee
+@enduml

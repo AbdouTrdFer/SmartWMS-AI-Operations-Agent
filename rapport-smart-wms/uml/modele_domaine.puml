@@ -1,0 +1,114 @@
+@startuml
+title Smart WMS — Modèle de domaine principal
+hide methods
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #193D5B
+  FontColor #202020
+}
+
+class Entrepot {
+  +idEntrepot
+  +nom
+}
+class Zone {
+  +idZone
+  +type
+  +capacite
+}
+class Emplacement {
+  +idEmplacement
+  +statut
+  +capacite
+}
+class Produit {
+  +reference
+  +designation
+  +poids
+  +volume
+}
+class ProfilLogistique {
+  +temperatureMin
+  +temperatureMax
+  +rotation
+  +fragilite
+}
+class Lot {
+  +numeroLot
+  +DLC
+}
+class UniteLogistique {
+  +idUL
+  +quantite
+  +statut
+}
+class Stock {
+  +quantiteDisponible
+  +quantiteReservee
+}
+class CommandeClient {
+  +numeroCommande
+  +priorite
+  +cutOff
+}
+class LigneCommande {
+  +quantiteDemandee
+  +quantitePreparee
+}
+class Tache {
+  +idTache
+  +type
+  +priorite
+  +statut
+}
+class Operateur {
+  +idOperateur
+  +competences
+}
+class Equipement {
+  +idEquipement
+  +etat
+}
+class TerminalTerrain {
+  +idTerminal
+  +type
+}
+class Mesure {
+  +horodatage
+  +valeur
+  +unite
+}
+class Alerte {
+  +idAlerte
+  +niveau
+  +statut
+}
+class Recommandation {
+  +idRecommandation
+  +type
+  +statutValidation
+}
+
+Entrepot "1" *-- "1..*" Zone
+Zone "1" *-- "1..*" Emplacement
+Produit "1" -- "1" ProfilLogistique
+Produit "1" -- "0..*" Lot
+Produit "1" -- "0..*" UniteLogistique
+Lot "0..1" -- "0..*" UniteLogistique
+Emplacement "1" -- "0..*" Stock
+Stock "1" -- "1" UniteLogistique
+CommandeClient "1" *-- "1..*" LigneCommande
+LigneCommande "*" --> "1" Produit
+Tache "*" --> "0..1" Operateur : affectée à
+Tache "*" --> "0..1" Equipement : exécutée par
+Tache "*" --> "0..1" UniteLogistique : concerne
+Tache "*" --> "0..1" Emplacement : origine / destination
+TerminalTerrain "*" --> "0..1" Operateur : utilisé par
+Mesure "*" --> "0..1" Equipement : provient de
+Mesure "*" --> "0..1" Zone : concerne
+Alerte "*" --> "0..1" Mesure : déclenchée par
+Recommandation "*" --> "0..1" Alerte : répond à
+Recommandation "*" --> "0..1" Tache : ajuste
+@enduml

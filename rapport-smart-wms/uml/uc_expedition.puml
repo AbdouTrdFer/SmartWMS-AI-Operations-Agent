@@ -1,0 +1,73 @@
+@startuml
+title Smart WMS — Cas d'utilisation : Commandes, exécution et expédition
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Superviseur\nentrepôt" as supervisor
+actor "Préparateur de\ncommandes" as picker
+actor "Opérateur\nexpédition" as shipper
+actor "ERP / SAP" as erp
+actor "TMS / YMS" as tms
+actor "Transporteur" as carrier
+actor "RF / Pick-to-Light /\nscan / caméra" as devices
+
+rectangle "Commandes, exécution et expédition" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-E01\nRecevoir la commande\nclient" as E01
+  usecase "UC-E02\nPlanifier la commande" as E02
+  usecase "UC-E03\nCréer la wave / batch" as E03
+  usecase "UC-E04\nAllouer le stock" as E04
+  usecase "UC-E05\nCréer les tâches\nde picking" as E05
+  usecase "UC-E06\nEffectuer le picking" as E06
+  usecase "UC-E07\nEffectuer le packing" as E07
+  usecase "UC-E08\nCharger le camion" as E08
+  usecase "UC-E09\nExpédier la commande" as E09
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-E11\nOptimiser le parcours\nde picking" as E11
+  usecase "UC-E13\nRecommander\nl'emballage" as E13
+  usecase "UC-E15\nDétecter commande à\nrisque de retard" as E15
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-E10\nGuider le picking\nRF / Pick-to-Light" as E10
+  usecase "UC-E12\nContrôler le picking\nscan / poids / vision" as E12
+  usecase "UC-E14\nContrôler le chargement\nscan / caméra" as E14
+ }
+}
+
+supervisor -- E02
+supervisor -- E03
+picker -- E06
+picker -- E07
+shipper -- E08
+shipper -- E09
+erp -- E01
+tms -- E09
+carrier -- E08
+devices -- E10
+devices -- E12
+devices -- E14
+E02 ..> E01 : <<include>>
+E03 ..> E02 : <<include>>
+E05 ..> E04 : <<include>>
+E06 ..> E05 : <<include>>
+E09 ..> E08 : <<include>>
+E11 ..> E06 : <<extend>>\n[optimisation activée]
+E13 ..> E07 : <<extend>>\n[données produit]
+E15 ..> E02 : <<extend>>\n[prédiction activée]
+E10 ..> E06 : <<extend>>\n[RF / Pick-to-Light]
+E12 ..> E06 : <<extend>>\n[contrôle disponible]
+E14 ..> E08 : <<extend>>\n[scan / caméra]
+@enduml

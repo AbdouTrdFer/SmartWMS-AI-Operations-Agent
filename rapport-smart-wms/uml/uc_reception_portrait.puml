@@ -1,0 +1,60 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam defaultFontName Arial
+skinparam defaultFontSize 15
+skinparam packageStyle rectangle
+skinparam actorBorderColor #193D5B
+skinparam usecaseBorderColor #193D5B
+title Smart WMS - Cas d'utilisation : Reception
+actor "Superviseur\nentrepot" as sup
+actor "Operateur\nreception" as op
+actor "ERP / SAP et\nTMS / YMS" as ext
+actor "Dispositifs\nOCR, vision, IoT" as dev
+rectangle "Reception" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-R01\nPlanifier rendez-vous\net quai" as R01
+  usecase "UC-R02\nReceptionner les\nmarchandises" as R02
+  usecase "UC-R03\nIdentifier le produit" as R03
+  usecase "UC-R04\nControler la quantite" as R04
+  usecase "UC-R05\nControler la qualite" as R05
+  usecase "UC-R06\nGerer une anomalie\nde reception" as R06
+  usecase "UC-R07\nProposer emplacement\nde stockage" as R07
+  R01 -[hidden]right- R02
+  R03 -[hidden]right- R04
+  R05 -[hidden]right- R06
+  R02 -[hidden]down- R03
+  R04 -[hidden]down- R05
+  R06 -[hidden]down- R07
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-R08\nPrevoir la charge\nde reception" as R08
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-R09\nCompter les cartons\npar camera 3D" as R09
+  usecase "UC-R10\nLire l'etiquette\npar OCR" as R10
+  usecase "UC-R11\nDetecter les defauts\npar vision" as R11
+  usecase "UC-R12\nSuivre le conteneur\nconnecte" as R12
+  R09 -[hidden]right- R10
+  R11 -[hidden]right- R12
+  R09 -[hidden]down- R11
+ }
+}
+sup --> R01
+sup --> R08
+op --> R02
+ext --> R01
+ext --> R02
+dev --> R09
+dev --> R10
+dev --> R11
+dev --> R12
+R02 ..> R03 : include
+R02 ..> R04 : include
+R02 ..> R05 : include
+R06 ..> R02 : extend
+R08 ..> R01 : extend
+R10 ..> R03 : extend
+R11 ..> R05 : extend
+@enduml

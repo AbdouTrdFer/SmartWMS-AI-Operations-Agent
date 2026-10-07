@@ -1,0 +1,67 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam packageStyle rectangle
+skinparam actorBorderColor #193D5B
+skinparam usecaseBorderColor #193D5B
+title Smart WMS - Cas d'utilisation : Commandes, execution et expedition
+actor "Acteurs metier\nsuperviseur, preparateur, expedition" as op
+actor "Systemes et dispositifs\nERP, TMS, transporteur, RF, scan, camera" as ext
+rectangle "Commandes, execution et expedition" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-E01\nRecevoir commande" as E01
+  usecase "UC-E02\nPlanifier commande" as E02
+  usecase "UC-E03\nCreer wave / batch" as E03
+  usecase "UC-E04\nAllouer le stock" as E04
+  usecase "UC-E05\nCreer taches picking" as E05
+  usecase "UC-E06\nEffectuer picking" as E06
+  usecase "UC-E07\nEffectuer packing" as E07
+  usecase "UC-E08\nCharger camion" as E08
+  usecase "UC-E09\nExpedier commande" as E09
+  E01 -[hidden]right- E02
+  E02 -[hidden]right- E03
+  E04 -[hidden]right- E05
+  E05 -[hidden]right- E06
+  E07 -[hidden]right- E08
+  E01 -[hidden]down- E04
+  E04 -[hidden]down- E07
+  E08 -[hidden]down- E09
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-E11\nOptimiser parcours" as E11
+  usecase "UC-E13\nRecommander emballage" as E13
+  usecase "UC-E15\nDetecter risque retard" as E15
+  E11 -[hidden]right- E13
+  E13 -[hidden]right- E15
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-E10\nGuider picking" as E10
+  usecase "UC-E12\nControler picking" as E12
+  usecase "UC-E14\nControler chargement" as E14
+  E10 -[hidden]right- E12
+  E12 -[hidden]right- E14
+ }
+}
+op --> E06
+op --> E07
+op --> E08
+ext --> E01
+ext --> E09
+ext --> E10
+ext --> E12
+ext --> E14
+E02 ..> E01 : include
+E03 ..> E02 : include
+E05 ..> E04 : include
+E06 ..> E05 : include
+E09 ..> E08 : include
+E11 ..> E06 : extend
+E13 ..> E07 : extend
+E15 ..> E02 : extend
+E10 ..> E06 : extend
+E12 ..> E06 : extend
+E14 ..> E08 : extend
+@enduml

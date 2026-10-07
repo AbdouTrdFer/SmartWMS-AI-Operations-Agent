@@ -1,0 +1,57 @@
+@startuml
+title Smart WMS — Capacités intelligentes transversales
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Capteurs / IoT /\ncaméras / RFID" as iot
+actor "Responsable\nqualité / énergie" as manager
+actor "Superviseur\nentrepôt" as supervisor
+actor "BMS / EMS" as bms
+
+rectangle "Services transversaux" {
+ package "SMART : analyse et décision" #F2ECFA {
+  usecase "UC-AI01\nPrévoir la demande\net la charge" as AI01
+  usecase "UC-AI02\nPrédire une rupture\nde stock" as AI02
+  usecase "UC-AI03\nPrédire un retard\nde commande" as AI03
+  usecase "UC-AI04\nDétecter des\nanomalies" as AI04
+  usecase "UC-AI05\nGénérer une\nrecommandation" as AI05
+  usecase "UC-AI06\nValider une recommandation\npar un humain" as AI06
+  usecase "UC-T03 / UC-T04\nDétecter un dépassement\nde seuil et alerter" as T34
+  usecase "UC-EN03 à UC-EN05\nDétecter, prévoir,\nrecommander" as EN345
+ }
+ package "OPTIONAL : acquisition et exécution" #FFF3E5 {
+  usecase "UC-T01 / UC-T02\nMesurer température\net humidité" as T12
+  usecase "UC-T05\nAdapter la température" as T05
+  usecase "UC-EN01 / UC-EN02\nMesurer la consommation" as EN12
+  usecase "UC-EN06\nAppliquer le mode\néconomie d'énergie" as EN06
+ }
+}
+
+iot -- T12
+iot -- EN12
+manager -- T34
+manager -- EN345
+supervisor -- AI06
+bms -- T05
+bms -- EN06
+T34 ..> T12 : <<include>>
+T05 ..> T34 : <<extend>>\n[BMS / EMS]
+EN345 ..> EN12 : <<include>>
+EN06 ..> EN345 : <<extend>>\n[validation]
+AI02 ..> AI01 : <<extend>>
+AI03 ..> AI01 : <<extend>>
+AI04 ..> AI05 : <<include>>
+AI06 ..> AI05 : <<extend>>\n[validation humaine]
+@enduml

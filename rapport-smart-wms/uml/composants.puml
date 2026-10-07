@@ -1,0 +1,64 @@
+@startuml
+title Smart WMS — Organisation logique des composants
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #193D5B
+  FontColor #202020
+}
+
+package "Canaux et terrain" #EAF6F5 {
+  [Terminaux RF / mobile] as mobile
+  [Lecture et vision\nRFID, OCR, caméra] as capture
+  [Équipements\nAMR, convoyeurs, AS/RS] as equipment
+}
+package "Services métier WMS" #EAF1F7 {
+  [Réception] as receiving
+  [Stockage & inventaire] as inventory
+  [Commandes & expédition] as outbound
+  [Yard & quais] as yard
+  [Moteur de tâches] as tasks
+  [Ressources & actifs] as resources
+}
+package "Services Smart" #F2ECFA {
+  [Prévision & optimisation] as optimization
+  [Détection d'anomalies] as anomalies
+  [Règles et recommandations] as rules
+}
+package "Données" #F6F2FB {
+  database "Base opérationnelle\nOLTP" as oltp
+  database "Entrepôt analytique\nOLAP / DWH" as dwh
+  [Référentiel métier] as master
+}
+package "Systèmes externes" #FFF3E5 {
+  [ERP / SAP] as erp
+  [TMS / YMS] as tms
+  [WCS / WES] as wcs
+  [BMS / EMS] as bms
+}
+
+mobile --> tasks
+capture --> receiving
+capture --> inventory
+equipment --> wcs
+receiving --> tasks
+inventory --> tasks
+outbound --> tasks
+yard --> tasks
+resources --> tasks
+tasks --> oltp
+receiving --> master
+inventory --> master
+outbound --> master
+oltp --> dwh
+dwh --> optimization
+optimization --> rules
+anomalies --> rules
+rules --> tasks : recommandation validée
+receiving --> erp
+outbound --> erp
+yard --> tms
+tasks --> wcs
+resources --> bms
+@enduml

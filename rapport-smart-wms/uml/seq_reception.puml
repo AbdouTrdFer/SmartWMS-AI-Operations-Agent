@@ -1,0 +1,33 @@
+@startuml
+title Séquence — Réception avec contrôle des exceptions
+hide footbox
+skinparam shadowing false
+skinparam sequence {
+  ArrowColor #193D5B
+  LifeLineBorderColor #193D5B
+  LifeLineBackgroundColor #F7FAFC
+}
+actor "Opérateur\nréception" as operator
+participant "Smart WMS" as wms
+participant "ERP / SAP" as erp
+participant "TMS / YMS" as tms
+participant "OCR / caméra\n(optionnel)" as vision
+
+operator -> wms : Ouvrir la réception (UC-R02)
+wms -> erp : Récupérer commande / ASN
+erp --> wms : Référentiel et quantité attendue
+wms -> tms : Confirmer le rendez-vous / quai
+operator -> wms : Identifier le produit (UC-R03)
+opt OCR ou caméra disponible
+  wms -> vision : Lire l'étiquette ou compter les cartons
+  vision --> wms : Données reconnues / comptage
+end
+operator -> wms : Contrôler quantité et qualité
+alt Écart ou non-conformité
+  wms -> wms : Gérer l'anomalie (UC-R06)
+  wms -> erp : Tracer l'écart
+else Réception conforme
+  wms -> wms : Proposer l'emplacement (UC-R07)
+end
+wms --> operator : Créer la tâche de putaway
+@enduml

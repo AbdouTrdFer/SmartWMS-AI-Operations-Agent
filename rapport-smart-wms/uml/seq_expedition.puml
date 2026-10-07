@@ -1,0 +1,29 @@
+@startuml
+title Séquence — Préparation et expédition d'une commande
+hide footbox
+skinparam shadowing false
+skinparam sequence {
+  ArrowColor #193D5B
+  LifeLineBorderColor #193D5B
+  LifeLineBackgroundColor #F7FAFC
+}
+actor "Préparateur" as picker
+participant "ERP / SAP" as erp
+participant "Smart WMS" as wms
+participant "WCS / WES\n(optionnel)" as wcs
+participant "TMS / YMS" as tms
+
+erp -> wms : Transmettre commande (UC-E01)
+wms -> wms : Planifier, créer wave et allouer le stock
+wms -> picker : Affecter tâche de picking (UC-E05)
+opt Parcours ou guidage activé
+  wms -> wcs : Transmettre instruction / ordre
+  wcs --> wms : État d'exécution
+end
+picker -> wms : Confirmer le picking (UC-E06)
+wms -> picker : Packing et chargement
+picker -> wms : Confirmer chargement (UC-E08)
+wms -> tms : Confirmer l'expédition (UC-E09)
+tms --> wms : Statut départ
+wms -> erp : Mettre à jour commande et stock
+@enduml

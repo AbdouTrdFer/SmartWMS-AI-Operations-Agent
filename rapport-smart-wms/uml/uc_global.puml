@@ -1,0 +1,66 @@
+@startuml
+title Smart WMS — Vue globale des cas d'utilisation
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #202020
+}
+
+actor "Responsable\nentrepôt" as manager
+actor "Opérateur" as operator
+actor "Gestionnaire\nstock" as stock
+actor "Planificateur" as planner
+actor "Transporteur /\nchauffeur" as carrier
+actor "ERP" as erp
+actor "TMS / YMS" as tms
+actor "WCS / WES" as wcs
+
+rectangle "Smart WMS" {
+  package "Processus métier" #FCE9E9 {
+    usecase "Réception" as reception
+    usecase "Stockage &\ninventaire" as inventory
+    usecase "Commandes" as orders
+    usecase "Exécution /\nexpédition" as shipping
+    usecase "Yard & quais" as yard
+    usecase "Gestion des\ntâches" as tasks
+  }
+  package "Capacités de support" #EAF6ED {
+    usecase "Ressources &\ninfrastructures" as resources
+    usecase "Intelligence & aide\nà la décision" as smart
+    usecase "IoT / environnement" as iot
+    usecase "Gestion énergétique" as energy
+  }
+}
+
+operator -- reception
+operator -- inventory
+operator -- shipping
+stock -- inventory
+manager -- tasks
+manager -- resources
+planner -- orders
+planner -- yard
+carrier -- reception
+carrier -- yard
+erp -- orders
+erp -- reception
+tms -- yard
+tms -- shipping
+wcs -- tasks
+wcs -- resources
+smart ..> tasks : <<extend>>\n[données suffisantes]
+iot ..> smart : mesures
+energy ..> smart : indicateurs
+tasks ..> reception : <<include>>
+tasks ..> inventory : <<include>>
+tasks ..> shipping : <<include>>
+@enduml

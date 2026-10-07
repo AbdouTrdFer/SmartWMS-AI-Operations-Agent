@@ -1,0 +1,66 @@
+@startuml
+title Smart WMS — Cas d'utilisation : Stockage & inventaire
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam actor {
+  BackgroundColor white
+  BorderColor #193D5B
+  FontColor #193D5B
+}
+skinparam usecase {
+  BackgroundColor white
+  BorderColor #303030
+  FontColor #202020
+}
+
+actor "Magasinier /\ncariste" as worker
+actor "Superviseur\nentrepôt" as supervisor
+actor "Responsable\nqualité" as quality
+actor "WCS / WES" as wcs
+actor "RFID" as rfid
+actor "AMR / AGV" as robot
+
+rectangle "Stockage & inventaire" {
+ package "CORE" #EAF1F7 {
+  usecase "UC-S01\nMettre en stock\n(Putaway)" as S01
+  usecase "UC-S02\nGérer les stocks" as S02
+  usecase "UC-S03\nGérer les emplacements" as S03
+  usecase "UC-S04\nRéaliser l'inventaire\ntournant" as S04
+  usecase "UC-S05\nRéapprovisionner la\nzone picking" as S05
+  usecase "UC-S07\nSurveiller les produits\nsensibles" as S07
+  usecase "UC-S08\nGérer lots / DLC /\nFEFO" as S08
+ }
+ package "SMART" #F2ECFA {
+  usecase "UC-S06\nDétecter la congestion\nd'une zone" as S06
+  usecase "UC-S09\nChoisir l'emplacement\noptimal / Slotting" as S09
+  usecase "UC-S10\nCibler les emplacements\nà recompter" as S10
+  usecase "UC-S11\nPrédire une rupture\navant blocage" as S11
+  usecase "UC-S12\nChercher un emplacement\nalternatif" as S12
+ }
+ package "OPTIONAL" #FFF3E5 {
+  usecase "UC-S13\nSuivre les palettes\npar RFID" as S13
+  usecase "UC-S14\nDéplacer le stock\npar AMR / AGV" as S14
+ }
+}
+
+worker -- S01
+worker -- S02
+worker -- S04
+worker -- S05
+supervisor -- S06
+quality -- S07
+quality -- S08
+wcs -- S14
+rfid -- S13
+robot -- S14
+S01 ..> S03 : <<include>>
+S07 ..> S08 : <<include>>\n[produit concerné]
+S09 ..> S01 : <<extend>>\n[optimisation activée]
+S10 ..> S04 : <<extend>>\n[historique d'écarts]
+S11 ..> S05 : <<extend>>\n[prédiction activée]
+S12 ..> S02 : <<extend>>\n[article introuvable]
+S13 ..> S02 : <<extend>>\n[RFID]
+S14 ..> S01 : <<extend>>\n[AMR / AGV]
+@enduml

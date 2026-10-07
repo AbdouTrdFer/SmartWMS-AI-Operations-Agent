@@ -1,0 +1,32 @@
+@startuml
+skinparam shadowing false
+skinparam ArrowColor #C06A20
+skinparam ActivityBorderColor #C06A20
+skinparam ActivityDiamondBorderColor #9E3E2D
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+title DA-02b - Pilotage des stocks, reapprovisionnement et inventaire
+
+start
+:Surveiller le niveau de la zone de picking;
+if (Prediction de rupture activee ?) then (oui)
+  :Predire la rupture (UC-S11);
+  :Declencher le reapprovisionnement;
+else (non)
+  if (Stock sous le seuil ?) then (oui)
+    :Creer la tache de reapprovisionnement (UC-S05);
+  endif
+endif
+:Planifier l'inventaire tournant (UC-S04);
+if (Ciblage intelligent disponible ?) then (oui)
+  :Cibler les emplacements a recompter (UC-S10);
+else (non)
+  :Appliquer le plan de comptage cyclique;
+endif
+:Executer le comptage et ajuster le stock;
+if (RFID disponible ?) then (oui)
+  :Suivre les palettes (UC-S13);
+endif
+:Confirmer la disponibilite et la fiabilite du stock;
+stop
+@enduml
