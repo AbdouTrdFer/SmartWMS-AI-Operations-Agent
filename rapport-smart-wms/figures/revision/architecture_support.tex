@@ -1,0 +1,18 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\node[anchor=west,font=\sffamily\bfseries\large,text=Green] at (0,-.45) {RESSOURCES ET INFRASTRUCTURES};
+\fblock{0}{0}{4.6}{4.65}{Green}{GESTION DE\par LA MAIN-D’ŒUVRE}{Planification du personnel\par\vspace{2pt}Suivi des performances\par\vspace{2pt}Gestion des compétences\par\vspace{2pt}Équilibrage de la charge\par\vspace{2pt}Suivi de la productivité}
+\fblock{4.9}{0}{4.6}{4.65}{Green}{GESTION\par DES ÉQUIPEMENTS}{Chariots et transpalettes\par\vspace{2pt}Convoyeurs et trieurs\par\vspace{2pt}AS/RS et navettes\par\vspace{2pt}AMR, AGV et robots\par\vspace{2pt}Maintenance}
+\fblock{9.8}{0}{4.6}{4.65}{Green}{ÉNERGIE ET\par ENVIRONNEMENT}{Consommation par zone\par Consommation des équipements\par Température et humidité\par Seuils et consignes\par Marche, veille et arrêt\par Pics de consommation\par Historique énergétique}
+\fblock{14.7}{0}{4.6}{4.65}{Green}{INTERFACES\par WCS / WES}{Instructions aux équipements\par\vspace{2pt}État des équipements\par\vspace{2pt}Gestion des erreurs\par\vspace{2pt}Contrôle des itinéraires\par\vspace{2pt}Gestion du trafic et des tâches}
+\fblock{19.6}{0}{4.6}{4.65}{Green}{GESTION\par DES ACTIFS}{Suivi des actifs\par\vspace{2pt}Étalonnage\par\vspace{2pt}Taux d’utilisation\par\vspace{2pt}Surveillance de l’état\par\vspace{2pt}Gestion du cycle de vie}
+\node[anchor=west,font=\sffamily\bfseries\large,text=Purple] at (0,5.3) {INTELLIGENCE ET AIDE À LA DÉCISION};
+\fblock{0}{5.85}{4.6}{3.8}{Purple}{PRÉVISION DEMANDE\par ET CHARGE}{Prévisions des flux entrants\par\vspace{2pt}Prévisions des flux sortants\par\vspace{2pt}Prévisions des besoins en ressources}
+\fblock{4.9}{5.85}{4.6}{3.8}{Purple}{OPTIMISATION\par DU SLOTTING}{Classement ABC et rotation\par\vspace{2pt}Occupation de l’espace\par\vspace{2pt}Règles dynamiques de placement}
+\fblock{9.8}{5.85}{4.6}{3.8}{Purple}{OPTIMISATION\par DES ORDRES ET TÂCHES}{Regroupement des vagues\par\vspace{2pt}Optimisation des parcours\par\vspace{2pt}Séquencement des tâches\par\vspace{2pt}Priorisation intelligente}
+\fblock{14.7}{5.85}{4.6}{3.8}{Purple}{OPTIMISATION\par DE LA MAIN-D’ŒUVRE}{Niveaux d’effectifs\par\vspace{2pt}Affectation des tâches\par\vspace{2pt}Productivité\par\vspace{2pt}Équilibrage de la charge}
+\fblock{19.6}{5.85}{4.6}{3.8}{Purple}{ANOMALIES\par ET RISQUES}{Détection d’anomalies\par\vspace{2pt}Écarts de processus\par\vspace{2pt}Gestion des risques\par\vspace{2pt}Tableaux de contrôle}
+\node[anchor=west,font=\sffamily\bfseries\large,text=Teal] at (0,10.4) {TERMINAUX ET APPAREILS DE TERRAIN};
+\foreach \x/\txt in {0/Terminaux RF,4.9/Scanners codes-barres et QR,9.8/Caméras et vision,14.7/Balances et pesage,19.6/Pick-to-Light et Put-to-Light}{\node[frame,draw=Teal,fill=Teal!5,anchor=north west,text width=4.15cm,minimum height=1cm,inner sep=6pt,align=center] at (\x,11) {\txt};}
+\foreach \x/\txt in {0/Lecteurs RFID,4.9/Capteurs,9.8/Systèmes vocaux,14.7/Smartphones et tablettes,19.6/Terminaux embarqués}{\node[frame,draw=Teal,fill=Teal!5,anchor=north west,text width=4.15cm,minimum height=1cm,inner sep=6pt,align=center] at (\x,12.35) {\txt};}
+\node[anchor=north,text width=23.8cm,align=left,font=\sffamily\small] at (12.1,13.85) {Les ressources exécutent les tâches ; l’intelligence fournit des prévisions et recommandations ; les appareils transmettent les observations et confirmations. Les fonctions dépendantes d’une infrastructure sont activées uniquement si celle-ci est disponible.};
+\end{tikzpicture}

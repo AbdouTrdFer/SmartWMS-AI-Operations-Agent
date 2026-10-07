@@ -1,0 +1,24 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\node[anchor=west,font=\sffamily\bfseries\large,text=Navy] at (0,-.45) {SYSTÈMES EXTERNES};
+\fblock{0}{0}{3.8}{2.8}{Navy}{ERP / SAP}{Commandes et stocks\par Clients et fournisseurs}
+\fblock{4.05}{0}{3.8}{2.8}{Navy}{MES}{Ordres de production\par Matières et confirmations}
+\fblock{8.1}{0}{3.8}{2.8}{Navy}{TMS / YMS}{Transport et transporteurs\par Camions et quais}
+\fblock{12.15}{0}{3.8}{2.8}{Navy}{FOURNISSEURS}{Avis d’expédition (ASN)\par Informations de livraison}
+\fblock{16.2}{0}{3.8}{2.8}{Navy}{CLIENTS}{Commandes clients\par Confirmations}
+\fblock{20.25}{0}{3.8}{2.8}{Navy}{AUTRES SYSTÈMES}{Finance, RH, BI, CRM\par BMS / EMS si disponibles}
+\draw[flow] (5,2.8)--(5,3.8);
+\node[anchor=west,font=\sffamily\small] at (5.2,3.05) {Commandes, plans et confirmations};
+\draw[flow] (19,3.8)--(19,2.8);
+\node[anchor=east,font=\sffamily\small] at (18.8,3.05) {Statuts, événements et indicateurs};
+\node[anchor=west,font=\sffamily\bfseries\large,text=Red] at (0,3.95) {CŒUR OPÉRATIONNEL DU WMS};
+\fblock{0}{4.45}{3.75}{6.35}{Red}{RÉCEPTION\par MARCHANDISES}{Rendez-vous et quais\par\vspace{2pt}Réception\par\vspace{2pt}Contrôle qualité\par\vspace{2pt}Contrôle quantitatif\par\vspace{2pt}Cross-docking\par\vspace{2pt}Retours fournisseurs}
+\fblock{4}{4.45}{3.75}{6.35}{Red}{STOCKAGE\par ET INVENTAIRE}{Gestion des emplacements\par\vspace{2pt}Gestion des stocks\par\vspace{2pt}Mise en stock\par\vspace{2pt}Réapprovisionnement\par\vspace{2pt}Stock de réserve\par\vspace{2pt}Inventaire tournant\par\vspace{2pt}Gestion des lots et dates\par\vspace{2pt}Ajustement d’inventaire}
+\fblock{8}{4.45}{3.75}{6.35}{Red}{GESTION\par DES COMMANDES}{Ordonnancement\par\vspace{2pt}Planification des commandes\par\vspace{2pt}Vagues et lots de préparation (wave / batch)\par\vspace{2pt}Allocation du stock\par\vspace{2pt}Gestion des priorités}
+\fblock{12}{4.45}{3.75}{6.35}{Red}{EXÉCUTION\par D’ENTREPÔT}{Prélèvement (picking)\par\vspace{2pt}Conditionnement (packing)\par\vspace{2pt}Regroupement (staging)\par\vspace{2pt}Consolidation\par\vspace{2pt}Chargement\par\vspace{2pt}Expédition\par\vspace{2pt}Retours clients}
+\fblock{16}{4.45}{3.75}{6.35}{Red}{COUR (YARD)\par ET QUAIS}{Gestion de la cour\par\vspace{2pt}Planification des quais\par\vspace{2pt}Affectation des quais\par\vspace{2pt}Gestion des portes\par\vspace{2pt}Gestion des transporteurs\par\vspace{2pt}Entrées et sorties}
+\fblock{20.25}{4.45}{3.8}{4.2}{Navy}{DONNÉES\par DE RÉFÉRENCE}{Produits / articles\par Clients / fournisseurs\par Emplacements / zones\par Unités logistiques\par Règles / politiques\par Utilisateurs / rôles}
+\fblock{20.25}{8.95}{3.8}{4.65}{Purple}{STOCKAGE\par DES DONNÉES}{\textbf{Base opérationnelle}\par OLTP : transactions, stock, tâches, mouvements, statuts\par\vspace{4pt}\textbf{Base analytique}\par OLAP / DWH : historiques, indicateurs, analyses, prévisions}
+\foreach \x in {1.875,5.875,9.875,13.875,17.875}{\draw[flow] (\x,10.8)--(\x,11.55);}
+\fblock{0}{11.55}{19.75}{2.05}{Red}{GESTION DES TÂCHES ET DES TRAVAUX}{Création des tâches\quad Affectation\quad Exécution\quad Suivi des statuts\quad Gestion des exceptions}
+\node[anchor=north,text width=23.8cm,align=left,font=\sffamily\small] at (12.025,14.05) {Les données de référence et les bases soutiennent tous les domaines. Les ressources, l’intelligence et les appareils de terrain sont détaillés dans la seconde vue. Les couleurs identifient les familles fonctionnelles.};
+\end{tikzpicture}

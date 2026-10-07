@@ -1,0 +1,27 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\pband{0}{SYSTÈMES EXTERNES}{Navy}
+\pblock{0}{.35}{7.8}{2.35}{Navy}{Systèmes d’entreprise}{ERP / SAP : commandes, stocks, référentiels\par MES : production, matières, confirmations\par TMS / YMS : transport, véhicules et quais}
+\pblock{8.2}{.35}{7.8}{2.35}{Navy}{Partenaires et autres systèmes}{Fournisseurs : ASN et informations de livraison\par Clients : commandes et confirmations\par Finance, RH, BI, CRM ; BMS / EMS selon le site}
+\draw[flow] (4,2.7)--(4,3.55);
+\node[anchor=west,font=\sffamily\fontsize{8.5}{10}\selectfont] at (4.2,3.02) {Commandes et confirmations};
+\draw[flow] (12,3.55)--(12,2.7);
+\node[anchor=east,font=\sffamily\fontsize{8.5}{10}\selectfont] at (11.8,3.32) {Statuts et traçabilité};
+\pband{3.8}{CŒUR OPÉRATIONNEL DU WMS}{Navy}
+\pblock{0}{4.15}{5.1}{2.7}{Navy}{Réception des marchandises}{Rendez-vous, réception, contrôles\par Cross-docking et retours fournisseurs}
+\pblock{5.45}{4.15}{5.1}{2.7}{Navy}{Stockage et inventaire}{Emplacements, stocks, lots\par Réapprovisionnement et inventaires}
+\pblock{10.9}{4.15}{5.1}{2.7}{Navy}{Gestion des commandes}{Planification, vagues et lots\par Allocation et priorités}
+\pblock{0}{7.1}{7.8}{1.85}{Navy}{Exécution d’entrepôt}{Picking, packing, staging et consolidation\par Chargement, expédition et retours clients}
+\pblock{8.2}{7.1}{7.8}{1.85}{Navy}{Cour et quais}{Cour, quais, portes et transporteurs\par Planification, affectation, entrées et sorties}
+\draw[flow] (4,8.95)--(4,9.3);
+\draw[flow] (12,8.95)--(12,9.3);
+\pblock{0}{9.35}{16}{1.6}{Navy}{Gestion des tâches et des travaux}{Création, affectation, exécution, suivi des statuts et gestion des exceptions}
+\pband{11.35}{DONNÉES ET SUPPORT TRANSVERSAL}{Purple}
+\pblock{0}{11.7}{7.8}{2.35}{Purple}{Données de référence}{Produits, clients, fournisseurs, emplacements\par Unités logistiques, règles et politiques\par Utilisateurs et rôles}
+\pblock{8.2}{11.7}{7.8}{2.35}{Purple}{Stockage des données}{Base opérationnelle : transactions (OLTP)\par Base analytique : historiques et analyses\par Entrepôt de données (OLAP / DWH)}
+\pband{14.45}{RESSOURCES ET INFRASTRUCTURES}{Green}
+\pblock{0}{14.8}{16}{1.85}{Green}{Moyens humains, matériels et systèmes de contrôle}{Main-d’œuvre ; équipements ; énergie et environnement\par Interfaces WCS / WES ; gestion des actifs}
+\pband{17.05}{INTELLIGENCE ET AIDE À LA DÉCISION}{Purple}
+\pblock{0}{17.4}{16}{1.85}{Purple}{Prévoir, optimiser et détecter}{Prévision de la demande et de la charge ; optimisation du slotting et des ordres / tâches\par Optimisation de la main-d’œuvre ; détection d’anomalies et gestion des risques}
+\pband{19.65}{TERMINAUX ET APPAREILS DE TERRAIN}{Teal}
+\pblock{0}{20}{16}{1.85}{Teal}{Observation, identification et confirmation sur le terrain}{Terminaux RF ; scanners codes-barres / QR ; lecteurs RFID ; caméras / vision ; capteurs\par Balances ; systèmes vocaux ; smartphones / tablettes ; Pick-to-Light / Put-to-Light ; terminaux embarqués}
+\end{tikzpicture}

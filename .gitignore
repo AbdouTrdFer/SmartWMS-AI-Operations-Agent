@@ -10,6 +10,14 @@ pytest-cache-files-*/
 .mypy_cache/
 *.db
 *.sqlite
+rapport-smart-wms/build/
+rapport-smart-wms/audit/*/page_*.png
+rapport-smart-wms/audit/*/planche_*.png
+rapport-smart-wms/audit/*/index.html
+rapport-smart-wms/figures/uml-split/
+rapport-smart-wms/figures/uml-quad/
+rapport-smart-wms/figures/uml-panels/
+rapport-smart-wms/figures/uml-source/
 node_modules/
 .next/
 dist/

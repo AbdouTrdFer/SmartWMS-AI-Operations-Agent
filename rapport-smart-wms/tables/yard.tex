@@ -1,0 +1,23 @@
+\begingroup
+\small\setlength{\tabcolsep}{4pt}
+\setlength{\TableWidth}{\dimexpr\linewidth-24pt\relax}
+\begin{longtable}{@{}P{0.130\TableWidth}P{0.360\TableWidth}P{0.180\TableWidth}P{0.330\TableWidth}@{}}
+\caption{Cas d’usage de gestion de la cour et des quais}\label{tab:yard}\\
+\toprule
+\textbf{ID proposé} & \textbf{Use case} & \textbf{Type} & \textbf{Critère d’activation} \\
+\midrule\endfirsthead
+\multicolumn{4}{l}{\small\itshape Tableau \thetable{} (suite)}\\
+\toprule
+\textbf{ID proposé} & \textbf{Use case} & \textbf{Type} & \textbf{Critère d’activation} \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{\small\itshape Suite à la page suivante}\\\endfoot
+\bottomrule\endlastfoot
+UC-Y01 & Planifier les rendez-vous transporteurs & Core & Planning livraison / enlèvement \\[3pt]
+UC-Y02 & Enregistrer entrée / sortie véhicule & Core & Contrôle accès / quai \\[3pt]
+UC-Y03 & Affecter un quai ou une porte & Core & Disponibilité et type de flux \\[3pt]
+UC-Y04 & Suivre le statut des quais / portes & Core & État occupé, libre, bloqué \\[3pt]
+UC-Y05 & Suivre véhicule / transporteur dans la cour & Optional & YMS, géolocalisation ou check-points \\[3pt]
+UC-Y06 & Détecter congestion cour / quais & Smart & Temps d’attente, files, occupation \\[3pt]
+UC-Y07 & Recommander une réaffectation dynamique de quai & Smart & Retard, priorité, capacité disponible \\[3pt]
+\end{longtable}
+\endgroup

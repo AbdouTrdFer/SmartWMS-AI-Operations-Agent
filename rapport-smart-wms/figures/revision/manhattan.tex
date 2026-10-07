@@ -1,0 +1,11 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\node[frame,fill=Navy!8,minimum width=16cm,minimum height=1.1cm,font=\sffamily\bfseries\large] at (8,.55) {Manhattan Active Platform};
+\node[anchor=north,text width=15.5cm,align=center] at (8,1.25) {Plateforme cloud et services communs : données, intégration et contexte opérationnel};
+\fblock{0}{2.25}{4.9}{3.3}{Navy}{COMMERCE ET COMMANDES}{Demande client\par Gestion des commandes\par Visibilité des stocks\par Priorités de service}
+\fblock{5.55}{2.25}{4.9}{3.3}{Teal}{EXÉCUTION D’ENTREPÔT}{Réception et mise en stock\par Inventaire et réapprovisionnement\par Picking, packing et expédition}
+\fblock{11.1}{2.25}{4.9}{3.3}{Navy}{RESSOURCES ET FLUX}{Main-d’œuvre et tâches\par Automatisation et robotique\par Cour et quais\par Coordination transport}
+\draw[flow] (4.9,3.9)--(5.55,3.9);\draw[flow] (10.45,3.9)--(11.1,3.9);
+\node[frame,draw=Purple,fill=Purple!6,minimum width=16cm,minimum height=1.2cm,text width=15cm,align=center] (ai) at (8,6.9) {\textbf{Aide à la décision et agents ciblés}\par Coordination des vagues, adaptation des ressources, assistance aux opérateurs};
+\draw[flow,<->] (8,5.55)--(8,6.3);
+\node[anchor=north,text width=15.5cm,align=center] at (8,7.8) {Enseignement : relier la visibilité, la décision et les actions exécutées sur le terrain.};
+\end{tikzpicture}

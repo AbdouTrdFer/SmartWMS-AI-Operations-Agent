@@ -1,0 +1,31 @@
+\begingroup
+\small\setlength{\tabcolsep}{4pt}
+\setlength{\TableWidth}{\dimexpr\linewidth-24pt\relax}
+\begin{longtable}{@{}P{0.130\TableWidth}P{0.360\TableWidth}P{0.180\TableWidth}P{0.330\TableWidth}@{}}
+\caption{Cas d’usage de commandes et d’expédition}\label{tab:expedition}\\
+\toprule
+\textbf{ID} & \textbf{Use case} & \textbf{Type} & \textbf{Condition / moyen principal} \\
+\midrule\endfirsthead
+\multicolumn{4}{l}{\small\itshape Tableau \thetable{} (suite)}\\
+\toprule
+\textbf{ID} & \textbf{Use case} & \textbf{Type} & \textbf{Condition / moyen principal} \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{\small\itshape Suite à la page suivante}\\\endfoot
+\bottomrule\endlastfoot
+UC-E01 & Recevoir la commande client & Core & ERP / OMS \\[3pt]
+UC-E02 & Planifier la commande & Core & Priorité / cut-off / capacité \\[3pt]
+UC-E03 & Créer la wave / batch & Core & Regroupement des ordres \\[3pt]
+UC-E04 & Allouer le stock & Core & Disponibilité / règles allocation \\[3pt]
+UC-E05 & Créer les tâches de picking & Core & Moteur de tâches \\[3pt]
+UC-E06 & Effectuer le picking & Core & Opérateur / équipement \\[3pt]
+UC-E07 & Effectuer le packing & Core & Contrôle et conditionnement \\[3pt]
+UC-E08 & Charger le camion & Core & Quai / transport \\[3pt]
+UC-E09 & Expédier la commande & Core & Confirmation sortie \\[3pt]
+UC-E10 & Guider le picking RF / Pick-to-Light & Optional & Terminal RF / Pick-to-Light \\[3pt]
+UC-E11 & Optimiser le parcours de picking & Smart & Carte, tâches, contraintes allées \\[3pt]
+UC-E12 & Contrôler le picking scan / poids / vision & Optional & Scanner / balance / caméra \\[3pt]
+UC-E13 & Recommander l’emballage & Smart & Dimensions, poids, fragilité \\[3pt]
+UC-E14 & Contrôler le chargement scan / caméra & Optional & Scanner / caméra quai \\[3pt]
+UC-E15 & Détecter commande à risque de retard & Smart & Avancement, charge, cut-off \\[3pt]
+\end{longtable}
+\endgroup

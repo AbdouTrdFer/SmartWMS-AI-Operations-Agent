@@ -1,0 +1,23 @@
+\begingroup
+\small\setlength{\tabcolsep}{4pt}
+\setlength{\TableWidth}{\dimexpr\linewidth-24pt\relax}
+\begin{longtable}{@{}P{0.180\TableWidth}P{0.290\TableWidth}P{0.250\TableWidth}P{0.280\TableWidth}@{}}
+\caption{Problèmes, contraintes et orientations par domaine}\label{tab:problemes}\\
+\toprule
+\textbf{Domaine} & \textbf{Problèmes / contraintes observés} & \textbf{Conséquence métier} & \textbf{Orientation de réponse} \\
+\midrule\endfirsthead
+\multicolumn{4}{l}{\small\itshape Tableau \thetable{} (suite)}\\
+\toprule
+\textbf{Domaine} & \textbf{Problèmes / contraintes observés} & \textbf{Conséquence métier} & \textbf{Orientation de réponse} \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{\small\itshape Suite à la page suivante}\\\endfoot
+\bottomrule\endlastfoot
+Réception & Attente quai, comptage manuel, erreurs d’étiquette, colis non conformes & Retard, mauvaise entrée stock, contrôle tardif & Planification, OCR/vision, caméra 3D, gestion par exception \\[3pt]
+Stockage \& inventaire & Mauvais emplacement, écarts stock, rupture picking, congestion & Déplacements, blocage préparation, faible fiabilité & Slotting, cycle count ciblé, prédiction rupture, RFID \\[3pt]
+Commandes / expédition & Priorités mal gérées, parcours longs, erreurs picking/packing & Retards et baisse du taux de service & Wave, allocation, optimisation parcours, contrôles \\[3pt]
+Yard \& quais & Files camion, portes occupées, manque de visibilité transporteur & Temps d’attente et saturation des quais & Rendez-vous, affectation dynamique, suivi cour \\[3pt]
+Produits sensibles & Température, humidité, fragilité, lot, DLC & Risque qualité, perte produit, non-conformité & Profil produit, capteurs, FEFO, alerte \\[3pt]
+Ressources / énergie & Charge déséquilibrée, équipement indisponible, surconsommation & Sous-productivité, coût, interruption & Affectation, maintenance, WCS/WES, BMS/EMS \\[3pt]
+Pilotage & Manque de visibilité et détection tardive & Décision réactive & KPI, prévision, anomalies, recommandations \\[3pt]
+\end{longtable}
+\endgroup

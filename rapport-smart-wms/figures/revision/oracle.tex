@@ -1,0 +1,12 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\fblock{0}{0}{4.8}{2.5}{Navy}{1. COMMANDE}{Demande client\par Priorité et heure limite}
+\fblock{5.6}{0}{4.8}{2.5}{Navy}{2. VAGUE / LOT}{Regroupement des ordres\par Planification du travail}
+\fblock{11.2}{0}{4.8}{2.5}{Navy}{3. ALLOCATION}{Réservation du stock\par Quantités, lots, emplacements}
+\fblock{11.2}{3.5}{4.8}{2.5}{Teal}{4. TÂCHES}{Création du travail\par Affectation des ressources}
+\fblock{5.6}{3.5}{4.8}{2.5}{Teal}{5. EXÉCUTION}{Picking et packing\par Chargement et expédition}
+\fblock{0}{3.5}{4.8}{2.5}{Teal}{6. CONFIRMATION}{Statuts et traçabilité\par Traitement des exceptions}
+\draw[flow] (4.8,1.2)--(5.6,1.2);\draw[flow] (10.4,1.2)--(11.2,1.2);
+\draw[flow] (13.6,2.5)--(13.6,3.5);
+\draw[flow] (11.2,4.7)--(10.4,4.7);\draw[flow] (5.6,4.7)--(4.8,4.7);
+\node[frame,draw=Purple,fill=Purple!6,minimum width=16cm,minimum height=1.2cm,text width=15cm,align=center] at (8,7.3) {\textbf{Contexte et aide à la décision}\par Stock, profils produits, FIFO / FEFO, contraintes de quai, risques et recommandations};
+\end{tikzpicture}

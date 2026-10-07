@@ -1,0 +1,22 @@
+\begingroup
+\small\setlength{\tabcolsep}{4pt}
+\setlength{\TableWidth}{\dimexpr\linewidth-32pt\relax}
+\begin{longtable}{@{}P{0.170\TableWidth}P{0.230\TableWidth}P{0.220\TableWidth}P{0.220\TableWidth}P{0.160\TableWidth}@{}}
+\caption{Classification et conditions d’activation par domaine}\label{tab:classification}\\
+\toprule
+\textbf{Domaine} & \textbf{Core} & \textbf{Smart} & \textbf{Optional / infrastructure} & \textbf{Critère d’activation} \\
+\midrule\endfirsthead
+\multicolumn{5}{l}{\small\itshape Tableau \thetable{} (suite)}\\
+\toprule
+\textbf{Domaine} & \textbf{Core} & \textbf{Smart} & \textbf{Optional / infrastructure} & \textbf{Critère d’activation} \\
+\midrule\endhead
+\midrule\multicolumn{5}{r}{\small\itshape Suite à la page suivante}\\\endfoot
+\bottomrule\endlastfoot
+Réception & UC-R01–UC-R07 & UC-R08 & UC-R09–UC-R12 & historique + caméra/OCR/IoT selon cas \\[0pt]
+Stockage \& inventaire & UC-S01–UC-S05, UC-S07– UC-S08 & UC-S06, UC-S09–UC-S12 & UC-S13–UC-S14 & données stock ; RFID ou robotique si présente \\[0pt]
+Commandes / expédition & UC-E01–UC-E09 & UC-E11, UC-E13, UC-E15 & UC-E10, UC-E12, UC-E14 & données tâches ; RF/P2L, balance ou caméra si présents \\[0pt]
+Yard \& quais & UC-Y01–UC-Y04 & UC-Y06–UC-Y07 & UC-Y05 & TMS/YMS et suivi cour si disponible \\[0pt]
+Ressources \& infrastructures & UC-RES01–03, UC-RES05– 06, UC-RES08 & UC-RES04 & UC-RES07, UC-RES09–10 & WCS/WES, capteurs ou BMS/EMS \\[0pt]
+Transversal & --- & UC-AI01–UC-AI06 ; UC-T03–UC-T04 ; UC-EN03–UC-EN05 & UC-T01–UC-T02, UC-T05 ; UC-EN01–UC-EN02, UC-EN06 & qualité des données + infrastructure terrain \\[0pt]
+\end{longtable}
+\endgroup

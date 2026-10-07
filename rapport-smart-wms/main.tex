@@ -1,56 +1,29 @@
-\documentclass[12pt,a4paper]{report}
-\input{config/packages}
-\input{config/style}
-\input{config/commands}
-\graphicspath{{./}}
-
+\documentclass[11pt,a4paper,oneside]{report}
+\input{config/revision}
 \begin{document}
-
-\begin{titlepage}
-\centering
-\vspace*{1.5cm}
-{\Large \schoolName \par}
-\vspace{0.4cm}
-{\large Filière : Génie informatique \par}
-\vspace{1.8cm}
-{\Huge\bfseries RAPPORT DE STAGE \par}
-\vspace{1.2cm}
-{\LARGE\bfseries \reportTitle \par}
-\vspace{0.4cm}
-{\Large \reportSubtitle \par}
-\vfill
-\begin{tabular}{rl}
-Étudiant : & \studentName \\
-Organisme d'accueil : & \internshipCompany \\
-Encadrante : & Chaimae Kaina \\
-Période : & \internshipPeriod \\
-\end{tabular}
-\vfill
-{\large Année universitaire 2026}
-\end{titlepage}
-
+\hypersetup{pageanchor=false}
+\input{chapters/revision/couverture}
 \pagenumbering{roman}
-\input{chapters/00_remerciements}
+\hypersetup{pageanchor=true}
+\input{chapters/revision/fiche}
 \tableofcontents
+\clearpage
 \listoffigures
 \listoftables
-
 \clearpage
 \pagenumbering{arabic}
-\input{chapters/01_introduction}
-\input{chapters/02_chapitre1_organisme}
-\input{chapters/03_chapitre2_benchmark}
-\input{chapters/04_chapitre3_besoins_use_cases}
-\input{chapters/05_chapitre4_architecture_fonctionnelle}
-\input{chapters/06_chapitre5_modelisation_uml}
-\input{chapters/07_chapitre6_architecture_applicative}
-\input{chapters/08_chapitre7_validation_limites}
-\input{chapters/09_conclusion}
-
-\appendix
-\chapter{Sources PlantUML}
-Les fichiers PlantUML du projet sont conservés dans \texttt{annexes/plantuml}. Ils servent de base aux diagrammes de cas d'utilisation et d'activité et doivent être rendus avec PlantUML lors d'une itération outillée.
-
-\bibliographystyle{plain}
-\bibliography{bibliography/references}
+\input{chapters/revision/00}
+\input{chapters/revision/01}
+\input{chapters/revision/02}
+\input{chapters/revision/03}
+\input{chapters/revision/04}
+\input{chapters/revision/05}
+\input{chapters/revision/06}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliographie}
+\begingroup\small\raggedright
+\bibliographystyle{unsrt}
+\bibliography{bibliography/revision}
+\endgroup
 \end{document}

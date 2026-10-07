@@ -1,0 +1,143 @@
+\chapter{Présentation de l’organisme d’accueil et cadrage du stage}
+
+\label{chap:1}
+
+Ce chapitre présente Smart Automation Technologies (SAT), l’environnement dans lequel le stage a été réalisé ainsi que le cadrage initial de la mission. Les informations institutionnelles relatives à l’entreprise sont issues du document de présentation fourni dans le cadre du stage \cite{ref1}.
+
+
+% Original : page 6, section 1.1
+
+\section{Présentation générale de Smart Automation Technologies}
+
+\label{sec:1.1}
+
+Smart Automation Technologies (SAT) est une startup technologique fondée par un groupe de consultants seniors spécialisés dans les technologies de l’information, la data science et l’intelligence artificielle. L’entreprise se positionne autour de l’innovation, de la performance et de l’accompagnement stratégique de clients issus aussi bien du secteur privé que des administrations \cite{ref1}.
+
+
+SAT se présente comme un partenaire technologique plutôt que comme un simple prestataire. Son intervention couvre plusieurs étapes du cycle de vie des systèmes d’information : compréhension des besoins, définition des orientations, conception des solutions, mise en œuvre et accompagnement de leur évolution. Ce positionnement est particulièrement cohérent avec le sujet du stage, qui demande d’abord de comprendre un domaine métier et de construire une architecture cible avant d’envisager une implémentation technique.
+
+
+Dans un environnement marqué par une transformation numérique rapide, l’entreprise accorde une place importante à la recherche et développement. Les travaux cités dans sa présentation mobilisent notamment l’intelligence artificielle, la data science et le Big Data pour proposer des solutions adaptées à des environnements industriels et organisationnels où les données et la décision jouent un rôle central \cite{ref1}.
+
+
+\reportfigure{sat}{Positionnement de SAT, synthèse du document de présentation cité dans le rapport initial.}
+
+% Original : page 6, section 1.2
+
+\section{Vision, approche et valeurs}
+
+\label{sec:1.2}
+
+La présentation de SAT met en avant une vision fondée sur l’éthique, la déontologie et la transparence. Ces principes sont associés à une recherche de fiabilité et de responsabilité dans les solutions proposées. L’entreprise insiste également sur la proximité avec le client : les besoins doivent être compris dans leur contexte avant de définir une réponse technique \cite{ref1}.
+
+
+Cette approche a une conséquence directe sur le stage. Le Smart WMS ne peut pas être conçu comme une collection de technologies ajoutées au hasard. Les choix doivent partir de problèmes métier identifiés, de la réalité de l’infrastructure et des contraintes propres à l’entreprise. Cette logique a progressivement conduit à distinguer trois niveaux : le socle WMS indispensable, les capacités Smart qui améliorent la décision ou l’exécution, et les capacités optionnelles qui ne sont activées que si l’infrastructure correspondante existe.
+
+
+SAT accorde par ailleurs une attention particulière au capital humain, à la formation continue et au développement des compétences. Dans le cadre du stage, les échanges avec l’encadrement ont joué un rôle important dans l’évolution du modèle : plusieurs versions de l’architecture ont été revues afin d’améliorer sa généricité, de clarifier le rôle de l’intelligence artificielle et de rendre les diagrammes UML plus lisibles.
+
+
+% Original : page 7, section 1.3
+
+\section{Métiers et domaines d’intervention}
+
+\label{sec:1.3}
+
+Les activités de SAT couvrent des services, des solutions dédiées, du support et de la formation. Le document de présentation cite plusieurs secteurs d’intervention, notamment l’industrie, la logistique, le marketing et la finance. Dans ces secteurs, la donnée, l’intégration des systèmes et la prise de décision constituent des enjeux récurrents \cite{ref1}.
+
+
+L’approche de conseil de l’entreprise est structurée autour de trois axes : le client, le projet et la méthode. Les interventions citées comprennent notamment la gouvernance IT et le management de projet, la conduite du changement, l’élaboration de schémas directeurs, l’urbanisation et l’architecture des systèmes d’information, l’assistance à maîtrise d’ouvrage, la conception de solutions logicielles ainsi que des activités d’audit, de benchmarking et d’évaluation de solutions existantes \cite{ref1}.
+
+
+\input{tables/sat}
+
+% Original : page 7, section 1.4
+
+\section{Produits, solutions et activités de recherche}
+
+\label{sec:1.4}
+
+SAT développe des solutions qui mobilisent l’intelligence artificielle, la data science et le Big Data autour de besoins concrets. Son document de présentation fait également référence à une démarche d’e-Transformation fondée sur le concept d’écosystème digital, intelligent et décisionnel (EcoDID), dont l’objectif est de rapprocher données, processus et outils décisionnels dans des plateformes intégrées \cite{ref1}.
+
+
+Parmi les axes de recherche cités figurent les technologies Edge Box pour la maintenance prédictive, les Edge Data Centers et des plateformes spécialisées dans différents domaines, dont la logistique. Ce contexte constitue un environnement cohérent pour un sujet portant sur la transformation d’un WMS, puisqu’il combine problématiques métier, intégration des systèmes, automatisation et exploitation intelligente des données.
+
+
+% Original : page 8, section 1.5
+
+\section{Contexte du stage}
+
+\label{sec:1.5}
+
+Le sujet confié pendant la période d’août à octobre 2026 porte sur la conception d’une architecture intelligente pour faire évoluer un WMS traditionnel vers un Smart WMS. Au démarrage, la difficulté principale était de définir ce que devait réellement signifier le terme « Smart ». Une première lecture pouvait conduire à ajouter de l’intelligence artificielle à chaque processus. Les échanges avec l’encadrante ont au contraire conduit à une approche plus structurée : une fonction doit d’abord répondre à un problème précis, puis le moyen le plus adapté est choisi entre règle métier, automatisation, optimisation, machine learning, vision industrielle ou agent intelligent.
+
+
+Une autre contrainte importante est apparue au cours des réunions de suivi : l’architecture ne devait pas être limitée à un type unique d’entrepôt. Par exemple, proposer systématiquement des robots ou des convoyeurs supposerait une infrastructure que de nombreuses entreprises ne possèdent pas. La solution devait donc permettre plusieurs niveaux de maturité. Une entreprise peut utiliser le socle WMS avec des terminaux RF et des scans, tandis qu’une autre peut activer des fonctions RFID, vision, AMR/AGV, WCS/WES ou BMS/EMS.
+
+
+Enfin, le modèle devait prendre en compte la diversité des produits. Certains articles nécessitent une température ou une humidité spécifique ; d’autres sont fragiles, dangereux, à durée de vie limitée ou destinés à une expédition rapide. Cette contrainte a conduit à introduire la notion de profil logistique du produit et à relier ce profil au stockage, au slotting, à l’allocation, au picking et au contrôle environnemental.
+
+
+% Original : page 8, section 1.6
+
+\section{Problématique}
+
+\label{sec:1.6}
+
+Comment concevoir et modéliser une architecture Smart WMS générique qui conserve les fonctions essentielles d’un WMS, intègre des capacités d’optimisation et d’intelligence lorsqu’elles sont justifiées, et puisse être adaptée aux équipements, aux données et aux contraintes de produits de différents entrepôts ?
+
+
+Cette problématique implique plusieurs questions secondaires : quelles fonctions constituent le socle commun d’un WMS moderne ? Quelles capacités observées chez les leaders peuvent être généralisées sans copier une solution particulière ? Comment représenter les options qui dépendent d’une infrastructure spécifique ? Comment distinguer l’automatisation, l’optimisation et l’intelligence artificielle ? Enfin, comment traduire cette réflexion en modèles UML suffisamment précis pour être compris par les acteurs métier et utilisables dans une future conception applicative ?
+
+
+% Original : page 8, section 1.7
+
+\section{Objectifs du stage}
+
+\label{sec:1.7}
+
+L’objectif général est de proposer une architecture de référence pour la transformation progressive d’un WMS traditionnel en Smart WMS. Cet objectif se décline en plusieurs objectifs opérationnels :
+
+
+\begin{itemize}
+
+\item Étudier le fonctionnement et les architectures fonctionnelles des solutions WMS leaders afin d’identifier un socle commun et des différenciateurs utiles.
+\item Structurer les fonctions du Smart WMS autour des processus métier, de la gestion des tâches, des ressources, des données et des dispositifs terrain.
+
+\item Identifier et décrire des cas d’usage concrets pour la réception, le stockage et l’inventaire, la préparation et l’expédition, ainsi que des cas transversaux liés à l’énergie, l’environnement et la sécurité.
+\item Distinguer les fonctions cœur des capacités Smart et des options dépendantes de l’infrastructure.
+\item Formaliser les acteurs, les processus et les interactions à travers une modélisation UML cohérente et lisible.
+\item Préparer une traduction vers une architecture applicative logique sans imposer prématurément un choix de technologie ou de plateforme.
+
+\end{itemize}
+
+% Original : page 9, section 1.8
+
+\section{Périmètre et limites}
+
+\label{sec:1.8}
+
+Le périmètre a été volontairement fixé au niveau métier, fonctionnel et applicatif logique. Cette décision permet d’étudier le système avec suffisamment de précision sans transformer le stage en projet de développement complet. Le tableau suivant résume ce qui est inclus et ce qui reste hors périmètre à ce stade.
+
+
+\input{tables/perimetre}
+
+% Original : page 9, section 1.9
+
+\section{Livrables et résultats attendus}
+
+\label{sec:1.9}
+
+Le stage est organisé autour d’une série de livrables qui se complètent plutôt que de constituer des documents indépendants. Le benchmark explique les choix ; les cas d’usage traduisent les besoins ; l’architecture fonctionnelle structure le système ; les modèles UML précisent le comportement ; enfin l’architecture applicative logique prépare une future phase de conception technique.
+
+
+\input{tables/livrables}
+
+% Original : page 10, section 1.10
+
+\section{Conclusion du chapitre}
+
+\label{sec:1.10}
+
+Le contexte de Smart Automation Technologies et la nature du sujet conduisent à aborder le Smart WMS comme un problème d’architecture et non comme une simple addition de technologies. La mission vise à construire un cadre réutilisable, capable de relier les processus d’entrepôt, les ressources, les équipements, les données et les mécanismes d’aide à la décision. Le chapitre suivant présentera l’état de l’art et le benchmark fonctionnel des solutions Manhattan Active, SAP EWM et Oracle WMS Cloud, qui constituent le point de départ de la proposition d’architecture.
+

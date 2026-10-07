@@ -1,0 +1,26 @@
+\begingroup
+\small\setlength{\tabcolsep}{4pt}
+\setlength{\TableWidth}{\dimexpr\linewidth-24pt\relax}
+\begin{longtable}{@{}P{0.160\TableWidth}P{0.330\TableWidth}P{0.180\TableWidth}P{0.330\TableWidth}@{}}
+\caption{Cas d’usage des ressources et infrastructures}\label{tab:ressources}\\
+\toprule
+\textbf{ID proposé} & \textbf{Use case} & \textbf{Type} & \textbf{Critère d’activation} \\
+\midrule\endfirsthead
+\multicolumn{4}{l}{\small\itshape Tableau \thetable{} (suite)}\\
+\toprule
+\textbf{ID proposé} & \textbf{Use case} & \textbf{Type} & \textbf{Critère d’activation} \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{\small\itshape Suite à la page suivante}\\\endfoot
+\bottomrule\endlastfoot
+UC-RES01 & Planifier la main-d’œuvre & Core & Effectifs, horaires, activité prévue \\[3pt]
+UC-RES02 & Gérer compétences et habilitations & Core & Profils opérateurs \\[3pt]
+UC-RES03 & Suivre performance et charge des équipes & Core & Tâches et temps d’exécution \\[3pt]
+UC-RES04 & Optimiser l’équilibrage de charge & Smart & Charge, distance, compétence, disponibilité \\[3pt]
+UC-RES05 & Suivre disponibilité / état des équipements & Core & Chariot, convoyeur, robot, AS/RS \\[3pt]
+UC-RES06 & Gérer maintenance et indisponibilités & Core & État, alerte, cycle de vie \\[3pt]
+UC-RES07 & Orchestrer les équipements via WCS / WES & Optional & WCS/WES et automatisation présents \\[3pt]
+UC-RES08 & Suivre actifs et taux d’utilisation & Core & Données équipement / actif \\[3pt]
+UC-RES09 & Collecter données énergie / environnement & Optional & Compteurs et capteurs \\[3pt]
+UC-RES10 & Déclencher consignes via BMS / EMS & Optional & BMS/EMS disponible \\[3pt]
+\end{longtable}
+\endgroup

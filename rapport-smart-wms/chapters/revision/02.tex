@@ -1,0 +1,128 @@
+\chapter{État de l’art et benchmark des solutions WMS}
+
+\label{chap:2}
+
+Ce chapitre a pour objectif d’établir une base de référence solide avant de proposer l’architecture Smart WMS cible. L’idée n’est pas de comparer des solutions pour désigner un vainqueur, mais de comprendre comment des éditeurs leaders structurent fonctionnellement un WMS moderne, quels flux ils couvrent, quelles capacités ils mettent en avant et quelles logiques d’intelligence ou d’automatisation ils relient réellement à l’exécution. Dans cette perspective, le benchmark est utilisé comme un instrument d’apprentissage architectural : il permet d’identifier un socle commun, puis de repérer des différenciateurs utiles pour la modélisation d’une architecture générique, modulaire et adaptable au contexte de différentes entreprises.
+
+
+% Original : page 11, section 2.1
+
+\section{Définitions : WMS classique vs. Smart WMS}
+
+\label{sec:2.1}
+
+Un WMS classique est centré sur la maîtrise des opérations d’entrepôt : réception, mise en stock, gestion des emplacements, inventaire, préparation de commandes, emballage, expédition, traitement des retours et suivi des tâches. Son rôle principal est d’assurer la traçabilité des flux physiques et d’organiser le travail dans l’entrepôt avec des règles métier relativement stables. Cette base reste indispensable, car aucune intelligence n’a de sens si les opérations fondamentales, les données de référence et le suivi d’exécution ne sont pas fiables. Dans la littérature, le WMS est généralement décrit comme le système qui organise, contrôle et synchronise les flux d’entrée, de stockage et de sortie afin de garantir la visibilité du stock et la bonne exécution des opérations \cite{ref3}.
+
+
+Le Smart WMS ne remplace pas ce socle ; il l’étend. Il ajoute des capacités de perception, d’anticipation, d’optimisation et d’aide à la décision. Concrètement, cela peut prendre la forme de capteurs IoT, RFID, vision, pilotage énergétique, recommandations de slotting, détection d’anomalies, orchestration avancée des tâches, ou encore d’agents IA ciblés sur des problèmes précis. La différence ne réside donc pas dans le fait d’« ajouter de l’IA partout », mais dans la capacité du système à transformer des données opérationnelles en actions pertinentes, contextualisées et si possible exécutables. Dans le cadre de ce stage, un Smart WMS est ainsi défini comme un WMS disposant d’un cœur opérationnel stable, enrichi par des modules intelligents activables selon l’infrastructure disponible, les contraintes produits, les besoins métier et le niveau de maturité de l’entreprise.
+
+
+% Original : page 11, section 2.2
+
+\section{Méthodologie du benchmark}
+
+\label{sec:2.2}
+
+La démarche de benchmark a reposé sur trois principes. Premièrement, les solutions étudiées en profondeur devaient être reconnues sur le marché et disposer d’une documentation fonctionnelle suffisamment riche pour soutenir une analyse structurée. Deuxièmement, l’objectif était fonctionnel et non technique : il s’agissait de comprendre les logiques de processus, les objets métier mis en avant et les capacités d’exécution ou d’intelligence connectées au WMS. Troisièmement, le benchmark devait rester utile pour une architecture générique. Il ne fallait donc pas recopier une solution existante, mais extraire des principes réutilisables.
+
+
+\reportfigure{marche}{Paysage concurrentiel reproduit du support de benchmark fourni pendant le stage. Attribution et millésime à confirmer.}
+
+
+La figure précédente a servi de point de départ pour positionner les principaux acteurs observés. Elle montre qu’au-delà des trois solutions retenues, le marché comprend aussi d’autres éditeurs importants comme Blue Yonder, Körber / Infios, Infor, Logistics Reply, Tecsys, EPG ou encore Dematic. Toutefois, l’étude détaillée a été volontairement concentrée sur Manhattan Active Warehouse Management, SAP Extended Warehouse Management et Oracle Warehouse Management. Ce choix se justifie par leur positionnement récurrent parmi les leaders, par la richesse de leurs ressources officielles, et par la complémentarité de leurs approches : Manhattan met l’accent sur l’exécution unifiée, SAP sur la richesse du modèle métier et Oracle sur l’orchestration opérationnelle. Les autres acteurs ont été pris en compte comme références de contexte, mais non analysés à un niveau équivalent, afin de conserver un périmètre de travail réaliste. Le benchmark s’appuie principalement sur la documentation officielle de chaque éditeur : documentation Manhattan Active Platform et Manhattan Active Agents, pages produit et documentation SAP EWM, ainsi que la documentation Oracle sur les waves, l’allocation, les tâches et certains assistants IA. La comparaison présentée dans ce chapitre constitue donc une synthèse analytique construite à partir de ces sources primaires \cite{ref4,ref5,ref6,ref7,ref8,ref9,ref10}.
+
+
+% Original : page 12, section 2.3
+
+\section{Manhattan Active Warehouse Management  :  unification de l’exécution}
+
+\label{sec:2.3}
+
+La documentation officielle Manhattan décrit Active Platform comme une plateforme cloud native, orientée microservices, conçue pour héberger des solutions comme Unified Commerce, Supply Chain Execution et Active Planning \cite{ref4}. Cette base est importante, mais l’intérêt du benchmark se situe surtout au niveau fonctionnel : Manhattan cherche à rapprocher les décisions et l’exécution réelle. Autrement dit, les données, les tâches, les opérateurs, les équipements et les priorités d’orchestration sont pensés comme des éléments d’un même système d’action. Cette idée directrice apparaît clairement dans Manhattan Active WM, où les fonctions de réception, de stock, de picking, de labor management, de yard, de transport et d’automatisation sont regroupées dans un ensemble cohérent plutôt que traitées comme des blocs isolés.
+
+
+\reportfigure{manhattan}{Lecture fonctionnelle de Manhattan Active : plateforme et exécution unifiée. Synthèse du benchmark.}
+
+
+La figure~\ref{fig:manhattan} illustre cette logique d’unification. On y distingue une plateforme cloud et ses services communs, puis plusieurs ensembles fonctionnels couvrant le commerce, les commandes, les stocks et l’exécution. Cette vue aide à comprendre le principe architectural : l’exécution d’entrepôt se connecte à la gestion des commandes, à la planification, à la main-d’œuvre, à la cour, au transport et à l’automatisation. Pour le projet de stage, cette lecture a été déterminante : elle montre qu’un Smart WMS doit pouvoir transformer une information utile en action opérationnelle, par exemple en créant ou réordonnant des tâches, en réaffectant des ressources ou en ajustant un flux.
+
+
+L’autre point fort de Manhattan réside dans l’émergence d’agents IA directement intégrés à la plateforme. Manhattan indique que ses AI Agents sont embarqués dans Manhattan Active et capables d’agir avec un contexte opérationnel temps réel \cite{ref5}. Parmi les exemples mentionnés par l’éditeur figurent le Wave Coordinator Agent, le Labor Agent et le Warehouse Associate Agent. Leur intérêt n’est pas simplement conversationnel : ils visent à accélérer la décision et à soutenir l’exécution au bon moment, en se situant au plus près du travail réel. Dans le cadre de ce benchmark, Manhattan a donc été retenu comme la référence la plus forte pour la notion de boucle courte entre visibilité, recommandation et action.
+
+
+% Original : page 13, section 2.4
+
+\section{SAP Extended Warehouse Management  :  richesse du modèle métier}
+
+\label{sec:2.4}
+
+SAP EWM adopte une logique différente. Le point fort mis en évidence par les pages produit et la documentation SAP n’est pas d’abord l’unification d’exécution, mais la richesse de représentation du métier. SAP présente EWM comme une solution capable de gérer des opérations d’entrepôt à fort volume, tout en intégrant les processus de qualité, de production, de traçabilité et d’automatisation \cite{ref6}. La solution prend en charge des objets structurants tels que les produits, les handling units, les lots, les numéros de série, les ressources, les tâches d’entrepôt, les livraisons et les rendez-vous. Cette profondeur de modélisation permet à SAP EWM de décrire finement les conditions dans lesquelles un produit peut être reçu, stocké, déplacé, prélevé ou expédié \cite{ref7}.
+
+
+\reportfigure{sap}{Lecture fonctionnelle de SAP EWM : processus et objets métier. Synthèse du benchmark.}
+
+
+La figure~\ref{fig:sap} montre une architecture orientée processus et objets métier. Les flux entrants, les opérations internes et les flux sortants sont clairement identifiés. Ils reposent sur des fonctions transversales comme la gestion des lots, des unités logistiques (handling units), des numéros de série et des données de référence. Cette manière de structurer la solution fait apparaître une idée essentielle pour la conception d’un Smart WMS : avant d’optimiser, il faut représenter correctement le métier. Un système qui ignore la fragilité d’un produit, sa température cible, son numéro de lot, sa date d’expiration ou le type de manutention requis sera limité dans ses recommandations.
+
+
+Pour ce stage, SAP EWM a ainsi joué le rôle de référence pour la couche de données de référence et pour la formalisation des contraintes produits. C’est de cette analyse que provient, dans l’architecture fonctionnelle proposée, l’idée d’intégrer explicitement un profil logistique du produit : poids, volume, fragilité, contraintes de température, humidité, rotation et règles spécifiques de stockage ou d’expédition. SAP a aussi renforcé l’idée qu’un Smart WMS doit rester profondément ancré dans le métier, plutôt que de s’appuyer sur une intelligence générique déconnectée des objets et des règles opérationnelles.
+
+
+% Original : page 14, section 2.5
+
+\section{Oracle Warehouse Management Cloud : orchestration des commandes et des tâches}
+
+\label{sec:2.5}
+
+Oracle Warehouse Management a été retenu comme troisième référence car sa documentation rend particulièrement lisible la chaîne de transformation de la demande en travail exécutable. Oracle indique qu’une wave sert à lancer l’allocation d’inventaire et à créer une série de tâches \cite{ref8}. Les écrans et objets associés montrent ensuite comment les tâches guident les opérateurs, avec les informations nécessaires pour le prélèvement, la destination, le SKU, la quantité et le suivi des statuts \cite{ref9}. Cette clarté séquentielle est précieuse pour une démarche de modélisation, car elle facilite la compréhension du passage entre commande, allocation, tasking et exécution terrain.
+
+
+\reportfigure{oracle}{Orchestration des commandes et des tâches dans Oracle WMS. Reconstruction fonctionnelle du benchmark.}
+
+
+La figure~\ref{fig:oracle} synthétise la logique observée dans Oracle WMS. Le moteur part de la commande et de sa priorité, applique des règles de vague, procède à l’allocation du stock, génère les tâches, les affecte aux opérateurs ou équipements, puis suit leur exécution et leur confirmation. Ce flux utilise les informations de stock, les emplacements, les règles FEFO/FIFO, les profils produits et les contraintes de quai. L’écosystème Oracle propose également des assistants ciblés sur les stocks, les risques de rupture et les dates d’expiration. Le support étudié mentionne notamment l’Inventory Expiry Assistant et l’Inventory Shortages Assistant. Leur périmètre doit être distingué de celui du WMS : la documentation Fusion classe plusieurs de ces fonctions dans Inventory Management ; leur présence dans l’écosystème ne signifie donc pas qu’elles sont toutes natives du WMS~\cite{ref10}. L’intérêt retenu pour le projet reste l’articulation entre gestion du travail et aide à la décision.
+
+
+Pour le projet, Oracle a été particulièrement utile pour renforcer le bloc « gestion des commandes » et « gestion des tâches ». La solution illustre bien la façon dont des priorités, des règles d’allocation et des mécanismes de task management peuvent être combinés pour fluidifier l’exécution. Elle a également conforté le choix de faire du moteur de tâches un élément central de l’architecture fonctionnelle cible, au lieu de le traiter comme une simple fonction annexe du WMS.
+
+
+% Original : page 15, section 2.6
+
+\section{Socle fonctionnel commun identifié}
+
+\label{sec:2.6}
+
+Malgré leurs différences, les trois solutions convergent vers un socle fonctionnel remarquablement stable. Ce constat est fondamental pour la suite du rapport : l’architecture cible ne doit pas être construite autour d’un éditeur donné, mais autour des fonctions indispensables à tout WMS moderne. Les capacités smart viennent ensuite en surcouche, selon l’infrastructure disponible et le niveau de maturité de l’organisation.
+
+
+\input{tables/socle}
+
+Dans ce tableau, « Oui » indique une capacité repérée dans le périmètre documentaire de la solution. Cela ne signifie pas qu’elle est incluse dans toutes les éditions, activée par défaut ou disponible sans module ni intégration complémentaire. Les interfaces d’automatisation, en particulier, restent dépendantes des équipements du site.
+
+% Original : page 16, section 2.7
+
+\section{Différenciateurs et lecture comparative}
+
+\label{sec:2.7}
+
+Au-delà de ce socle commun, le benchmark met en évidence des accentuations différentes. Manhattan se distingue par sa capacité à rapprocher les décisions, les opérateurs, les équipements et l’exécution dans une même logique d’action. SAP se distingue par la précision de son modèle métier et sa forte intégration avec l’univers S/4HANA. Oracle se distingue par la lisibilité de son moteur d’orchestration, qui relie explicitement commande, wave, allocation, tasking et exécution. Ces différences ne doivent pas être interprétées comme des oppositions, mais comme des spécialisations dominantes qui éclairent chacune un angle utile pour l’architecture cible.
+
+
+\reportfigure{comparaison}{Apports complémentaires des trois solutions à la conception du Smart WMS.}
+
+\input{tables/comparaison}
+
+% Original : page 17, section 2.8
+
+\section{Enseignements retenus pour l’architecture Smart WMS proposée}
+
+\label{sec:2.8}
+
+Ce benchmark identifie des capacités de référence chez les trois éditeurs, sans préjuger ni de la complexité d’implémentation, ni du coût de déploiement, ni du fait qu’une entreprise activera réellement toutes les possibilités observées. Cette nuance oriente la lecture des enseignements suivants : une architecture Smart WMS générique doit distinguer ce qui est cœur, ce qui est smart et ce qui reste optionnel selon l’infrastructure et les contraintes de chaque entreprise. Quatre enseignements principaux ont été retenus. D’abord, un Smart WMS pertinent repose sur un cœur opérationnel robuste : réception, stockage, inventaire, commandes, exécution et gestion des tâches doivent former une colonne vertébrale stable. Ensuite, la qualité de la décision dépend de la qualité du contexte métier ; l’exemple SAP montre qu’il faut représenter explicitement les caractéristiques du produit, des unités logistiques, des emplacements, des lots et des ressources. Troisièmement, l’intelligence doit être connectée à l’exécution ; l’exemple Manhattan montre que des agents ou recommandations n’ont de valeur que s’ils influencent réellement le travail, les priorités, les affectations ou les actions terrain. Enfin, l’exemple Oracle confirme qu’un moteur d’orchestration clair, appuyé sur la gestion des tâches, est indispensable pour transformer la demande en opérations exécutables.
+
+
+Ces constats ont eu un impact direct sur l’architecture fonctionnelle élaborée pendant le stage. Ils justifient la présence d’un cœur WMS commun, d’une couche ressources \& infrastructures, d’interfaces WCS/WES et systèmes externes, d’une couche de données de référence et de stockage analytique, puis de modules smart dédiés à la prévision, au slotting, à l’optimisation des ordres et tâches, à l’optimisation de la main-d’œuvre, à la gestion énergétique et à la détection d’anomalies. Ils expliquent aussi la logique de modularité : une PME peut conserver le socle et n’activer que quelques fonctions intelligentes ciblées, tandis qu’un entrepôt automatisé peut ajouter RFID, vision, AMR/AGV, IoT ou BMS/EMS.
+
+
+Le benchmark constitue ainsi une étape de cadrage indispensable, mais il ne suffit pas à lui seul pour définir l’architecture cible. La suite du travail doit partir des besoins et des problèmes concrets : congestion à la réception, écarts d’inventaire, ruptures en picking, déséquilibres de charge, contraintes produits sensibles, consommation énergétique ou manque de visibilité temps réel. C’est à partir de ces besoins que les cas d’usage Smart devront être sélectionnés et hiérarchisés.
+

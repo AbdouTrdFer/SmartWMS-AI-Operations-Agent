@@ -1,0 +1,19 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\fblock{0}{0}{4.9}{2.9}{Navy}{CORE}{Fonction nécessaire au WMS.\par Exemples : réception, stock et tâches.}
+\fblock{5.55}{0}{4.9}{2.9}{Purple}{SMART}{Décision améliorée par les données ou l’optimisation.\par Exemple : slotting optimisé.}
+\fblock{11.1}{0}{4.9}{2.9}{Orange}{OPTIONAL}{Dépendance à un équipement ou à un système spécifique.\par Exemple : RFID ou robot.}
+\node[anchor=north,text width=15.5cm,align=center] at (8,3.15) {Une capacité peut être Smart et Optional : les critères se complètent.};
+\node[frame,fill=Navy!6,minimum width=9cm,minimum height=.85cm,align=center] (need) at (4.7,4.5) {Besoin métier et capacité candidate identifiés};
+\node[frame,draw=Orange,text width=8cm,minimum height=1.05cm,align=center] (infra) at (4.7,6.2) {Un équipement ou un système spécifique est-il nécessaire ?};
+\node[frame,draw=Orange,text width=4.4cm,minimum height=1.45cm,align=center] (check) at (13.5,6.2) {Vérifier sa disponibilité.\par S’il manque : différer l’option ou prévoir un traitement adapté.};
+\node[frame,draw=Purple,text width=8cm,minimum height=1.05cm,align=center] (data) at (4.7,9.1) {Pour une capacité Smart, les données nécessaires sont-elles fiables et disponibles ?};
+\node[frame,text width=4.4cm,minimum height=1.45cm,align=center] (fallback) at (13.5,9.1) {Conserver le traitement métier adapté ; améliorer la collecte et la qualité des données.};
+\node[frame,draw=Teal,fill=Teal!6,text width=8cm,minimum height=1.15cm,align=center] (activate) at (4.7,11.6) {Activer la capacité dont les prérequis sont satisfaits ; prévoir le contrôle et les exceptions.};
+\draw[flow] (need)--(infra);
+\draw[flow] (infra.east)--node[above,font=\sffamily\small]{Oui}(check.west);
+\draw[flow] (infra.south)--node[left,font=\sffamily\small]{Non}(data.north);
+\draw[flow] (check.south)--(13.5,7.8)--node[above,font=\sffamily\small]{Si disponible}(8.8,7.8)--(data.north east);
+\draw[flow] (data.east)--node[above,font=\sffamily\small]{Non}(fallback.west);
+\draw[flow] (data.south)--node[left,font=\sffamily\small,align=right]{Oui, ou critère Smart\\non applicable}(activate.north);
+\node[anchor=north,text width=15.5cm,align=center] at (8,12.6) {Core conditionnel : fonction nécessaire lorsque le profil produit ou le contexte métier l’exige.};
+\end{tikzpicture}

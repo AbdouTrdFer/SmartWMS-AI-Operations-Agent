@@ -1,0 +1,47 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\newcommand{\abox}[7]{%
+  \draw[draw=#5!80,line width=.45pt,fill=white] (#1,#2) rectangle ++(#3,#4);
+  \fill[#5!9] (#1,#2) rectangle ++(#3,.78);
+  \node[anchor=north west,text width=\dimexpr #3cm-8pt\relax,inner sep=4pt,text=#5,font=\sffamily\bfseries\fontsize{9}{10}\selectfont] at (#1,#2) {\ifthenelse{\equal{#5}{Red}}{\color{Navy}}{}#6};
+  \node[anchor=north west,text width=\dimexpr #3cm-8pt\relax,inner sep=4pt,font=\sffamily\fontsize{8.3}{10}\selectfont] at (#1,{#2+.81}) {#7};
+}
+\newcommand{\band}[3]{\node[anchor=west,text=#3,font=\sffamily\bfseries\fontsize{9}{10}\selectfont,inner sep=0pt] at (0,#1) {#2};}
+\band{0}{SYSTÈMES EXTERNES}{Navy}
+\abox{0}{.3}{4.1}{1.75}{Navy}{ERP / SAP}{Commandes, stocks\par Clients et fournisseurs}
+\abox{4.4}{.3}{4.1}{1.75}{Navy}{MES}{Ordres de production\par Matières, confirmations}
+\abox{8.8}{.3}{4.1}{1.75}{Navy}{TMS / YMS}{Transport et transporteurs\par Camions et quais}
+\abox{13.2}{.3}{4.1}{1.75}{Navy}{FOURNISSEURS}{ASN et informations\par de livraison}
+\abox{17.6}{.3}{4.1}{1.75}{Navy}{CLIENTS}{Commandes clients\par Confirmations}
+\abox{22}{.3}{4.1}{1.75}{Navy}{AUTRES SYSTÈMES}{Finance, RH, BI, CRM\par BMS / EMS selon le site}
+\draw[flow] (3,2.05)--(3,2.48);
+\node[anchor=west,font=\sffamily\fontsize{8}{9}\selectfont] at (3.15,2.25) {Commandes, plans, confirmations};
+\draw[flow] (20,2.48)--(20,2.05);
+\node[anchor=east,font=\sffamily\fontsize{8}{9}\selectfont] at (19.85,2.25) {Statuts, événements, traçabilité, indicateurs};
+\band{2.55}{CŒUR OPÉRATIONNEL DU WMS}{Red}
+\abox{0}{2.85}{4}{3.8}{Red}{RÉCEPTION MARCHANDISES}{Rendez-vous et gestion des quais\par Réception\par Contrôle qualité\par Contrôle quantitatif\par Cross-docking\par Retours fournisseurs}
+\abox{4.2}{2.85}{4}{3.8}{Red}{STOCKAGE ET INVENTAIRE}{Gestion des emplacements\par Gestion des stocks\par Mise en stock\par Réapprovisionnement\par Stock de réserve\par Inventaire tournant\par Gestion des lots et dates\par Ajustement d’inventaire}
+\abox{8.4}{2.85}{4}{3.8}{Red}{GESTION DES COMMANDES}{Ordonnancement\par Planification des commandes\par Préparation des lots\par (wave / batch)\par Allocation\par Gestion des priorités}
+\abox{12.6}{2.85}{4}{3.8}{Red}{EXÉCUTION ENTREPÔT}{Prélèvement (picking)\par Conditionnement (packing)\par Regroupement (staging)\par Consolidation\par Chargement\par Expédition\par Retours clients}
+\abox{16.8}{2.85}{4}{3.8}{Red}{YARD ET QUAIS}{Gestion de la cour\par Planification des quais\par Affectation des quais\par Gestion des portes\par Gestion des transporteurs\par Entrées et sorties}
+\abox{21.1}{2.85}{5}{2.9}{Navy}{DONNÉES DE RÉFÉRENCE}{Produits/articles ; clients\par Fournisseurs ; emplacements/zones\par Unités logistiques\par Règles/politiques ; utilisateurs/rôles}
+\abox{21.1}{5.95}{5}{1.95}{Purple}{STOCKAGE DES DONNÉES}{Base opérationnelle (OLTP)\par Base analytique (OLAP / DWH)}
+\foreach \x in {2,6.2,10.4,14.6,18.8}{\draw[flow] (\x,6.65)--(\x,6.98);}
+\draw[draw=Red,line width=.45pt,fill=Red!4] (0,7) rectangle (20.8,7.9);
+\node[anchor=north,text width=20cm,align=center,font=\sffamily\fontsize{8.4}{10}\selectfont,inner sep=2pt] at (10.4,7) {\textcolor{Navy}{\textbf{GESTION DES TÂCHES ET DES TRAVAUX}}\par Création\quad Affectation\quad Exécution\quad Suivi des statuts\quad Gestion des exceptions};
+\band{8.12}{RESSOURCES ET INFRASTRUCTURES}{Green}
+\abox{0}{8.4}{4.98}{3.05}{Green}{MAIN-D’ŒUVRE}{Planification du personnel\par Suivi des performances\par Gestion des compétences\par Équilibrage de la charge\par Suivi de la productivité}
+\abox{5.28}{8.4}{4.98}{3.05}{Green}{ÉQUIPEMENTS}{Chariots / transpalettes\par Convoyeurs / trieurs\par AS/RS / navettes\par AMR / AGV / robots\par Maintenance}
+\abox{10.56}{8.4}{4.98}{3.05}{Green}{ÉNERGIE ET ENVIRONNEMENT}{Consommation par zone\par Consommation des équipements\par Température / humidité\par Seuils et consignes\par Modes marche / veille / arrêt\par Pics et historique de consommation}
+\abox{15.84}{8.4}{4.98}{3.05}{Green}{INTERFACES WCS / WES}{Instructions aux équipements\par État des équipements\par Gestion des erreurs\par Contrôle des itinéraires\par Gestion du trafic\par Gestion des tâches}
+\abox{21.12}{8.4}{4.98}{3.05}{Green}{ACTIFS}{Suivi des actifs\par Étalonnage\par Taux d’utilisation\par Surveillance de l’état\par Gestion du cycle de vie}
+\band{11.82}{INTELLIGENCE ET AIDE À LA DÉCISION}{Purple}
+\abox{0}{12.1}{4.98}{2.4}{Purple}{PRÉVISION DEMANDE / CHARGE}{Prévisions des flux entrants\par Prévisions des flux sortants\par Prévisions des ressources}
+\abox{5.28}{12.1}{4.98}{2.4}{Purple}{OPTIMISATION DU SLOTTING}{ABC / rotation\par Occupation de l’espace\par Règles dynamiques}
+\abox{10.56}{12.1}{4.98}{2.4}{Purple}{OPTIMISATION ORDRES / TÂCHES}{Regroupement des vagues\par Optimisation des parcours\par Séquencement des tâches\par Priorisation intelligente}
+\abox{15.84}{12.1}{4.98}{2.4}{Purple}{OPTIMISATION MAIN-D’ŒUVRE}{Niveaux d’effectifs\par Affectation des tâches\par Productivité\par Équilibrage de la charge}
+\abox{21.12}{12.1}{4.98}{2.4}{Purple}{ANOMALIES ET RISQUES}{Détection d’anomalies\par Écarts de processus\par Gestion des risques\par Tableaux de contrôle}
+\band{14.73}{TERMINAUX ET APPAREILS DE TERRAIN}{Teal}
+\draw[draw=Teal,line width=.45pt,fill=Teal!3] (0,15.02) rectangle (26.1,16.05);
+\foreach \x/\txt in {2.6/Terminaux RF,7.8/{Scanners codes-barres / QR},13.05/{Caméras / vision},18.3/{Balances / pesage},23.5/{Pick-to-Light / Put-to-Light}}{\node[font=\sffamily\fontsize{8.3}{10}\selectfont,align=center] at (\x,15.3) {\txt};}
+\foreach \x/\txt in {2.6/Lecteurs RFID,7.8/Capteurs,13.05/Systèmes vocaux,18.3/{Smartphones / tablettes},23.5/Terminaux véhicule}{\node[font=\sffamily\fontsize{8.3}{10}\selectfont,align=center] at (\x,15.77) {\txt};}
+\end{tikzpicture}

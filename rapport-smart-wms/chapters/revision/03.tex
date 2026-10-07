@@ -1,0 +1,130 @@
+\chapter{Analyse des besoins et identification des cas d’usage}
+
+\label{chap:3}
+
+Le benchmark du chapitre précédent a montré ce que les solutions WMS matures savent couvrir ; il ne dit pas, à lui seul, quelles capacités doivent être retenues dans l’architecture cible. Cette étape consiste donc à revenir aux besoins opérationnels, aux contraintes des produits et aux limites d’infrastructure. L’objectif est de transformer les constats en cas d’usage traçables, sans supposer que toutes les entreprises disposent des mêmes équipements. La numérotation des domaines Réception, Stockage \& Inventaire et Préparation \& Expédition reprend strictement celle des diagrammes UML déjà produits pendant le stage (UC-R01 à UC-R12, UC-S01 à UC-S14 et UC-E01 à UC-E15).
+
+
+% Original : page 18, section 3.1
+
+\section{Approche SCAN, PLAN et ACT appliquée aux besoins}
+
+\label{sec:3.1}
+
+La démarche SCAN \(\rightarrow\) PLAN \(\rightarrow\) ACT a servi de fil conducteur à l’identification des besoins. Dans la phase SCAN, le travail a consisté à observer le fonctionnement d’un WMS, à comparer les solutions leaders, puis à relever les points de friction possibles : temps d’attente, erreurs de saisie, écarts de stock, ruptures en zone picking, congestion, manque de visibilité ou contraintes produits mal prises en compte. Le cas industriel étudié dans la littérature sur la réception assistée par vision confirme l’intérêt de partir du processus réel, de mesurer les opérations manuelles et de valider ensuite le gain d’une automatisation ciblée plutôt que d’introduire l’IA sans problème clairement défini \cite{ref11}.
+
+
+Dans la phase PLAN, chaque problème est traduit en un cas d’usage, puis classé selon trois niveaux. Le niveau Core correspond aux fonctions nécessaires au fonctionnement du WMS. Le niveau Smart regroupe les capacités de prédiction, optimisation ou détection qui améliorent la décision sans exiger nécessairement un nouvel équipement physique. Enfin, le niveau Optional désigne les capacités dépendantes d’une infrastructure particulière : caméra 3D, RFID, AMR/AGV, Pick-to-Light, WCS/WES ou BMS/EMS. La phase ACT, dans le périmètre de ce stage de conception, ne correspond pas à un déploiement industriel ; elle correspond à la formalisation UML, à la vérification des scénarios et aux itérations de validation avec l’encadrement.
+
+
+\reportfigure{scan_plan_act}{Démarche SCAN, PLAN et ACT appliquée au stage de conception.}
+
+% Original : page 18, section 3.2
+
+\section{Problèmes et contraintes identifiés par domaine}
+
+\label{sec:3.2}
+
+L’analyse des besoins a fait apparaître des problèmes de nature différente. Certains sont directement liés au flux physique, comme la congestion à la réception ou les déplacements inutiles. D’autres concernent la qualité de l’information, par exemple un stock théorique différent du stock réel. D’autres encore sont liés aux contraintes produits, à l’environnement, à l’énergie ou aux ressources humaines. Cette diversité justifie une architecture modulaire : un entrepôt peut avoir besoin d’optimisation du slotting sans robotique, tandis qu’un site pharmaceutique peut prioriser la température, les lots et le FEFO. Les recherches récentes sur les architectures IoT pour entrepôts confirment d’ailleurs l’intérêt d’une approche multi-domaines et soulignent les enjeux de temps réel, d’interopérabilité et de déploiement progressif \cite{ref3}\cite{ref12}.
+
+
+\input{tables/problemes}
+
+Cette cartographie des problèmes ne débouche pas systématiquement sur une solution d’intelligence artificielle. Une règle métier, un processus mieux conçu, un simple scanner ou une automatisation classique suffisent souvent. L’intelligence artificielle n’est retenue que lorsque la décision dépend de plusieurs variables croisées, d’un historique, d’une prédiction ou d’une détection difficile à exprimer sous forme de règle simple  :  c’est ce principe qui guide la classification Core / Smart / Optional développée dans les sections suivantes.
+
+
+% Original : page 19, section 3.3
+
+\section{Cartographie des cas d’usage  :  Réception (UC-R01 à UC-R12)}
+
+\label{sec:3.3}
+
+La réception constitue le premier point de fiabilisation du stock. Le noyau couvre le rendez-vous, la réception, l’identification, les contrôles, la gestion des anomalies et l’orientation vers un emplacement. Les extensions Smart et Optional permettent ensuite d’anticiper la charge et d’automatiser certaines vérifications. Cette logique reste cohérente avec les résultats du cas Bosch, où l’automatisation visuelle de la réception a réduit les temps de traitement mais a aussi révélé des risques de reconnaissance et d’intégration ERP qui nécessitent un contrôle des exceptions \cite{ref11}.
+
+
+\input{tables/reception}
+
+% Original : page 20, section 3.4
+
+\section{Cartographie des cas d’usage  :  Stockage \& Inventaire (UC-S01 à UC-S14)}
+
+\label{sec:3.4}
+
+Le stockage doit garantir deux objectifs simultanés : placer le produit au bon endroit et maintenir une image fiable du stock. Les fonctions Core couvrent donc le putaway, les stocks, les emplacements, l’inventaire, le réapprovisionnement ainsi que les contraintes de lots et de produits sensibles. Les fonctions Smart cherchent à réduire les déplacements, cibler les contrôles et anticiper les ruptures. Les moyens RFID ou robotisés restent optionnels et ne doivent pas être considérés comme une condition préalable au Smart WMS.
+
+
+\input{tables/stockage}
+
+% Original : page 20, section 3.5
+
+\section{Cartographie des cas d’usage  :  Commandes \& Exécution / Expédition (UC-E01 à UC-E15)}
+
+\label{sec:3.5}
+
+Le flux outbound traduit la demande client en travail exécutable. La chaîne Core va de la réception de la commande à l’expédition, en passant par la planification, la wave, l’allocation, la création des tâches, le picking, le packing et le chargement. Les extensions Smart portent sur la détection de retard, l’optimisation du parcours et la recommandation d’emballage. Les contrôles par vision, pesage ou Pick-to-Light sont optionnels car ils dépendent de l’équipement présent sur le site.
+
+
+\input{tables/expedition}
+
+% Original : page 21, section 3.6
+
+\section{Cartographie des cas d’usage  :  Yard \& Quais}
+
+\label{sec:3.6}
+
+La cour (yard) et les quais constituent un domaine explicite car ils conditionnent directement la fluidité de la réception et de l’expédition. Les identifiants UC-Y01 à UC-Y07 suivent les conventions du projet et doivent être repris dans les futurs diagrammes UML. Le domaine reste indépendant d’un YMS avancé : les fonctions de base peuvent être gérées par le WMS, tandis que le suivi temps réel ou la réaffectation dynamique nécessitent davantage de données ou une intégration TMS/YMS.
+
+
+\input{tables/yard}
+
+% Original : page 21, section 3.7
+
+\section{Cartographie des cas d’usage  :  Ressources \& Infrastructures}
+
+\label{sec:3.7}
+
+Ce domaine regroupe les moyens nécessaires à l’exécution : personnes, équipements, actifs et systèmes de contrôle. Il joue un rôle de support pour tous les processus métier. Les identifiants UC-RES01 à UC-RES10 suivent les conventions du projet. Ils décrivent les besoins de gestion, tandis que les cas énergétiques de la section~\ref{sec:3.8} détaillent la mesure, l’analyse et l’action. Le suivi énergétique peut utiliser des relevés disponibles ; la collecte automatisée et les interfaces WCS/WES ou BMS/EMS restent conditionnées par l’infrastructure. Une recommandation de veille ne signifie pas un arrêt automatique : l’application d’une consigne relève du système externe et de la politique de validation retenue.
+
+
+\input{tables/ressources}
+
+% Original : page 22, section 3.8
+
+\section{Cartographie des cas d’usage  :  Intelligence \& Aide à la décision transversale}
+
+\label{sec:3.8}
+
+Les capacités transversales ont déjà été esquissées dans les diagrammes UML du stage ; leur numérotation est donc conservée. Elles ne remplacent pas les cas d’usage métier, mais les alimentent. Par exemple, UC-AI02 peut déclencher ou recommander UC-S05, tandis que UC-AI03 soutient UC-E15. Les services de température et d’énergie reposent sur des capteurs et peuvent, lorsque l’infrastructure le permet, transmettre une consigne à un BMS/EMS. Cette séparation permet de distinguer clairement la donnée mesurée, l’analyse intelligente et l’action métier.
+
+
+\input{tables/transversal}
+
+Dans cette nomenclature, Smart désigne l’aide à la décision au sens large, sans imposer le recours au machine learning. La détection d’un seuil (UC-T03) et l’alerte (UC-T04) peuvent être réalisées par des règles déterministes. La validation humaine (UC-AI06) est un contrôle du processus décisionnel. Les mesures de température, d’humidité et d’énergie dépendent, quant à elles, des sources disponibles. Les catégories Smart et Optional peuvent donc se cumuler.
+
+Cette organisation reste cohérente avec les travaux récents sur les réseaux IoT pour entrepôts, qui mettent en avant le rôle du monitoring temps réel, de l’analytics et de l’intelligence distribuée, tout en rappelant les contraintes d’interopérabilité, de sécurité et de montée en charge \cite{ref12}. Elle est également compatible avec une logique de performance durable, dans laquelle les données d’énergie et d’automatisation peuvent être suivies comme des indicateurs opérationnels et non comme un sous-sujet isolé \cite{ref13}.
+
+
+% Original : page 22, section 3.9
+
+\section{Synthèse Core / Smart / Optional et critères d’activation}
+
+\label{sec:3.9}
+
+La classification finale ne vise pas à opposer trois familles rigides ; elle sert surtout à éviter deux erreurs : considérer toute fonction avancée comme de l’IA et supposer que tout Smart WMS doit disposer de robotique ou de vision. Une fonction Smart peut fonctionner uniquement avec les données WMS, alors qu’une fonction Optional dépend d’un dispositif matériel ou d’un système externe. Cette distinction constitue le principe de modularité qui guidera l’architecture fonctionnelle du chapitre suivant.
+
+
+\reportfigure{classification_portrait}{Classification des capacités et vérification de leurs conditions d’activation.}
+
+\input{tables/classification}
+
+Les fonctions UC-S07 et UC-S08 sont Core conditionnelles : elles deviennent nécessaires lorsque les caractéristiques des produits imposent une surveillance, une gestion des lots ou une règle FEFO. Les moyens RF, scan ou Pick-to-Light de UC-E10, UC-E12 et UC-E14 sont classés selon leur dépendance matérielle ; cette classification ne remet pas en cause le caractère essentiel du contrôle métier lui-même.
+
+% Original : page 23, section 3.10
+
+\Needspace{17\baselineskip}
+\section{Mise en perspective pour l’architecture fonctionnelle cible}
+
+\label{sec:3.10}
+
+L’analyse des besoins transforme une liste de technologies en une structure fonctionnelle cohérente. Les cas d’usage Core définissent le socle commun ; les cas d’usage Smart précisent où les données, l’optimisation ou la prédiction améliorent la décision ; les cas d’usage Optional explicitent les dépendances à l’infrastructure. Le chapitre 4 articule ces capacités dans une architecture générique et modulaire : cœur opérationnel, gestion des tâches, ressources et infrastructures, données, services d’intelligence et terminaux de terrain. Les blocs « Données de référence » et « Stockage des données (OLTP / OLAP-DWH) » constituent des supports transversaux, et non des cas d’usage déclenchés par un acteur. Ils assurent la traçabilité, la cohérence métier et l’exploitation analytique. Il ne s’agit donc plus seulement de choisir des fonctionnalités, mais de positionner chaque capacité, de préciser ses données, ses échanges avec les autres systèmes et ses conditions d’activation.
+

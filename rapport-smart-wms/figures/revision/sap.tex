@@ -1,0 +1,10 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\node[frame,fill=Navy!8,minimum width=16cm,minimum height=1cm,font=\sffamily\bfseries\large] at (8,.5) {SAP EWM : processus et contexte métier};
+\fblock{0}{1.65}{4.9}{3.1}{Navy}{FLUX ENTRANTS}{Livraisons entrantes\par Réception et contrôle\par Mise en stock\par Intégration production}
+\fblock{5.55}{1.65}{4.9}{3.1}{Teal}{OPÉRATIONS INTERNES}{Stock et emplacements\par Mouvements internes\par Réapprovisionnement\par Inventaire}
+\fblock{11.1}{1.65}{4.9}{3.1}{Navy}{FLUX SORTANTS}{Commandes et vagues\par Allocation et prélèvement\par Conditionnement\par Chargement et expédition}
+\draw[flow] (4.9,3.15)--(5.55,3.15);\draw[flow] (10.45,3.15)--(11.1,3.15);
+\node[frame,fill=Teal!6,minimum width=16cm,minimum height=1.5cm,text width=15cm,align=center] at (8,6) {\textbf{Objets métier et règles transversales}\par Produits, unités logistiques (HU), lots, séries, dates, zones, emplacements,\par ressources, livraisons et tâches};
+\draw[flow,<->] (8,4.75)--(8,5.25);
+\node[anchor=north,text width=15.5cm,align=center] at (8,7.15) {Enseignement : représenter précisément les contraintes métier avant d’optimiser.};
+\end{tikzpicture}

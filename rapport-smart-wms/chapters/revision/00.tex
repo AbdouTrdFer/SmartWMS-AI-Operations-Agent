@@ -1,0 +1,33 @@
+\chapter*{Introduction générale}
+
+\addcontentsline{toc}{chapter}{Introduction générale}
+
+\markboth{Introduction générale}{}
+
+La gestion d’un entrepôt ne se résume plus à enregistrer les entrées et les sorties de marchandises. Un entrepôt moderne doit connaître l’état du stock, organiser les emplacements, préparer les commandes, coordonner les opérateurs et les équipements, prendre en compte les contraintes propres aux produits et échanger des informations avec plusieurs systèmes de l’entreprise. Dans ce contexte, le Warehouse Management System (WMS) occupe une place centrale : il structure les opérations depuis la réception jusqu’à l’expédition et assure la traçabilité des mouvements réalisés dans l’entrepôt.
+
+
+Un WMS traditionnel couvre déjà les fonctions essentielles : réception, contrôle, mise en stock, gestion des emplacements, inventaire, réapprovisionnement, allocation, picking, packing et expédition. Le benchmark réalisé au cours du stage confirme ce socle commun et montre également l’importance de fonctions transversales comme la gestion de la main-d’œuvre, le slotting, la gestion des quais, les interfaces avec les équipements de manutention et la gestion des tâches. Le support de benchmark du stage distingue précisément ces fonctions obligatoires et communes avant de comparer Manhattan Active, SAP EWM et Oracle WMS Cloud \cite{ref2}.
+
+
+Cependant, lorsque les volumes augmentent, que les produits deviennent plus variés et que les contraintes de délai se renforcent, un fonctionnement basé uniquement sur des règles fixes et des opérations manuelles devient moins adapté. La transformation vers un Smart WMS vise alors à conserver le socle métier du WMS tout en ajoutant, là où cela apporte une valeur réelle, des capacités de supervision, d’automatisation, d’optimisation et de prédiction. Cette évolution ne signifie pas que toutes les fonctions doivent utiliser de l’intelligence artificielle. Une règle métier suffit pour certains besoins ; d’autres nécessitent des scanners, de la RFID, de la vision industrielle, un système WCS/WES, un algorithme d’optimisation ou un modèle prédictif.
+
+
+Le stage réalisé au sein de Smart Automation Technologies s’inscrit dans cette problématique. Son objectif principal est de concevoir une architecture de référence capable de guider la transformation d’un WMS traditionnel vers un Smart WMS. Le travail ne consiste donc pas à développer immédiatement un nouveau logiciel, mais à structurer les besoins, les domaines fonctionnels, les interactions avec les systèmes externes et les capacités Smart qui pourront être activées en fonction du contexte de l’entreprise.
+
+
+La généricité constitue un choix majeur de conception. Tous les entrepôts ne possèdent pas les mêmes équipements. Un site peut fonctionner principalement avec des codes-barres, des terminaux RF et des chariots classiques, alors qu’un autre dispose de convoyeurs, de lecteurs RFID, de systèmes AS/RS, d’AMR ou d’AGV. De la même manière, un entrepôt pharmaceutique ou agroalimentaire peut imposer des contraintes de température, d’humidité, de durée de vie ou de traçabilité qui ne sont pas présentes dans d’autres secteurs. L’architecture proposée doit donc rester modulaire et configurable, sans rendre obligatoire une infrastructure que certaines entreprises ne possèdent pas.
+
+
+La démarche adoptée suit une logique progressive. Une première phase de SCAN a permis de benchmarker trois solutions reconnues - Manhattan Active Warehouse Management, SAP Extended Warehouse Management et Oracle Warehouse Management Cloud - afin d’identifier leurs fonctions communes et leurs principaux différenciateurs. Le travail s’est ensuite orienté vers l’identification des problèmes et des cas d’usage : réception assistée, comptage par caméra 3D, lecture OCR, contrôle qualité par vision, slotting dynamique, réapprovisionnement prédictif, RFID, AMR/AGV, optimisation du picking, supervision de la température ou encore suivi de la consommation énergétique. Ces cas d’usage ne sont pas considérés comme des fonctions obligatoires, mais comme des capacités activables en fonction de l’infrastructure et du besoin métier.
+
+
+Cette analyse a conduit à une architecture fonctionnelle organisée en plusieurs niveaux : systèmes externes, cœur opérationnel du WMS, gestion des tâches, ressources et infrastructures, intelligence et aide à la décision, stockage des données et terminaux de terrain. La modélisation UML complète ensuite cette architecture afin de rendre les processus et les interactions plus explicites. Les diagrammes de cas d’utilisation répondent à la question « qui utilise quoi ? », les diagrammes d’activité décrivent le déroulement des processus et les diagrammes de séquence détaillent les échanges entre acteurs, Smart WMS et systèmes externes.
+
+
+Le périmètre du stage reste volontairement centré sur la conception. Il ne comprend pas le développement complet du Smart WMS ni son déploiement industriel. L’objectif est plutôt de construire une base fonctionnelle et applicative cohérente, suffisamment précise pour être discutée avec des experts métier et suffisamment modulaire pour préparer une future phase d’implémentation.
+
+
+\reportfigure{fil_conducteur}{Fil conducteur de la transformation vers le Smart WMS.}
+
+\begin{problematique}Comment concevoir une architecture Smart WMS suffisamment complète pour couvrir les fonctions essentielles d’un entrepôt, tout en restant générique, modulaire et adaptable aux contraintes produits, aux données disponibles et au niveau d’automatisation de chaque entreprise ?\end{problematique}

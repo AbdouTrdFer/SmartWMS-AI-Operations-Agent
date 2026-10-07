@@ -1,0 +1,27 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\pband{0}{SYSTÈMES EXTERNES}{Navy}
+\pblock{0}{.35}{5.1}{1.85}{Navy}{ERP / SAP}{Commandes et stocks\par Clients et fournisseurs}
+\pblock{5.45}{.35}{5.1}{1.85}{Navy}{MES}{Ordres de production\par Matières et confirmations}
+\pblock{10.9}{.35}{5.1}{1.85}{Navy}{TMS / YMS}{Transport et transporteurs\par Camions et quais}
+\pblock{0}{2.45}{5.1}{1.85}{Navy}{Fournisseurs}{Avis d’expédition (ASN)\par Informations de livraison}
+\pblock{5.45}{2.45}{5.1}{1.85}{Navy}{Clients}{Commandes clients\par Confirmations}
+\pblock{10.9}{2.45}{5.1}{1.85}{Navy}{Autres systèmes}{Finance, RH, BI, CRM\par BMS / EMS si disponibles}
+\draw[flow] (3.5,4.3)--(3.5,5.0);
+\node[anchor=west,font=\sffamily\fontsize{8.5}{10}\selectfont] at (3.7,4.56) {Commandes et plans};
+\draw[flow] (12.5,5)--(12.5,4.3);
+\node[anchor=east,font=\sffamily\fontsize{8.5}{10}\selectfont] at (12.3,4.8) {Statuts et indicateurs};
+\pband{5.25}{CŒUR OPÉRATIONNEL DU WMS}{Navy}
+\pblock{0}{5.6}{5.1}{4.4}{Navy}{Réception des marchandises}{Rendez-vous et gestion des quais\par Réception\par Contrôle qualité\par Contrôle quantitatif\par Cross-docking\par Retours fournisseurs}
+\pblock{5.45}{5.6}{5.1}{4.4}{Navy}{Stockage et inventaire}{Gestion des emplacements\par Gestion des stocks\par Mise en stock\par Réapprovisionnement\par Stock de réserve\par Inventaire tournant\par Gestion des lots et dates\par Ajustement d’inventaire}
+\pblock{10.9}{5.6}{5.1}{4.4}{Navy}{Gestion des commandes}{Ordonnancement\par Planification des commandes\par Vagues et lots de préparation\par (wave / batch)\par Allocation du stock\par Gestion des priorités}
+\pblock{0}{10.3}{5.1}{4.15}{Navy}{Exécution d’entrepôt}{Prélèvement (picking)\par Conditionnement (packing)\par Regroupement (staging)\par Consolidation\par Chargement\par Expédition\par Retours clients}
+\pblock{5.45}{10.3}{5.1}{4.15}{Navy}{Cour (Yard) et quais}{Gestion de la cour\par Planification des quais\par Affectation des quais\par Gestion des portes\par Gestion des transporteurs\par Entrées et sorties}
+\pblock{10.9}{10.3}{5.1}{4.15}{Purple}{Données de référence}{Produits / articles\par Clients et fournisseurs\par Emplacements / zones\par Unités logistiques\par Règles et politiques\par Utilisateurs / rôles}
+\draw[flow] (2.55,14.45)--(2.55,14.9);
+\draw[flow] (8,14.45)--(8,14.9);
+\pblock{0}{14.95}{16}{1.55}{Navy}{Gestion des tâches et des travaux}{Création ; affectation ; exécution ; suivi des statuts ; gestion des exceptions}
+\pband{17.05}{STOCKAGE DES DONNÉES}{Purple}
+\pblock{0}{17.4}{7.8}{2.4}{Purple}{Base opérationnelle (OLTP)}{Transactions, stock, tâches et mouvements\par Réceptions, commandes et confirmations\par Statuts et traçabilité des opérations}
+\pblock{8.2}{17.4}{7.8}{2.4}{Purple}{Base analytique (OLAP / DWH)}{Historiques et indicateurs\par Analyses, tendances et prévisions\par Exploitation des données dans la durée}
+\node[anchor=north west,text width=15.6cm,font=\sffamily\fontsize{9}{11.5}\selectfont] at (0,20.1) {Les données de référence et les bases soutiennent tous les domaines. Les ressources, l’intelligence et les appareils de terrain sont détaillés dans la figure~\ref{fig:architecture-support}.};
+\end{tikzpicture}

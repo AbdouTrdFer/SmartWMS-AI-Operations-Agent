@@ -1,0 +1,21 @@
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\pblock{0}{0}{5.1}{2.75}{Navy}{CORE}{Fonction nécessaire au WMS.\par Exemples : réception, stock et tâches.}
+\pblock{5.45}{0}{5.1}{2.75}{Purple}{SMART}{Décision améliorée par les données ou l’optimisation.\par Exemple : slotting optimisé.}
+\pblock{10.9}{0}{5.1}{2.75}{Orange}{OPTIONAL}{Dépendance à un équipement ou à un système spécifique.\par Exemple : RFID ou robot.}
+\node[anchor=north west,text width=15.7cm,font=\sffamily\fontsize{9}{11.5}\selectfont] at (0,3.0) {Une capacité peut être Smart et Optional : les critères se complètent.};
+\tikzset{decision/.style={diamond,aspect=3,draw=Purple!80,fill=Purple!4,line width=.65pt,text width=5.4cm,inner sep=2pt,align=center,font=\sffamily\fontsize{9.5}{12}\selectfont},wmsstep/.style={frame,text width=7.9cm,inner sep=7pt,minimum height=1.1cm,font=\sffamily\fontsize{9.5}{12}\selectfont},side/.style={frame,text width=4.7cm,inner sep=7pt,font=\sffamily\fontsize{9.5}{12}\selectfont},branch/.style={font=\sffamily\fontsize{9}{11}\selectfont,fill=white,inner sep=3pt}}
+\node[wmsstep,fill=Navy!5] (need) at (4.7,4.35) {Besoin métier et capacité candidate identifiés};
+\node[decision,draw=Orange!80,fill=Orange!4] (infra) at (4.7,6.75) {Un équipement ou un système spécifique est-il nécessaire ?};
+\node[side,draw=Orange!70] (check) at (13.25,6.75) {\textbf{Vérifier la disponibilité}\par Si l’équipement ou le système manque : différer l’option ou prévoir un traitement adapté.};
+\node[decision] (data) at (4.7,10.5) {Pour une capacité Smart, les données nécessaires sont-elles fiables et disponibles ?};
+\node[side,draw=Purple!70] (fallback) at (13.25,10.5) {\textbf{Conserver un traitement adapté}\par Améliorer la collecte et la qualité des données avant d’activer la capacité Smart.};
+\node[wmsstep,draw=Teal,fill=Teal!5] (activate) at (4.7,14.15) {\textbf{Activer la capacité adaptée}\par Prérequis satisfaits ; contrôle et gestion des exceptions prévus.};
+\draw[flow] (need.south)--(infra.north);
+\draw[flow] (infra.east)--node[branch,above]{Oui}(check.west);
+\draw[flow] (infra.south)--node[branch,left,pos=.28]{Non}(data.north);
+\draw[draw=Navy,line width=.7pt] (check.south)--(13.25,8.7)--node[branch,above]{Si disponible}(4.7,8.7);
+\fill[Navy] (4.7,8.7) circle (1.4pt);
+\draw[flow] (data.east)--node[branch,above]{Non}(fallback.west);
+\draw[flow] (data.south)--node[branch,left,align=right]{Oui, ou critère Smart\\non applicable}(activate.north);
+\node[anchor=north west,text width=15.7cm,font=\sffamily\fontsize{9}{11.5}\selectfont] at (0,15.3) {\textbf{Core conditionnel :} fonction nécessaire lorsque le profil produit ou le contexte métier l’exige.};
+\end{tikzpicture}
